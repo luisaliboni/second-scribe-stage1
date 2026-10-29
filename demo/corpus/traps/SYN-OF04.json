@@ -1,0 +1,82 @@
+[
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C08",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "interviewer_voiced",
+    "sentence": "Would the counsellor at the library who helps new businesses be the next thing?",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C11",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "workaround",
+    "sentence": "We got through the approval from the health unit with the help of a friend who knew the system.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C21",
+    "cids": [
+      "C21",
+      "C18"
+    ],
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "loop",
+    "sentence": "The list of things they would look for sent us back to the visit from the fire department to check our propane, and the visit from the fire department to check our propane sent us back to the list of things they would look for, three times.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C17",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "dead_end",
+    "sentence": "We finished the visit when the health unit checked the truck over and then it just went nowhere; nobody replied.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C26",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "mapping_talk",
+    "sentence": "I will write the paperwork we redo every year down on the map next to the last one.",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C26",
+    "cids": [
+      "C26",
+      "C25"
+    ],
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "unstated_edge",
+    "sentence": "",
+    "speaker": "none"
+  }
+]

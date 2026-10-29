@@ -1,0 +1,49 @@
+You are helping a research team turn an interview into a journey map.
+The interview is with a {role}. It is about {domain}.
+Read the whole transcript, from the first turn to the last, before you begin, and draw this person's journey as a map:
+- Make one node for each distinct step, service, actor (person or organization) or source of information the person says was part of their journey; keep different things in different nodes. Use only what the participant says; add nothing from general knowledge.
+- Put each node in one of these phases: {phases}.
+- Whenever the person says one node led to another, add a directed edge from that node to the one it led to.
+- Mark every node and edge "experienced" or "wished", using these definitions:
+{definitions}
+- Make no node or edge for something that is not part of this person's journey.
+- For every node and edge, copy a supporting quote word for word; do not reword it, leave out words in the middle, or invent it (at least 8 words, or a whole short answer). Each quote comes from ONE turn by ONE speaker: never join a question and its answer, and leave out the [I] and [P] tags. Prefer the participant's own words. If the only support is the interviewer's question, copy the interviewer's words exactly.
+- Give one word for how the journey felt overall, if the person says or clearly implies it; otherwise null.
+Two worked examples from other interviews follow. They show how to fill in the format; do not reuse their wording.
+
+Example 1 (a customer talking about a car repair under warranty):
+[I] Walk me through how the repair went.
+[P] I dropped the car at the dealership on Monday morning, and the advisor wrote up the noise on a job sheet.
+[I] Did they give you anything to drive while it was in the shop?
+[P] Yes, once the job sheet was signed, the dealer lent me a small car for the whole nine days and I only had to fill the tank.
+[I] Is there anything else you remember?
+[P] I wish the dealership were closer to my house, since it took me an hour to get there each way, and the lot was always full by the time I got there.
+Correct JSON for this excerpt:
+{"nodes": [{"id": "n1", "label": "Repair slip on arrival", "type": "information_source", "phase": null, "status": "experienced", "quote": "I dropped the car at the dealership on Monday morning, and the advisor wrote up the noise on a job sheet."},
+  {"id": "n2", "label": "Loaner car from dealer", "type": "service", "phase": null, "status": "experienced", "quote": "Yes, once the job sheet was signed, the dealer lent me a small car for the whole nine days and I only had to fill the tank."},
+  {"id": "n3", "label": "Dealership closer to home", "type": "other", "phase": null, "status": "wished", "quote": "I wish the dealership were closer to my house, since it took me an hour to get there each way, and the lot was always full by the time I got there."}],
+ "edges": [{"source": "n1", "target": "n2", "status": "experienced", "quote": "Yes, once the job sheet was signed, the dealer lent me a small car for the whole nine days and I only had to fill the tank."}],
+ "emotion_word": null}
+Note: Both steps happened, so they are experienced; the closer dealership is only wanted, so it is wished, and it is no step of the repair at all.
+
+Example 2 (a traveller talking about a lost suitcase):
+[I] What did you do when the suitcase did not appear?
+[P] My suitcase never came off the plane, so I filled in a report at the baggage desk before I left the airport.
+[I] Did they give you anything to follow the search?
+[P] Yes, once the report was entered the clerk gave me a tracking number on a slip, and I looked it up online each morning.
+[I] Is there anything else you remember?
+[P] I wish the arrivals hall had more seats, since I stood for an hour while the desk worked through the long line at the desk.
+Correct JSON for this excerpt:
+{"nodes": [{"id": "n1", "label": "Lost bag report", "type": "service", "phase": null, "status": "experienced", "quote": "My suitcase never came off the plane, so I filled in a report at the baggage desk before I left the airport."},
+  {"id": "n2", "label": "Tracking number on a slip", "type": "information_source", "phase": null, "status": "experienced", "quote": "Yes, once the report was entered the clerk gave me a tracking number on a slip, and I looked it up online each morning."},
+  {"id": "n3", "label": "Chairs in arrivals", "type": "other", "phase": null, "status": "wished", "quote": "I wish the arrivals hall had more seats, since I stood for an hour while the desk worked through the long line at the desk."}],
+ "edges": [{"source": "n1", "target": "n2", "status": "experienced", "quote": "Yes, once the report was entered the clerk gave me a tracking number on a slip, and I looked it up online each morning."}],
+ "emotion_word": null}
+Note: Both steps happened, so they are experienced; the extra seats are only wanted, so they are wished, and they are no step of the claim at all.
+Return only JSON in exactly this format. Begin your answer with {, and write no text before or after the JSON:
+{schema}
+A node's type must be one of the listed types and is never a phase name.
+In the transcript, a speaker's turn may run over several lines, each starting with [I] (interviewer) or [P] (participant).
+The transcript follows:
+{transcript}
+REMINDER: Make a node for everything the participant says was part of their journey, and nothing from general knowledge. No node for what did not happen to them, happened only to someone else, or only might have happened, unless they wanted or needed it themselves (then wished). Each quote is copied word for word from one turn by one speaker; never join a question and its answer. Reply with only the JSON. Begin your answer with {

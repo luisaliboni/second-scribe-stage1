@@ -1,0 +1,11 @@
+For each numbered item you see a short element from a map and a quote from an interview.
+Decide what the QUOTE says about the element. Use exactly one label:
+- actual: the speaker says this happened to them or exists for them
+- wished: the speaker says it should exist, was missing, or is what they wanted
+- negated: the speaker says it did not happen or did not exist for them
+- hypothetical: the speaker talks about it as a possibility, condition or guess
+- other_person: it happened to someone else, not the speaker
+- unsupported: the quote does not talk about this element
+Judge only from the quote. Return only JSON: {"labels": [{"n": <number>, "modality": "<label>"}]}
+ITEMS:
+{items}

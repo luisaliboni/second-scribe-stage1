@@ -1,0 +1,74 @@
+[
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C06",
+    "expected_bucket": "unanchored",
+    "expected_modality": "hypothetical",
+    "kind": "hypothetical",
+    "sentence": "If we ever move to another city, the worksheet for pricing each dish might work differently there.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C01",
+    "expected_bucket": "matched",
+    "expected_modality": "wished",
+    "kind": "wished",
+    "sentence": "I wish there had been the written plan for how the truck would make money.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C03",
+    "expected_bucket": "unanchored",
+    "expected_modality": "other_person",
+    "kind": "other_person",
+    "sentence": "My cousin got the club for street food sellers last spring.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C09",
+    "expected_bucket": "unanchored",
+    "expected_modality": "negated",
+    "kind": "negated",
+    "sentence": "We never got the permit to run a business from city hall, nobody offered it.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C30",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "mapping_talk",
+    "sentence": "Let me draw an arrow over to the account we opened to collect sales tax on the screen.",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C29",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "interviewer_voiced",
+    "sentence": "And then the one-off authorization to sell at the summer festival followed, is that right?",
+    "speaker": "interviewer"
+  }
+]

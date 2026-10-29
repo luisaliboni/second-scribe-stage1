@@ -1,0 +1,18 @@
+You are helping a research team turn an interview into a journey map.
+The interview is with a {role}. It is about {domain}.
+Read the whole transcript and draw this person's journey as a map:
+- Make one node for each distinct step, service, actor (person or organization) or source of information the person says was part of their journey; keep different things in different nodes. Use only what the participant says; add nothing from general knowledge.
+- Put each node in one of these phases: {phases}.
+- Whenever the person says one node led to another, add a directed edge from that node to the one it led to.
+- Mark every node and edge "experienced" or "wished", using these definitions:
+{definitions}
+- Make no node or edge for something that is not part of this person's journey.
+- For every node and edge, copy a supporting quote word for word; do not reword it, leave out words in the middle, or invent it (at least 8 words, or a whole short answer). Each quote comes from ONE turn by ONE speaker: never join a question and its answer, and leave out the [I] and [P] tags. Prefer the participant's own words. If the only support is the interviewer's question, copy the interviewer's words exactly.
+- Give one word for how the journey felt overall, if the person says or clearly implies it; otherwise null.
+Return only JSON in exactly this format. Begin your answer with {, and write no text before or after the JSON:
+{schema}
+A node's type must be one of the listed types and is never a phase name.
+In the transcript, a speaker's turn may run over several lines, each starting with [I] (interviewer) or [P] (participant).
+TRANSCRIPT:
+{transcript}
+REMINDER: Make a node for everything the participant says was part of their journey, and nothing from general knowledge. No node for what did not happen to them, happened only to someone else, or only might have happened, unless they wanted or needed it themselves (then wished). Each quote is copied word for word from one turn by one speaker; never join a question and its answer. Reply with only the JSON. Begin your answer with {

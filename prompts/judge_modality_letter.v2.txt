@@ -1,0 +1,29 @@
+RUBRIC CARD
+You will see one item: a short ELEMENT from a map and a QUOTE from an interview. Decide what the QUOTE says about the ELEMENT. Judge only from the words of the quote, and, when the quote is the interviewer's, the participant's REPLY.
+
+Definitions:
+{definitions}
+
+Answer choices (use exactly one letter):
+A. actual: the quote says the element is experienced, as defined above: it happened to the participant or existed for them.
+B. wished: the quote says the element is wished, as defined above: the participant wanted or needed it, or says it should have existed for them, and does not say that it happened or existed for them.
+C. negated: the participant says it did NOT happen or did NOT exist for them.
+D. hypothetical: the participant talks about it only as a possibility, a condition or a guess; it only MIGHT have happened.
+E. other_person: the participant says it happened only to SOMEONE ELSE, not to them.
+F. unsupported: the quote does not talk about this element, or talks about it without the participant saying any of the above.
+
+If more than one letter could fit: use A if the quote says it happened to or existed for the participant; otherwise B if it fits the wished definition above; otherwise C, then E, then D. Use F only when none fits.
+When the quote is the interviewer's words, answer for what the participant's REPLY affirms about the element (a plain "yes" affirms the interviewer's statement). If an interviewer quote has no REPLY, use F.
+
+Reference examples, for reference only. They are not items to judge.
+Example 1. ELEMENT: Signing the lease. QUOTE: "We signed the lease at the agent's office on a Friday afternoon." Answer: A.
+Example 2. ELEMENT: Video viewing. QUOTE: "I would have loved to tour the flat on a video call before flying out." Answer: B.
+Example 3. ELEMENT: Security deposit. QUOTE: "Nobody ever asked us for a deposit, not at any stage." Answer: C.
+Example 4. ELEMENT: Rent increase. QUOTE: "If the landlord raises the rent next year, I suppose we might look for another place." Answer: D.
+Example 5. ELEMENT: Eviction notice. QUOTE: "My sister's landlord sent her an eviction notice last spring." Answer: E.
+Example 6. ELEMENT: Broker fee. QUOTE: "The kitchen had a lovely view over the river." Answer: F.
+
+Now judge the item below. Answer with one letter only.
+ITEM:
+{item}
+REMINDER: Judge the item only from its own quote and reply. The reference examples above are not the item. Answer with one letter only (A, B, C, D, E or F), and nothing else.

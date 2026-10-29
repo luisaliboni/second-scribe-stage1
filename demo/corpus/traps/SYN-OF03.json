@@ -1,0 +1,78 @@
+[
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C03",
+    "expected_bucket": "unanchored",
+    "expected_modality": "other_person",
+    "kind": "other_person",
+    "sentence": "My cousin got the club for street food sellers last spring.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C02",
+    "expected_bucket": "unanchored",
+    "expected_modality": "negated",
+    "kind": "negated",
+    "sentence": "We never went through the how-to pages on the city website at all.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C08",
+    "expected_bucket": "unanchored",
+    "expected_modality": "hypothetical",
+    "kind": "hypothetical",
+    "sentence": "It is possible that the counsellor at the library who helps new businesses could move online soon.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C12",
+    "cids": [
+      "C12",
+      "C15"
+    ],
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "loop",
+    "sentence": "We got sent from the sign-off from the fire department to the permission to park on the street, then from the permission to park on the street back to the sign-off from the fire department, three times.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C32",
+    "expected_bucket": "matched",
+    "expected_modality": "wished",
+    "kind": "wished",
+    "sentence": "I wish there had been the neighbour's objection to the noise.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C25",
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "off_record",
+    "sentence": "",
+    "speaker": "none"
+  }
+]

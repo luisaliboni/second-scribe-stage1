@@ -1,0 +1,78 @@
+[
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C16",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "mapping_talk",
+    "sentence": "Let me draw an arrow over to the person at the licensing counter on the screen.",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C11",
+    "expected_bucket": "unanchored",
+    "expected_modality": "negated",
+    "kind": "negated",
+    "sentence": "We never got the approval from the health unit, nobody offered it.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C31",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "dead_end",
+    "sentence": "We finished the messaging thread with other truck owners and then it just went nowhere; nobody replied.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C27",
+    "expected_bucket": "matched",
+    "expected_modality": "wished",
+    "kind": "wished",
+    "sentence": "I wish there had been the city employee who patrols the streets.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C16",
+    "cids": [
+      "C16",
+      "C10"
+    ],
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "unstated_edge",
+    "sentence": "",
+    "speaker": "none"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C23",
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "off_record",
+    "sentence": "",
+    "speaker": "none"
+  }
+]

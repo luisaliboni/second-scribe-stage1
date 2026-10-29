@@ -1,0 +1,11 @@
+You are helping a research team write down the official version of a process.
+Describe the typical pathway that a {role} goes through when {domain}, as official guidance would describe it. You have no interview; use only what is generally known about the process.
+Draw it as a map:
+- Make one node for each distinct step, service, actor (person or organization) or source of information in the pathway.
+- Put each node in one of these phases: {phases}.
+- Add a directed edge when one node leads to another.
+- Every node and edge is part of the official pathway, so mark every node and edge "experienced".
+- There is no transcript, so every "quote" must be null.
+- Give one word for how the journey typically feels, or null.
+Return only JSON in exactly this format, with no other text:
+{schema}

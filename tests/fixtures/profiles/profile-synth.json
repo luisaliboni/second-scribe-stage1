@@ -1,0 +1,3154 @@
+{
+ "schema": "orgsci-profile/v2",
+ "state": "synthetic",
+ "population": {
+  "label": "12 of 12",
+  "n_people": 12,
+  "n_total": 12
+ },
+ "reference": {
+  "type": "participant-endorsed",
+  "map_size": {
+   "ai_boxes": 110,
+   "endorsed_boxes": null,
+   "ai_per_map": 9.167,
+   "endorsed_per_map": null,
+   "ai_per_endorsed": null,
+   "reading3_map_size": {
+    "nodes_per_map": 10.0,
+    "edges_per_map": 9.0,
+    "over_ai_nodes": 1.091,
+    "note": "pooled_only",
+    "source": "cleared/020"
+   },
+   "endorsed_boxes_state": "not_run (cleared/009 absent; build_profile reads it there)",
+   "source": "cleared/003 (ai_boxes); cleared/020 (reading3_map_size); cleared/009 not_run"
+  }
+ },
+ "pooling": {
+  "rule": "side_by_side",
+  "within": [
+   "reference_type",
+   "prompt_set"
+  ],
+  "meta_analysis": false
+ },
+ "rows": [
+  {
+   "row": "lead",
+   "label_key": "profile.lead",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "ai_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.909,
+     "ci_lo": 0.862,
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "no_interview_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.322,
+     "ci_lo": 0.244,
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.587,
+     "ci_lo": 0.491,
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "ai_recall",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.909,
+     "ci_lo": 0.862,
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "no_interview_recall",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.322,
+     "ci_lo": 0.244,
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.587,
+     "ci_lo": 0.491,
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added_attested_line",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.57,
+     "ci_lo": 0.478,
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added_attested_line",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.57,
+     "ci_lo": 0.478,
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "real_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.05,
+     "ci_lo": 0.022,
+     "ci_hi": 0.08,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "shuffled_recall",
+     "x": "primary",
+     "n": 1210,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.023,
+     "ci_lo": 0.008,
+     "ci_hi": 0.039,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "wrong_transcript_difference",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.026,
+     "ci_lo": 0.01,
+     "ci_hi": 0.045,
+     "ci_level": 0.95,
+     "source": "cleared/013",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    },
+    {
+     "name": "own_map_mean_rank",
+     "x": "primary",
+     "n": 12,
+     "unit": "map",
+     "kind": "rank",
+     "value": 1.0,
+     "ci_level": null,
+     "p_lt": 0.001,
+     "source": "cleared/013"
+    },
+    {
+     "name": "rank_null_expectation",
+     "x": "primary",
+     "n": 12,
+     "unit": "map",
+     "kind": "rank",
+     "value": 6.5,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "ai_nodes_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 9.167,
+     "ci_lo": 8.167,
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "no_interview_nodes_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 10.0,
+     "ci_level": null,
+     "note": "pooled_only",
+     "qualifiers": [
+      "size_beside_lead",
+      "pooled_only",
+      "no_interval"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "ai_minus_no_interview_nodes_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "difference",
+     "value": -0.833,
+     "ci_lo": -1.833,
+     "ci_hi": 0.333,
+     "ci_level": 0.95,
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "ai_edges_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 8.083,
+     "ci_lo": 6.75,
+     "ci_hi": 9.583,
+     "ci_level": 0.95,
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "no_interview_edges_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 9.0,
+     "ci_level": null,
+     "note": "pooled_only",
+     "qualifiers": [
+      "size_beside_lead",
+      "pooled_only",
+      "no_interval"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "ai_minus_no_interview_edges_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "difference",
+     "value": -0.917,
+     "ci_lo": -2.25,
+     "ci_hi": 0.583,
+     "ci_level": 0.95,
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "endorsed_nodes_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 10.583,
+     "ci_lo": 9.583,
+     "ci_hi": 11.75,
+     "ci_level": 0.95,
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "no_interview_over_ai_nodes",
+     "n": 12,
+     "unit": "map",
+     "kind": "ratio",
+     "value": 1.091,
+     "ci_level": null,
+     "note": "pooled_only",
+     "qualifiers": [
+      "size_beside_lead",
+      "pooled_only",
+      "no_interval"
+     ],
+     "source": "cleared/020"
+    },
+    {
+     "name": "yield_per_box",
+     "x": "ai",
+     "unit": "node",
+     "kind": "ratio",
+     "value": 1.0,
+     "ci_level": null,
+     "derived": true,
+     "formula": "matched_endorsed_steps / boxes_drawn: any-node primary matched count (003) / AI boxes judged (003)",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "yield_per_box",
+     "x": "no_interview",
+     "unit": "node",
+     "kind": "ratio",
+     "value": 0.325,
+     "ci_level": null,
+     "derived": true,
+     "formula": "matched_endorsed_steps / boxes_drawn: no-interview recall (013) x in-transcript steps (003) / (no-interview nodes per map (020) x people)",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead"
+     ],
+     "source": "cleared/003+cleared/013+cleared/020"
+    },
+    {
+     "name": "equal_size_bound",
+     "x": "no_interview",
+     "unit": "node",
+     "kind": "share",
+     "value": 0.295,
+     "ci_level": null,
+     "derived": true,
+     "formula": "no-interview recall (013) x AI nodes per map (020) / no-interview nodes per map (020)",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead",
+      "floor_not_estimate"
+     ],
+     "source": "cleared/013+cleared/020"
+    },
+    {
+     "name": "listening_edge_equal_size",
+     "x": "no_interview",
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.614,
+     "ci_level": null,
+     "derived": true,
+     "formula": "AI recall (013) - equal_size_bound",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead",
+      "floor_not_estimate"
+     ],
+     "source": "cleared/013+cleared/020"
+    }
+   ],
+   "band": {
+    "lo": 0.587,
+    "hi": 0.587,
+    "over": "lenient"
+   },
+   "rests_on": [
+    "R",
+    "AL",
+    "LX",
+    "IT",
+    "P",
+    "AS",
+    "Q",
+    "MO",
+    "CN"
+   ],
+   "source": [
+    "cleared/003",
+    "cleared/013",
+    "cleared/020"
+   ],
+   "qualifiers": [
+    "paired_by_map",
+    "one_draw",
+    "ci_excludes_draw_variance",
+    "attested_line_one_sided",
+    "size_beside_lead"
+   ]
+  },
+  {
+   "row": "ledger",
+   "label_key": "profile.ledger",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "omitted_share",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.091,
+     "ci_lo": 0.045,
+     "ci_hi": 0.138,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "attested_absent_from_map",
+     "x": "primary",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "band": {
+      "lo": 0,
+      "hi": 108,
+      "over": "8_settings",
+      "members": [
+       {
+        "x": "lexical_only_04",
+        "value": 102,
+        "value_hi": 102
+       },
+       {
+        "x": "lexical_only_05",
+        "value": 102,
+        "value_hi": 102
+       },
+       {
+        "x": "lexical_only_06",
+        "value": 102,
+        "value_hi": 102
+       },
+       {
+        "x": "lexical_only_07",
+        "value": 108,
+        "value_hi": 108
+       },
+       {
+        "x": "judge_only_same",
+        "value": 0,
+        "value_hi": 0
+       },
+       {
+        "x": "judge_only_same_or_close",
+        "value": 0,
+        "value_hi": 0
+       },
+       {
+        "x": "primary",
+        "value": 0,
+        "value_hi": 0
+       },
+       {
+        "x": "lenient",
+        "value": 0,
+        "value_hi": 0
+       }
+      ],
+      "subbands": [
+       {
+        "name": "judge_using",
+        "lo": 0,
+        "hi": 0
+       },
+       {
+        "name": "lexical_only",
+        "lo": 102,
+        "hi": 108
+       }
+      ]
+     },
+     "qualifiers": [
+      "ceiling",
+      "not_bounded_below",
+      "derived_arithmetic"
+     ],
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/001+cleared/003+cleared/004",
+     "derived": "ledger_band"
+    },
+    {
+     "name": "unanchored",
+     "x": "primary",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 2,
+     "ci_level": null,
+     "qualifiers": [
+      "labeller_dependent"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/001+cleared/018",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    },
+    {
+     "name": "off_record_endorsed",
+     "x": "primary",
+     "unit": "node",
+     "kind": "count",
+     "value": 6,
+     "ci_level": null,
+     "rests_on": [
+      "IT"
+     ],
+     "source": "cleared/001",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    },
+    {
+     "name": "attested_absent_from_map",
+     "x": "labellers",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "ai_boxes_total",
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 110,
+     "ci_level": null,
+     "source": "cleared/003"
+    },
+    {
+     "name": "ai_boxes_attested_on_map",
+     "x": "primary",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 108,
+     "ci_level": null,
+     "source": "cleared/004"
+    }
+   ],
+   "band": {
+    "lo": 0,
+    "hi": 108,
+    "over": "8_settings",
+    "members": [
+     {
+      "x": "lexical_only_04",
+      "value": 102,
+      "value_hi": 102
+     },
+     {
+      "x": "lexical_only_05",
+      "value": 102,
+      "value_hi": 102
+     },
+     {
+      "x": "lexical_only_06",
+      "value": 102,
+      "value_hi": 102
+     },
+     {
+      "x": "lexical_only_07",
+      "value": 108,
+      "value_hi": 108
+     },
+     {
+      "x": "judge_only_same",
+      "value": 0,
+      "value_hi": 0
+     },
+     {
+      "x": "judge_only_same_or_close",
+      "value": 0,
+      "value_hi": 0
+     },
+     {
+      "x": "primary",
+      "value": 0,
+      "value_hi": 0
+     },
+     {
+      "x": "lenient",
+      "value": 0,
+      "value_hi": 0
+     }
+    ],
+    "subbands": [
+     {
+      "name": "judge_using",
+      "lo": 0,
+      "hi": 0
+     },
+     {
+      "name": "lexical_only",
+      "lo": 102,
+      "hi": 108
+     }
+    ]
+   },
+   "rests_on": [
+    "R",
+    "LX",
+    "AL",
+    "IT",
+    "Q",
+    "MO"
+   ],
+   "source": [
+    "cleared/001",
+    "cleared/003",
+    "cleared/004",
+    "cleared/018"
+   ],
+   "qualifiers": [
+    "ceiling",
+    "no_ratio",
+    "labeller_dependent",
+    "derived_arithmetic"
+   ]
+  },
+  {
+   "row": 1,
+   "label_key": "profile.row1.coverage",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "kept",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.909,
+     "ci_lo": 0.862,
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "cleared/003",
+     "band": {
+      "lo": 0.0,
+      "hi": 0.909,
+      "over": "8_settings",
+      "members": [
+       {
+        "x": "lexical_only_04",
+        "value": 0.05
+       },
+       {
+        "x": "lexical_only_05",
+        "value": 0.05
+       },
+       {
+        "x": "lexical_only_06",
+        "value": 0.05
+       },
+       {
+        "x": "lexical_only_07",
+        "value": 0.0
+       },
+       {
+        "x": "judge_only_same",
+        "value": 0.909
+       },
+       {
+        "x": "judge_only_same_or_close",
+        "value": 0.909
+       },
+       {
+        "x": "primary",
+        "value": 0.909
+       },
+       {
+        "x": "lenient",
+        "value": 0.909
+       }
+      ],
+      "subbands": [
+       {
+        "name": "judge_using",
+        "lo": 0.909,
+        "hi": 0.909
+       },
+       {
+        "name": "lexical_only",
+        "lo": 0.0,
+        "hi": 0.05
+       }
+      ]
+     }
+    },
+    {
+     "name": "coarsened",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "omitted",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.091,
+     "ci_lo": 0.045,
+     "ci_hi": 0.138,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "attested_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.893,
+     "ci_lo": 0.851,
+     "ci_hi": 0.933,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/003",
+     "band": {
+      "lo": 0.0,
+      "hi": 0.893,
+      "over": "8_settings",
+      "members": [
+       {
+        "x": "lexical_only_04",
+        "value": 0.05
+       },
+       {
+        "x": "lexical_only_05",
+        "value": 0.05
+       },
+       {
+        "x": "lexical_only_06",
+        "value": 0.05
+       },
+       {
+        "x": "lexical_only_07",
+        "value": 0.0
+       },
+       {
+        "x": "judge_only_same",
+        "value": 0.893
+       },
+       {
+        "x": "judge_only_same_or_close",
+        "value": 0.893
+       },
+       {
+        "x": "primary",
+        "value": 0.893
+       },
+       {
+        "x": "lenient",
+        "value": 0.893
+       }
+      ],
+      "subbands": [
+       {
+        "name": "judge_using",
+        "lo": 0.893,
+        "hi": 0.893
+       },
+       {
+        "name": "lexical_only",
+        "lo": 0.0,
+        "hi": 0.05
+       }
+      ]
+     }
+    },
+    {
+     "name": "attested_recall",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.893,
+     "ci_lo": 0.851,
+     "ci_hi": 0.933,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "r_star",
+     "n": 121,
+     "unit": "node",
+     "kind": "ratio",
+     "state": "not_run",
+     "reason": "cleared/017 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/017"
+    }
+   ],
+   "band": {
+    "lo": 0.0,
+    "hi": 0.909,
+    "over": "8_settings",
+    "members": [
+     {
+      "x": "lexical_only_04",
+      "value": 0.05
+     },
+     {
+      "x": "lexical_only_05",
+      "value": 0.05
+     },
+     {
+      "x": "lexical_only_06",
+      "value": 0.05
+     },
+     {
+      "x": "lexical_only_07",
+      "value": 0.0
+     },
+     {
+      "x": "judge_only_same",
+      "value": 0.909
+     },
+     {
+      "x": "judge_only_same_or_close",
+      "value": 0.909
+     },
+     {
+      "x": "primary",
+      "value": 0.909
+     },
+     {
+      "x": "lenient",
+      "value": 0.909
+     }
+    ],
+    "subbands": [
+     {
+      "name": "judge_using",
+      "lo": 0.909,
+      "hi": 0.909
+     },
+     {
+      "name": "lexical_only",
+      "lo": 0.0,
+      "hi": 0.05
+     }
+    ]
+   },
+   "rests_on": [
+    "R",
+    "LX",
+    "AL",
+    "IT",
+    "Q",
+    "MO"
+   ],
+   "source": [
+    "cleared/003",
+    "cleared/017"
+   ],
+   "qualifiers": [
+    "recall_is_a_band"
+   ]
+  },
+  {
+   "row": 2,
+   "label_key": "profile.row2.size",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "ai_boxes",
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 110,
+     "ci_level": null,
+     "source": "cleared/003"
+    },
+    {
+     "name": "endorsed_boxes",
+     "unit": "node",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)",
+     "source": "cleared/009"
+    },
+    {
+     "name": "ai_per_map",
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 9.167,
+     "ci_level": null,
+     "derived": "per_map_mean",
+     "source": "cleared/003+cleared/014"
+    },
+    {
+     "name": "ai_nodes_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 9.167,
+     "ci_lo": 8.167,
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "source": "cleared/020",
+     "rests_on": [
+      "R"
+     ]
+    },
+    {
+     "name": "ai_edges_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 8.083,
+     "ci_lo": 6.75,
+     "ci_hi": 9.583,
+     "ci_level": 0.95,
+     "source": "cleared/020",
+     "rests_on": [
+      "R"
+     ]
+    },
+    {
+     "name": "endorsed_nodes_per_map",
+     "n": 12,
+     "unit": "map",
+     "kind": "mean",
+     "value": 10.583,
+     "ci_lo": 9.583,
+     "ci_hi": 11.75,
+     "ci_level": 0.95,
+     "source": "cleared/020",
+     "rests_on": [
+      "R"
+     ]
+    }
+   ],
+   "rests_on": [
+    "R"
+   ],
+   "source": [
+    "cleared/003",
+    "cleared/009",
+    "cleared/014",
+    "cleared/020"
+   ],
+   "qualifiers": [
+    "one_draw",
+    "no_interval",
+    "derived_arithmetic"
+   ]
+  },
+  {
+   "row": 3,
+   "label_key": "profile.row3.support",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "precision",
+     "x": "primary",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "share",
+     "value": 0.982,
+     "ci_lo": 0.957,
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "band": {
+      "lo": 0.0,
+      "hi": 0.982,
+      "over": "8_settings",
+      "members": [
+       {
+        "x": "lexical_only_04",
+        "value": 0.055
+       },
+       {
+        "x": "lexical_only_05",
+        "value": 0.055
+       },
+       {
+        "x": "lexical_only_06",
+        "value": 0.055
+       },
+       {
+        "x": "lexical_only_07",
+        "value": 0.0
+       },
+       {
+        "x": "judge_only_same",
+        "value": 0.982
+       },
+       {
+        "x": "judge_only_same_or_close",
+        "value": 0.982
+       },
+       {
+        "x": "primary",
+        "value": 0.982
+       },
+       {
+        "x": "lenient",
+        "value": 0.982
+       }
+      ],
+      "subbands": [
+       {
+        "name": "judge_using",
+        "lo": 0.982,
+        "hi": 0.982
+       },
+       {
+        "name": "lexical_only",
+        "lo": 0.0,
+        "hi": 0.055
+       }
+      ]
+     },
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "attested_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.893,
+     "ci_lo": 0.851,
+     "ci_hi": 0.933,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/003+cleared/018",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    },
+    {
+     "name": "attested_absent_from_map",
+     "x": "primary",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "qualifiers": [
+      "ceiling",
+      "not_bounded_below"
+     ],
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/001+cleared/018",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    },
+    {
+     "name": "unanchored",
+     "x": "primary",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 2,
+     "ci_level": null,
+     "qualifiers": [
+      "labeller_dependent"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/001+cleared/018",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    }
+   ],
+   "band": {
+    "lo": 0.0,
+    "hi": 0.982,
+    "over": "8_settings",
+    "members": [
+     {
+      "x": "lexical_only_04",
+      "value": 0.055
+     },
+     {
+      "x": "lexical_only_05",
+      "value": 0.055
+     },
+     {
+      "x": "lexical_only_06",
+      "value": 0.055
+     },
+     {
+      "x": "lexical_only_07",
+      "value": 0.0
+     },
+     {
+      "x": "judge_only_same",
+      "value": 0.982
+     },
+     {
+      "x": "judge_only_same_or_close",
+      "value": 0.982
+     },
+     {
+      "x": "primary",
+      "value": 0.982
+     },
+     {
+      "x": "lenient",
+      "value": 0.982
+     }
+    ],
+    "subbands": [
+     {
+      "name": "judge_using",
+      "lo": 0.982,
+      "hi": 0.982
+     },
+     {
+      "name": "lexical_only",
+      "lo": 0.0,
+      "hi": 0.055
+     }
+    ]
+   },
+   "rests_on": [
+    "R",
+    "LX",
+    "AL",
+    "Q",
+    "MO"
+   ],
+   "source": [
+    "cleared/001",
+    "cleared/003",
+    "cleared/018"
+   ],
+   "qualifiers": [
+    "labeller_dependent"
+   ]
+  },
+  {
+   "row": 4,
+   "label_key": "profile.row4.links",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "endpoint_lost",
+     "x": "primary",
+     "n": 124,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.218,
+     "ci_lo": 0.138,
+     "ci_hi": 0.3,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "collapsed",
+     "x": "primary",
+     "n": 124,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "eligible_share",
+     "x": "primary",
+     "n": 124,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.782,
+     "ci_lo": 0.7,
+     "ci_hi": 0.862,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "eligible_edges",
+     "x": "primary",
+     "n": 124,
+     "unit": "edge",
+     "kind": "count",
+     "value": 97,
+     "ci_level": null,
+     "source": "cleared/005"
+    },
+    {
+     "name": "direct",
+     "x": "primary",
+     "n": 97,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.959,
+     "ci_lo": 0.933,
+     "ci_hi": 0.989,
+     "ci_level": 0.95,
+     "source": "cleared/005",
+     "band": {
+      "lo": 0.959,
+      "hi": 0.959,
+      "over": "lenient"
+     }
+    },
+    {
+     "name": "direct_null_expected",
+     "x": "primary",
+     "n": 97,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.104,
+     "ci_level": null,
+     "source": "cleared/005"
+    },
+    {
+     "name": "direct_over_null",
+     "x": "primary",
+     "n": 97,
+     "unit": "edge",
+     "kind": "ratio",
+     "value": 9.192,
+     "ci_level": null,
+     "source": "cleared/005"
+    },
+    {
+     "name": "undirected",
+     "x": "primary",
+     "n": 97,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.959,
+     "ci_lo": 0.933,
+     "ci_hi": 0.989,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "path_le2",
+     "x": "primary",
+     "n": 97,
+     "unit": "edge",
+     "kind": "share",
+     "value": 1.0,
+     "ci_lo": 1.0,
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "collapsed_share_of_matched",
+     "x": "primary",
+     "n": 97,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "endpoint_lost",
+     "x": "lenient",
+     "n": 124,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.218,
+     "ci_lo": 0.138,
+     "ci_hi": 0.3,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "eligible_share",
+     "x": "lenient",
+     "n": 124,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.782,
+     "ci_lo": 0.7,
+     "ci_hi": 0.862,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    },
+    {
+     "name": "eligible_edges",
+     "x": "lenient",
+     "n": 124,
+     "unit": "edge",
+     "kind": "count",
+     "value": 97,
+     "ci_level": null,
+     "source": "cleared/005"
+    },
+    {
+     "name": "direct",
+     "x": "lenient",
+     "n": 97,
+     "unit": "edge",
+     "kind": "share",
+     "value": 0.959,
+     "ci_lo": 0.933,
+     "ci_hi": 0.989,
+     "ci_level": 0.95,
+     "source": "cleared/005"
+    }
+   ],
+   "band": {
+    "lo": 0.959,
+    "hi": 0.959,
+    "over": "lenient"
+   },
+   "rests_on": [
+    "R",
+    "IT",
+    "LX",
+    "AL",
+    "Q",
+    "MO"
+   ],
+   "source": [
+    "cleared/005"
+   ],
+   "qualifiers": [
+    "no_structural_claim",
+    "seam_withheld_k"
+   ]
+  },
+  {
+   "row": 5,
+   "label_key": "profile.row5.absences",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "n_ideals",
+     "x": "primary",
+     "unit": "ideal",
+     "kind": "count",
+     "value": 7,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "n_matched",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 7,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "recovered_as_wished",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 7,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "flattened",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "counterfactual",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "missed",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "unanchored",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "derived": "sum_of_cleared_counts",
+     "source": "cleared/013"
+    },
+    {
+     "name": "n_matched",
+     "x": "lenient",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 7,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "recovered_as_wished",
+     "x": "lenient",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 7,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "flattened",
+     "x": "lenient",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "counterfactual",
+     "x": "lenient",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "missed",
+     "x": "lenient",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "source": "cleared/013"
+    },
+    {
+     "name": "flattening_rate",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "rate",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.41,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "counterfactual_upper_bound",
+     "x": "all_ideals",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "upper_bound",
+     "value": 0.348,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "counterfactual_upper_bound",
+     "x": "matched",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "upper_bound",
+     "value": 0.348,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "counterfactual_upper_bound",
+     "x": "matched_lenient",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "upper_bound",
+     "value": 0.348,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "recovery_rate",
+     "x": "primary",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "rate",
+     "value": 1.0,
+     "ci_lo": 1.0,
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "source": "cleared/007"
+    },
+    {
+     "name": "matcher_free_rate",
+     "x": "judge",
+     "n": 7,
+     "unit": "node",
+     "kind": "rate",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "qualifiers": [
+      "labeller_dependent"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/010",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    },
+    {
+     "name": "matcher_free_rate",
+     "x": "judge2",
+     "unit": "node",
+     "kind": "rate",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "matcher_free_rate",
+     "x": "keyword",
+     "n": 6,
+     "unit": "node",
+     "kind": "rate",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "cleared/010"
+    }
+   ],
+   "band": {
+    "state": "not_run",
+    "over": "labellers",
+    "reason": "second-judge / keyword labeller band (cleared/018) not_run"
+   },
+   "rests_on": [
+    "R",
+    "IT",
+    "LX",
+    "AL",
+    "Q",
+    "MO"
+   ],
+   "source": [
+    "cleared/007",
+    "cleared/010",
+    "cleared/013",
+    "cleared/018"
+   ],
+   "qualifiers": [
+    "zero_count",
+    "labeller_dependent"
+   ]
+  },
+  {
+   "row": 6,
+   "label_key": "profile.row6.slant",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "pull",
+     "x": "canonical",
+     "n": 12,
+     "unit": "map",
+     "kind": "difference",
+     "value": 0.008,
+     "ci_lo": -0.025,
+     "ci_hi": 0.042,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS",
+      "LX"
+     ],
+     "source": "cleared/007",
+     "band": {
+      "lo": 0.007,
+      "hi": 0.008,
+      "over": "variants"
+     }
+    },
+    {
+     "name": "pull_90",
+     "x": "canonical",
+     "n": 12,
+     "unit": "map",
+     "kind": "difference",
+     "value": 0.008,
+     "ci_lo": -0.019,
+     "ci_hi": 0.036,
+     "ci_level": 0.9,
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS",
+      "LX"
+     ],
+     "source": "cleared/007"
+    },
+    {
+     "name": "pull_variant",
+     "x": "raw_wording",
+     "n": 12,
+     "unit": "map",
+     "kind": "difference",
+     "value": 0.008,
+     "ci_lo": -0.025,
+     "ci_hi": 0.042,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "P",
+      "AS",
+      "LX"
+     ],
+     "source": "cleared/007"
+    },
+    {
+     "name": "pull_variant",
+     "x": "judge_only",
+     "n": 12,
+     "unit": "map",
+     "kind": "difference",
+     "value": 0.008,
+     "ci_lo": -0.025,
+     "ci_hi": 0.042,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS"
+     ],
+     "source": "cleared/007"
+    },
+    {
+     "name": "pull_variant",
+     "x": "in_transcript_only",
+     "n": 12,
+     "unit": "map",
+     "kind": "difference",
+     "value": 0.007,
+     "ci_lo": -0.015,
+     "ci_hi": 0.029,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS",
+      "LX",
+      "IT"
+     ],
+     "source": "cleared/007"
+    },
+    {
+     "name": "scripted_share_unanchored",
+     "x": "own_script",
+     "unit": "ai_box",
+     "kind": "share",
+     "state": "not_run",
+     "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)",
+     "source": "cleared/009"
+    },
+    {
+     "name": "scripted_share_attested_absent",
+     "x": "own_script",
+     "unit": "ai_box",
+     "kind": "share",
+     "state": "not_run",
+     "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)",
+     "source": "cleared/009"
+    },
+    {
+     "name": "scripted_share_difference",
+     "x": "own_script",
+     "unit": "ai_box",
+     "kind": "difference",
+     "state": "not_run",
+     "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)",
+     "source": "cleared/009"
+    },
+    {
+     "name": "scripted_share_difference",
+     "x": "other_family_script",
+     "unit": "ai_box",
+     "kind": "difference",
+     "state": "not_run",
+     "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)",
+     "source": "cleared/009"
+    },
+    {
+     "name": "largest_excess_ruled_out",
+     "x": "other_family_script",
+     "unit": "ai_box",
+     "kind": "upper_bound",
+     "state": "not_run",
+     "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)",
+     "source": "cleared/009"
+    }
+   ],
+   "band": {
+    "lo": 0.007,
+    "hi": 0.008,
+    "over": "variants"
+   },
+   "rests_on": [
+    "R",
+    "P",
+    "CN",
+    "AS",
+    "LX",
+    "Q",
+    "MO",
+    "AL",
+    "JS",
+    "IT"
+   ],
+   "source": [
+    "cleared/007",
+    "cleared/009"
+   ],
+   "qualifiers": [
+    "partly_lexical",
+    "descriptive"
+   ]
+  },
+  {
+   "row": 7,
+   "label_key": "profile.row7.floors",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "ai_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.909,
+     "ci_lo": 0.862,
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "no_interview_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.322,
+     "ci_lo": 0.244,
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.587,
+     "ci_lo": 0.491,
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "ai_recall",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.909,
+     "ci_lo": 0.862,
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "no_interview_recall",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.322,
+     "ci_lo": 0.244,
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.587,
+     "ci_lo": 0.491,
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added_attested_line",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.57,
+     "ci_lo": 0.478,
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "listening_added_attested_line",
+     "x": "lenient",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.57,
+     "ci_lo": 0.478,
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "real_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.05,
+     "ci_lo": 0.022,
+     "ci_hi": 0.08,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "shuffled_recall",
+     "x": "primary",
+     "n": 1210,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.023,
+     "ci_lo": 0.008,
+     "ci_hi": 0.039,
+     "ci_level": 0.95,
+     "source": "cleared/013"
+    },
+    {
+     "name": "wrong_transcript_difference",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.026,
+     "ci_lo": 0.01,
+     "ci_hi": 0.045,
+     "ci_level": 0.95,
+     "source": "cleared/013",
+     "partial_not_run": "a band or a denominator of this cell is not_run (input absent)"
+    },
+    {
+     "name": "own_map_mean_rank",
+     "x": "primary",
+     "n": 12,
+     "unit": "map",
+     "kind": "rank",
+     "value": 1.0,
+     "ci_level": null,
+     "p_lt": 0.001,
+     "source": "cleared/013"
+    },
+    {
+     "name": "rank_null_expectation",
+     "x": "primary",
+     "n": 12,
+     "unit": "map",
+     "kind": "rank",
+     "value": 6.5,
+     "ci_level": null,
+     "source": "cleared/013"
+    }
+   ],
+   "band": {
+    "lo": 0.587,
+    "hi": 0.587,
+    "over": "lenient"
+   },
+   "rests_on": [
+    "R",
+    "AL",
+    "LX",
+    "IT",
+    "P",
+    "AS",
+    "Q",
+    "MO",
+    "CN"
+   ],
+   "source": [
+    "cleared/013"
+   ],
+   "qualifiers": [
+    "paired_by_map",
+    "one_draw",
+    "ci_excludes_draw_variance"
+   ]
+  },
+  {
+   "row": 8,
+   "label_key": "profile.row8.instruction",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "ai_per_map",
+     "x": "rung1",
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 9.167,
+     "ci_lo": 8.167,
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "ai_per_map",
+     "x": "rung2",
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 9.167,
+     "ci_lo": 8.167,
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "ai_per_map",
+     "x": "remedy",
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 9.167,
+     "ci_lo": 8.167,
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "ai_per_map",
+     "x": "placebo",
+     "unit": "ai_box",
+     "kind": "count",
+     "value": 9.167,
+     "ci_lo": 8.167,
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "size_adjusted_recall",
+     "x": "rung1",
+     "n": 110,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.982,
+     "ci_lo": 0.957,
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "size_adjusted_recall",
+     "x": "rung2",
+     "n": 110,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.982,
+     "ci_lo": 0.957,
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "size_adjusted_recall",
+     "x": "remedy",
+     "n": 110,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.982,
+     "ci_lo": 0.957,
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "size_adjusted_recall",
+     "x": "placebo",
+     "n": 110,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.982,
+     "ci_lo": 0.957,
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "size_adjusted_recall_2_minus_1",
+     "x": "rung2-rung1",
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw",
+      "package_contrast",
+      "descriptive"
+     ],
+     "source": "cleared/014",
+     "p": 1.0,
+     "p_holm": 1.0
+    },
+    {
+     "name": "lived_recall_remedy_minus_placebo",
+     "x": "remedy-placebo",
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "ai_nodes_remedy_minus_placebo",
+     "x": "remedy-placebo",
+     "unit": "ai_box",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "false_wished_remedy_minus_placebo",
+     "x": "remedy-placebo",
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT",
+      "MO"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "flip_remedy_minus_placebo",
+     "x": "remedy-placebo",
+     "unit": "node",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "leak_rate",
+     "x": "remedy",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "rate",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/015"
+    },
+    {
+     "name": "leak_rate",
+     "x": "placebo",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "rate",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/015"
+    },
+    {
+     "name": "leak_rate_remedy_minus_placebo",
+     "x": "remedy-placebo",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/015",
+     "p": 1.0
+    },
+    {
+     "name": "leak_rate_remedy_minus_placebo_90",
+     "x": "remedy-placebo",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "ci_level": 0.9,
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "qualifiers": [
+      "one_draw"
+     ],
+     "source": "cleared/015"
+    },
+    {
+     "name": "mde80_leak_contrast",
+     "x": "remedy-placebo",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "difference",
+     "value": 0.0,
+     "ci_level": null,
+     "source": "cleared/015"
+    }
+   ],
+   "band": {
+    "lo": 9.167,
+    "hi": 9.167,
+    "over": "variants"
+   },
+   "rests_on": [
+    "R",
+    "Q",
+    "LD",
+    "LX",
+    "IT",
+    "MO"
+   ],
+   "source": [
+    "cleared/014",
+    "cleared/015"
+   ],
+   "qualifiers": [
+    "one_draw",
+    "descriptive",
+    "package_contrast"
+   ]
+  },
+  {
+   "row": 9,
+   "label_key": "profile.row9.instrument_error",
+   "population": "12 of 12",
+   "n_people": 12,
+   "cells": [
+    {
+     "name": "lexical_floor",
+     "x": "lexical_only_04",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.05,
+     "ci_lo": 0.022,
+     "ci_hi": 0.08,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "IT",
+      "LX"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "any_node_recall",
+     "x": "primary",
+     "n": 121,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.909,
+     "ci_lo": 0.862,
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "rests_on": [
+      "R",
+      "IT",
+      "LX",
+      "AL"
+     ],
+     "source": "cleared/003"
+    },
+    {
+     "name": "rejudge_changed",
+     "x": "lived_steps",
+     "n": 114,
+     "unit": "node",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "derived": "sum_of_cleared_counts",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "rejudge_changed_share",
+     "x": "lived_steps",
+     "n": 114,
+     "unit": "node",
+     "kind": "share",
+     "value": 0.0,
+     "ci_level": null,
+     "derived": "ratio_of_cleared_counts",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "rejudge_net",
+     "x": "lived_steps",
+     "n": 114,
+     "unit": "node",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "derived": "net",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "rejudge_changed",
+     "x": "ideals",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "derived": "sum_of_cleared_counts",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "rejudge_net",
+     "x": "ideals",
+     "n": 7,
+     "unit": "ideal",
+     "kind": "count",
+     "value": 0,
+     "ci_level": null,
+     "derived": "net",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "cleared/014"
+    },
+    {
+     "name": "attested_recall",
+     "x": "judge",
+     "unit": "node",
+     "kind": "share",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "attested_absent_from_map",
+     "x": "judge",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "unanchored",
+     "x": "judge",
+     "n": 110,
+     "unit": "ai_box",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "matcher_free_rate",
+     "x": "judge",
+     "unit": "node",
+     "kind": "rate",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "quote_actual_drawn_as_wished",
+     "x": "judge",
+     "unit": "node",
+     "kind": "rate",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "contaminated_share",
+     "x": "judge",
+     "unit": "element",
+     "kind": "share",
+     "state": "not_run",
+     "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+     "source": "cleared/018"
+    },
+    {
+     "name": "flip_rate",
+     "x": "modality",
+     "unit": "label",
+     "kind": "rate",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    },
+    {
+     "name": "identical_requests",
+     "x": "modality",
+     "unit": "request",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    },
+    {
+     "name": "flip_rate",
+     "x": "alignment",
+     "unit": "label",
+     "kind": "rate",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    },
+    {
+     "name": "identical_requests",
+     "x": "alignment",
+     "unit": "request",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    },
+    {
+     "name": "identical_requests",
+     "x": "canonical_names",
+     "unit": "request",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    },
+    {
+     "name": "canonical_ari",
+     "x": "canonical_names",
+     "unit": "label",
+     "kind": "index",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    },
+    {
+     "name": "label_order_changed_rate",
+     "x": "modality",
+     "unit": "label",
+     "kind": "rate",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    },
+    {
+     "name": "identical_requests",
+     "x": "run2_determinism_audit",
+     "unit": "request",
+     "kind": "count",
+     "state": "not_run",
+     "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model",
+     "source": "cleared/019"
+    }
+   ],
+   "rests_on": [
+    "R",
+    "IT",
+    "LX",
+    "AL",
+    "LD",
+    "MO",
+    "J2",
+    "CN"
+   ],
+   "source": [
+    "cleared/003",
+    "cleared/014",
+    "cleared/018",
+    "cleared/019"
+   ],
+   "qualifiers": [
+    "not_reproducible_to_the_digit"
+   ]
+  }
+ ],
+ "run": {
+  "kind": "synthetic",
+  "gate_chain": null,
+  "declaration_log": null,
+  "run_chain_heads": {
+   "demo_single_log": {
+    "replay_run": {
+     "head_hash": "c4472ca85da87f65a5aa2b7985b035c0ac5aec565cb70c7aed7e0e79e3d844f0",
+     "record_count": 2190,
+     "log": "run/logs/run.jsonl"
+    },
+    "oracle_grid_run": {
+     "head_hash": "4e6b216029e523d494a70354c14973d6a65bf3e4947dd51242865ca245a8def5",
+     "record_count": 2419,
+     "log": "run-grid/logs/run.jsonl"
+    }
+   },
+   "source": "logs/run.manifest.json of the two synthetic out_dirs (public synthetic runs; the demo writes ONE log for all stages)"
+  },
+  "kit": {
+   "release_commit": "fb26351369341381828831e0e58f727db46487f5",
+   "release_branch": "release-stage1",
+   "pack_kit_tree": {
+    "worktree": "synthetic-demo",
+    "commit": "1607ae91644d9b39d76858a5d592cb7d904a68a8",
+    "manifest_sha256": "406af24d1bf416de26d39bbfc40f8f79264df5dd6c745daa6849e93f623e60f8",
+    "note": "the pack scripts load the kit from this tree (common.KIT_ROOT, manifest-pinned); the synthetic runs were produced by the release commit"
+   }
+  },
+  "models": [
+   {
+    "role": "reconstructor",
+    "label": "oracle",
+    "source": "aggregates.json models (demo: replay of recorded fixtures / oracle)"
+   },
+   {
+    "role": "judge",
+    "label": "oracle",
+    "source": "aggregates.json models"
+   }
+  ],
+  "settings": {
+   "matcher_primary": {
+    "lexical_threshold": 0.6,
+    "judge_label": "same"
+   },
+   "matcher_lenient": {
+    "lexical_threshold": 0.4,
+    "judge_label": "same_or_close"
+   },
+   "bootstrap_resamples": 2000,
+   "bootstrap_seed": 20261017,
+   "n_perm": 10000,
+   "interval_method": "cluster_bootstrap",
+   "gate_k_people": 10,
+   "source": "analysis/scripts/common.py constants (B, SEED, N_PERM, primary/lenient settings) and gate_policy.json K"
+  },
+  "synthetic": {
+   "corpus": "public food-truck demo corpus (12 synthetic maps/transcripts)",
+   "replay_run": "parity-synth/run/ (second_scribe.cli demo --client replay, offline)",
+   "oracle_grid_run": "parity-synth/run-grid/ (second_scribe.cli demo --client oracle, run-grid-config.json: adds spec removed/p0/T0.7 and the judgescript source; no model call)",
+   "n_people": 12
+  },
+  "pack_scripts": {
+   "001": {
+    "script": "s00_reproduce.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "003": {
+    "script": "a1_recall_matchers.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "004": {
+    "script": "a3_size_adjusted.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "005": {
+    "script": "a4_edges.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "007": {
+    "script": "a5_one_pull.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "009": {
+    "script": "a7_additions_source.py",
+    "from": null,
+    "status": "not_run",
+    "reason": "the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)"
+   },
+   "010": {
+    "script": "a9_keyword_scope.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "013": {
+    "script": "f1_floors_checks.py",
+    "from": "oracle grid run (run-grid/)",
+    "status": "computed",
+    "reason": "the replay run cannot run this script: the run's config lacks the stability-grid spec(s) [('p0', 0.7)] that f1 asserts (pipeline.GRID_SPECS); the replay demo has no recording for them"
+   },
+   "014": {
+    "script": "a12_ladder.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "015": {
+    "script": "a8_nulls.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   },
+   "016": {
+    "script": "a13_q27b.py",
+    "from": null,
+    "status": "not_run",
+    "reason": "no 27B (second reconstructor) run exists for the synthetic demo; the demo has one reconstructor family"
+   },
+   "017": {
+    "script": "a2_calibration.py",
+    "from": null,
+    "status": "not_run",
+    "reason": "needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+   },
+   "018": {
+    "script": "a10_band.py",
+    "from": null,
+    "status": "not_run",
+    "reason": "needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+   },
+   "019": {
+    "script": "a10_flips.py",
+    "from": null,
+    "status": "not_run",
+    "reason": "needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+   },
+   "020": {
+    "script": "r12_prior_size.py",
+    "from": "replay run (run/)",
+    "status": "computed",
+    "reason": null
+   }
+  },
+  "not_run_ids": {
+   "009": "the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)",
+   "016": "no 27B (second reconstructor) run exists for the synthetic demo; the demo has one reconstructor family",
+   "017": "needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+   "018": "needs the second-judge-family (sidejudge) out_dir; producing it calls a model",
+   "019": "needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  }
+ },
+ "not_run_cells": [
+  {
+   "row": "ledger",
+   "name": "attested_absent_from_map",
+   "x": "labellers",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 1,
+   "name": "r_star",
+   "x": null,
+   "source": "cleared/017",
+   "reason": "cleared/017 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 2,
+   "name": "endorsed_boxes",
+   "x": null,
+   "source": "cleared/009",
+   "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)"
+  },
+  {
+   "row": 5,
+   "name": "matcher_free_rate",
+   "x": "judge2",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 6,
+   "name": "scripted_share_unanchored",
+   "x": "own_script",
+   "source": "cleared/009",
+   "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)"
+  },
+  {
+   "row": 6,
+   "name": "scripted_share_attested_absent",
+   "x": "own_script",
+   "source": "cleared/009",
+   "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)"
+  },
+  {
+   "row": 6,
+   "name": "scripted_share_difference",
+   "x": "own_script",
+   "source": "cleared/009",
+   "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)"
+  },
+  {
+   "row": 6,
+   "name": "scripted_share_difference",
+   "x": "other_family_script",
+   "source": "cleared/009",
+   "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)"
+  },
+  {
+   "row": 6,
+   "name": "largest_excess_ruled_out",
+   "x": "other_family_script",
+   "source": "cleared/009",
+   "reason": "cleared/009 not run: the run has no 'judgescript' script source (the other-family script; the real run made it with the judge model)"
+  },
+  {
+   "row": 9,
+   "name": "attested_recall",
+   "x": "judge",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 9,
+   "name": "attested_absent_from_map",
+   "x": "judge",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 9,
+   "name": "unanchored",
+   "x": "judge",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 9,
+   "name": "matcher_free_rate",
+   "x": "judge",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 9,
+   "name": "quote_actual_drawn_as_wished",
+   "x": "judge",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 9,
+   "name": "contaminated_share",
+   "x": "judge",
+   "source": "cleared/018",
+   "reason": "cleared/018 not run: needs the second-judge-family (sidejudge) out_dir; producing it calls a model"
+  },
+  {
+   "row": 9,
+   "name": "flip_rate",
+   "x": "modality",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  },
+  {
+   "row": 9,
+   "name": "identical_requests",
+   "x": "modality",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  },
+  {
+   "row": 9,
+   "name": "flip_rate",
+   "x": "alignment",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  },
+  {
+   "row": 9,
+   "name": "identical_requests",
+   "x": "alignment",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  },
+  {
+   "row": 9,
+   "name": "identical_requests",
+   "x": "canonical_names",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  },
+  {
+   "row": 9,
+   "name": "canonical_ari",
+   "x": "canonical_names",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  },
+  {
+   "row": 9,
+   "name": "label_order_changed_rate",
+   "x": "modality",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  },
+  {
+   "row": 9,
+   "name": "identical_requests",
+   "x": "run2_determinism_audit",
+   "source": "cleared/019",
+   "reason": "cleared/019 not run: needs the second-judge-family (sidejudge) results and the judge-repeat (flip) requests; producing them calls a model"
+  }
+ ],
+ "not_run_statements": [
+  {
+   "line": 271,
+   "section": "shared inputs",
+   "statement": "for other in (C.val(\"009\", \"n_nodes\", group=\"unanchored\", script=\"own_canonical\", setting=\"primary\", spec=\"pri",
+   "reason": "BUILD STOPPED: unanchored count disagrees across cleared files"
+  },
+  {
+   "line": 275,
+   "section": "shared inputs",
+   "statement": "if C.val(\"009\", \"n_nodes\", group=\"attested_absent_from_map\", script=\"own_canonical\", setting=\"primary\", spec=\"",
+   "reason": "BUILD STOPPED: attested-absent count disagrees across cleared files"
+  },
+  {
+   "line": 373,
+   "section": "map sizes (cleared/020, r12_prior_size) and the two derived lines (RESULTS \"No-interview map size\")",
+   "statement": "if C.val(\"020\", \"prior_map_smaller\", rkind=\"claim\", **S20) is not True:",
+   "reason": "BUILD STOPPED: cleared/020 claim prior_map_smaller is not true"
+  },
+  {
+   "line": 413,
+   "section": "map sizes (cleared/020, r12_prior_size) and the two derived lines (RESULTS \"No-interview map size\")",
+   "statement": "if abs(_ai_pm - NJ / N_PEOPLE) > 0.0005 or abs(_end_pm - ENDORSED_BOXES / N_PEOPLE) > 0.0005:",
+   "reason": "TypeError: unsupported operand type(s) for /: 'NotRun' and 'int'"
+  },
+  {
+   "line": 479,
+   "section": "ledger",
+   "statement": "if INTR + OFFREC != ENDORSED_BOXES:",
+   "reason": "TypeError: %d format: a real number is required, not NotRun"
+  },
+  {
+   "line": 513,
+   "section": "row 2 size",
+   "statement": "ratio = round(NJ / ENDORSED_BOXES, 3)",
+   "reason": "TypeError: unsupported operand type(s) for /: 'int' and 'NotRun'"
+  },
+  {
+   "line": 514,
+   "section": "row 2 size",
+   "statement": "r2.append(dcell(\"ai_per_endorsed\", ratio, [\"003\", \"009\"], \"ratio_ai_per_endorsed\", kind=\"ratio\", nppl=N_PEOPLE",
+   "reason": "NameError: name 'ratio' is not defined"
+  },
+  {
+   "line": 520,
+   "section": "row 2 size",
+   "statement": "r2.append(dcell(\"endorsed_per_map\", round(ENDORSED_BOXES / N_PEOPLE, 3), [\"009\"], \"per_map_mean\", unit=\"node\",",
+   "reason": "TypeError: unsupported operand type(s) for /: 'NotRun' and 'int'"
+  },
+  {
+   "line": 522,
+   "section": "row 2 size",
+   "statement": "r2.append(dcell(\"ai_per_endorsed\", round(n1 / ENDORSED_BOXES, 3), [\"009\", \"014\"], \"ratio_ai_per_endorsed\", x=\"",
+   "reason": "TypeError: unsupported operand type(s) for /: 'int' and 'NotRun'"
+  },
+  {
+   "line": 756,
+   "section": "row 9 instrument error",
+   "statement": "lab9 = [c for c in r9 if c[\"name\"] == \"attested_recall\"][0][\"band\"]",
+   "reason": "KeyError: 'band'"
+  }
+ ],
+ "lookups_not_run": [
+  {
+   "source": "cleared/009",
+   "metric": "largest_excess_ruled_out"
+  },
+  {
+   "source": "cleared/009",
+   "metric": "n_nodes"
+  },
+  {
+   "source": "cleared/009",
+   "metric": "scripted_share"
+  },
+  {
+   "source": "cleared/009",
+   "metric": "scripted_share_difference"
+  },
+  {
+   "source": "cleared/017",
+   "metric": "r_star"
+  },
+  {
+   "source": "cleared/018",
+   "metric": "attested_absent_from_map"
+  },
+  {
+   "source": "cleared/018",
+   "metric": "contaminated_share"
+  },
+  {
+   "source": "cleared/018",
+   "metric": "contradiction_rate"
+  },
+  {
+   "source": "cleared/018",
+   "metric": "node_recall"
+  },
+  {
+   "source": "cleared/018",
+   "metric": "shuffled_pairs"
+  },
+  {
+   "source": "cleared/018",
+   "metric": "unanchored"
+  },
+  {
+   "source": "cleared/019",
+   "metric": "adjusted_rand_index"
+  },
+  {
+   "source": "cleared/019",
+   "metric": "flip_rate"
+  },
+  {
+   "source": "cleared/019",
+   "metric": "label_order_changed_rate"
+  },
+  {
+   "source": "cleared/019",
+   "metric": "n_checked"
+  },
+  {
+   "source": "cleared/019",
+   "metric": "n_identical"
+  },
+  {
+   "source": "cleared/019",
+   "metric": "n_requests"
+  }
+ ],
+ "partial_checks": {
+  "line_413_ai_half": {
+   "check": "abs(020 ai_nodes_per_map - NJ / N_PEOPLE) <= 0.0005",
+   "cleared_020": 9.167,
+   "NJ_over_N_PEOPLE": 9.166666666666666,
+   "ok": true
+  },
+  "line_413_endorsed_half": "not_run (cleared/009 absent)"
+ },
+ "substitutions": [
+  "CLEARED, OUT paths",
+  "class Cleared -> SynthCleared",
+  "N_PEOPLE/N_TOTAL from synthetic records",
+  "gate chain, declaration log, run block, profile literal, trailing prints"
+ ]
+}

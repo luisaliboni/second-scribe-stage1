@@ -1,0 +1,928 @@
+{
+ "rows": [
+  {
+   "cells": [
+    {
+     "kind": "share",
+     "name": "ai_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "no_interview_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "ai_recall",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "share",
+     "name": "no_interview_recall",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added_attested_line",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added_attested_line",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "share",
+     "name": "real_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "shuffled_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "difference",
+     "name": "wrong_transcript_difference",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "rank",
+     "name": "own_map_mean_rank",
+     "unit": "map",
+     "x": "primary"
+    },
+    {
+     "kind": "rank",
+     "name": "rank_null_expectation",
+     "unit": "map",
+     "x": "primary"
+    },
+    {
+     "kind": "mean",
+     "name": "ai_nodes_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "mean",
+     "name": "no_interview_nodes_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "difference",
+     "name": "ai_minus_no_interview_nodes_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "mean",
+     "name": "ai_edges_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "mean",
+     "name": "no_interview_edges_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "difference",
+     "name": "ai_minus_no_interview_edges_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "mean",
+     "name": "endorsed_nodes_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "ratio",
+     "name": "no_interview_over_ai_nodes",
+     "unit": "map"
+    },
+    {
+     "kind": "ratio",
+     "name": "yield_per_box",
+     "unit": "node",
+     "x": "ai"
+    },
+    {
+     "kind": "ratio",
+     "name": "yield_per_box",
+     "unit": "node",
+     "x": "no_interview"
+    },
+    {
+     "kind": "share",
+     "name": "equal_size_bound",
+     "unit": "node",
+     "x": "no_interview"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_edge_equal_size",
+     "unit": "node",
+     "x": "no_interview"
+    }
+   ],
+   "label_key": "profile.lead",
+   "row": "lead"
+  },
+  {
+   "cells": [
+    {
+     "kind": "share",
+     "name": "omitted_share",
+     "unit": "node"
+    },
+    {
+     "kind": "count",
+     "name": "attested_absent_from_map",
+     "unit": "ai_box",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "unanchored",
+     "unit": "ai_box",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "off_record_endorsed",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "attested_absent_from_map",
+     "unit": "ai_box",
+     "x": "labellers"
+    },
+    {
+     "kind": "count",
+     "name": "ai_boxes_total",
+     "unit": "ai_box"
+    },
+    {
+     "kind": "count",
+     "name": "ai_boxes_attested_on_map",
+     "unit": "ai_box",
+     "x": "primary"
+    }
+   ],
+   "label_key": "profile.ledger",
+   "row": "ledger"
+  },
+  {
+   "cells": [
+    {
+     "kind": "share",
+     "name": "kept",
+     "unit": "node"
+    },
+    {
+     "kind": "share",
+     "name": "coarsened",
+     "unit": "node"
+    },
+    {
+     "kind": "share",
+     "name": "omitted",
+     "unit": "node"
+    },
+    {
+     "kind": "share",
+     "name": "attested_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "attested_recall",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "ratio",
+     "name": "r_star",
+     "unit": "node"
+    }
+   ],
+   "label_key": "profile.row1.coverage",
+   "row": 1
+  },
+  {
+   "cells": [
+    {
+     "kind": "count",
+     "name": "ai_boxes",
+     "unit": "ai_box"
+    },
+    {
+     "kind": "count",
+     "name": "endorsed_boxes",
+     "unit": "node"
+    },
+    {
+     "kind": "ratio",
+     "name": "ai_per_endorsed"
+    },
+    {
+     "kind": "count",
+     "name": "ai_per_map",
+     "unit": "ai_box"
+    },
+    {
+     "kind": "count",
+     "name": "endorsed_per_map",
+     "unit": "node"
+    },
+    {
+     "kind": "ratio",
+     "name": "ai_per_endorsed",
+     "x": "rung1"
+    },
+    {
+     "kind": "mean",
+     "name": "ai_nodes_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "mean",
+     "name": "ai_edges_per_map",
+     "unit": "map"
+    },
+    {
+     "kind": "mean",
+     "name": "endorsed_nodes_per_map",
+     "unit": "map"
+    }
+   ],
+   "label_key": "profile.row2.size",
+   "row": 2
+  },
+  {
+   "cells": [
+    {
+     "kind": "share",
+     "name": "precision",
+     "unit": "ai_box",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "attested_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "attested_absent_from_map",
+     "unit": "ai_box",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "unanchored",
+     "unit": "ai_box",
+     "x": "primary"
+    }
+   ],
+   "label_key": "profile.row3.support",
+   "row": 3
+  },
+  {
+   "cells": [
+    {
+     "kind": "share",
+     "name": "endpoint_lost",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "collapsed",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "eligible_share",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "eligible_edges",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "direct",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "direct_null_expected",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "ratio",
+     "name": "direct_over_null",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "undirected",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "path_le2",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "collapsed_share_of_matched",
+     "unit": "edge",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "endpoint_lost",
+     "unit": "edge",
+     "x": "lenient"
+    },
+    {
+     "kind": "share",
+     "name": "eligible_share",
+     "unit": "edge",
+     "x": "lenient"
+    },
+    {
+     "kind": "count",
+     "name": "eligible_edges",
+     "unit": "edge",
+     "x": "lenient"
+    },
+    {
+     "kind": "share",
+     "name": "direct",
+     "unit": "edge",
+     "x": "lenient"
+    }
+   ],
+   "label_key": "profile.row4.links",
+   "row": 4
+  },
+  {
+   "cells": [
+    {
+     "kind": "count",
+     "name": "n_ideals",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "n_matched",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "recovered_as_wished",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "flattened",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "counterfactual",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "missed",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "unanchored",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "n_matched",
+     "unit": "ideal",
+     "x": "lenient"
+    },
+    {
+     "kind": "count",
+     "name": "recovered_as_wished",
+     "unit": "ideal",
+     "x": "lenient"
+    },
+    {
+     "kind": "count",
+     "name": "flattened",
+     "unit": "ideal",
+     "x": "lenient"
+    },
+    {
+     "kind": "count",
+     "name": "counterfactual",
+     "unit": "ideal",
+     "x": "lenient"
+    },
+    {
+     "kind": "count",
+     "name": "missed",
+     "unit": "ideal",
+     "x": "lenient"
+    },
+    {
+     "kind": "rate",
+     "name": "flattening_rate",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "upper_bound",
+     "name": "counterfactual_upper_bound",
+     "unit": "ideal",
+     "x": "all_ideals"
+    },
+    {
+     "kind": "upper_bound",
+     "name": "counterfactual_upper_bound",
+     "unit": "ideal",
+     "x": "matched"
+    },
+    {
+     "kind": "upper_bound",
+     "name": "counterfactual_upper_bound",
+     "unit": "ideal",
+     "x": "matched_lenient"
+    },
+    {
+     "kind": "rate",
+     "name": "recovery_rate",
+     "unit": "ideal",
+     "x": "primary"
+    },
+    {
+     "kind": "rate",
+     "name": "matcher_free_rate",
+     "unit": "node",
+     "x": "judge"
+    },
+    {
+     "kind": "rate",
+     "name": "matcher_free_rate",
+     "unit": "node",
+     "x": "judge2"
+    },
+    {
+     "kind": "rate",
+     "name": "matcher_free_rate",
+     "unit": "node",
+     "x": "keyword"
+    }
+   ],
+   "label_key": "profile.row5.absences",
+   "row": 5
+  },
+  {
+   "cells": [
+    {
+     "kind": "difference",
+     "name": "pull",
+     "unit": "map",
+     "x": "canonical"
+    },
+    {
+     "kind": "difference",
+     "name": "pull_90",
+     "unit": "map",
+     "x": "canonical"
+    },
+    {
+     "kind": "difference",
+     "name": "pull_variant",
+     "unit": "map",
+     "x": "raw_wording"
+    },
+    {
+     "kind": "difference",
+     "name": "pull_variant",
+     "unit": "map",
+     "x": "judge_only"
+    },
+    {
+     "kind": "difference",
+     "name": "pull_variant",
+     "unit": "map",
+     "x": "in_transcript_only"
+    },
+    {
+     "kind": "share",
+     "name": "scripted_share_unanchored",
+     "unit": "ai_box",
+     "x": "own_script"
+    },
+    {
+     "kind": "share",
+     "name": "scripted_share_attested_absent",
+     "unit": "ai_box",
+     "x": "own_script"
+    },
+    {
+     "kind": "difference",
+     "name": "scripted_share_difference",
+     "unit": "ai_box",
+     "x": "own_script"
+    },
+    {
+     "kind": "difference",
+     "name": "scripted_share_difference",
+     "unit": "ai_box",
+     "x": "other_family_script"
+    },
+    {
+     "kind": "upper_bound",
+     "name": "largest_excess_ruled_out",
+     "unit": "ai_box",
+     "x": "other_family_script"
+    }
+   ],
+   "label_key": "profile.row6.slant",
+   "row": 6
+  },
+  {
+   "cells": [
+    {
+     "kind": "share",
+     "name": "ai_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "no_interview_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "ai_recall",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "share",
+     "name": "no_interview_recall",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added_attested_line",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "difference",
+     "name": "listening_added_attested_line",
+     "unit": "node",
+     "x": "lenient"
+    },
+    {
+     "kind": "share",
+     "name": "real_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "share",
+     "name": "shuffled_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "difference",
+     "name": "wrong_transcript_difference",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "rank",
+     "name": "own_map_mean_rank",
+     "unit": "map",
+     "x": "primary"
+    },
+    {
+     "kind": "rank",
+     "name": "rank_null_expectation",
+     "unit": "map",
+     "x": "primary"
+    }
+   ],
+   "label_key": "profile.row7.floors",
+   "row": 7
+  },
+  {
+   "cells": [
+    {
+     "kind": "count",
+     "name": "ai_per_map",
+     "unit": "ai_box",
+     "x": "rung1"
+    },
+    {
+     "kind": "count",
+     "name": "ai_per_map",
+     "unit": "ai_box",
+     "x": "rung2"
+    },
+    {
+     "kind": "count",
+     "name": "ai_per_map",
+     "unit": "ai_box",
+     "x": "remedy"
+    },
+    {
+     "kind": "count",
+     "name": "ai_per_map",
+     "unit": "ai_box",
+     "x": "placebo"
+    },
+    {
+     "kind": "share",
+     "name": "size_adjusted_recall",
+     "unit": "node",
+     "x": "rung1"
+    },
+    {
+     "kind": "share",
+     "name": "size_adjusted_recall",
+     "unit": "node",
+     "x": "rung2"
+    },
+    {
+     "kind": "share",
+     "name": "size_adjusted_recall",
+     "unit": "node",
+     "x": "remedy"
+    },
+    {
+     "kind": "share",
+     "name": "size_adjusted_recall",
+     "unit": "node",
+     "x": "placebo"
+    },
+    {
+     "kind": "difference",
+     "name": "size_adjusted_recall_2_minus_1",
+     "unit": "node",
+     "x": "rung2-rung1"
+    },
+    {
+     "kind": "difference",
+     "name": "lived_recall_remedy_minus_placebo",
+     "unit": "node",
+     "x": "remedy-placebo"
+    },
+    {
+     "kind": "difference",
+     "name": "ai_nodes_remedy_minus_placebo",
+     "unit": "ai_box",
+     "x": "remedy-placebo"
+    },
+    {
+     "kind": "difference",
+     "name": "false_wished_remedy_minus_placebo",
+     "unit": "node",
+     "x": "remedy-placebo"
+    },
+    {
+     "kind": "difference",
+     "name": "flip_remedy_minus_placebo",
+     "unit": "node",
+     "x": "remedy-placebo"
+    },
+    {
+     "kind": "rate",
+     "name": "leak_rate",
+     "unit": "ideal",
+     "x": "remedy"
+    },
+    {
+     "kind": "rate",
+     "name": "leak_rate",
+     "unit": "ideal",
+     "x": "placebo"
+    },
+    {
+     "kind": "difference",
+     "name": "leak_rate_remedy_minus_placebo",
+     "unit": "ideal",
+     "x": "remedy-placebo"
+    },
+    {
+     "kind": "difference",
+     "name": "leak_rate_remedy_minus_placebo_90",
+     "unit": "ideal",
+     "x": "remedy-placebo"
+    },
+    {
+     "kind": "difference",
+     "name": "mde80_leak_contrast",
+     "unit": "ideal",
+     "x": "remedy-placebo"
+    }
+   ],
+   "label_key": "profile.row8.instruction",
+   "row": 8
+  },
+  {
+   "cells": [
+    {
+     "kind": "share",
+     "name": "lexical_floor",
+     "unit": "node",
+     "x": "lexical_only_04"
+    },
+    {
+     "kind": "share",
+     "name": "any_node_recall",
+     "unit": "node",
+     "x": "primary"
+    },
+    {
+     "kind": "count",
+     "name": "rejudge_changed",
+     "unit": "node",
+     "x": "lived_steps"
+    },
+    {
+     "kind": "share",
+     "name": "rejudge_changed_share",
+     "unit": "node",
+     "x": "lived_steps"
+    },
+    {
+     "kind": "count",
+     "name": "rejudge_net",
+     "unit": "node",
+     "x": "lived_steps"
+    },
+    {
+     "kind": "count",
+     "name": "rejudge_changed",
+     "unit": "ideal",
+     "x": "ideals"
+    },
+    {
+     "kind": "count",
+     "name": "rejudge_net",
+     "unit": "ideal",
+     "x": "ideals"
+    },
+    {
+     "kind": "share",
+     "name": "attested_recall",
+     "unit": "node",
+     "x": "judge"
+    },
+    {
+     "kind": "count",
+     "name": "attested_absent_from_map",
+     "unit": "ai_box",
+     "x": "judge"
+    },
+    {
+     "kind": "count",
+     "name": "unanchored",
+     "unit": "ai_box",
+     "x": "judge"
+    },
+    {
+     "kind": "rate",
+     "name": "matcher_free_rate",
+     "unit": "node",
+     "x": "judge"
+    },
+    {
+     "kind": "rate",
+     "name": "quote_actual_drawn_as_wished",
+     "unit": "node",
+     "x": "judge"
+    },
+    {
+     "kind": "share",
+     "name": "contaminated_share",
+     "unit": "element",
+     "x": "judge"
+    },
+    {
+     "kind": "rate",
+     "name": "flip_rate",
+     "unit": "label",
+     "x": "modality"
+    },
+    {
+     "kind": "count",
+     "name": "identical_requests",
+     "unit": "request",
+     "x": "modality"
+    },
+    {
+     "kind": "rate",
+     "name": "flip_rate",
+     "unit": "label",
+     "x": "alignment"
+    },
+    {
+     "kind": "count",
+     "name": "identical_requests",
+     "unit": "request",
+     "x": "alignment"
+    },
+    {
+     "kind": "count",
+     "name": "identical_requests",
+     "unit": "request",
+     "x": "canonical_names"
+    },
+    {
+     "kind": "index",
+     "name": "canonical_ari",
+     "unit": "label",
+     "x": "canonical_names"
+    },
+    {
+     "kind": "rate",
+     "name": "label_order_changed_rate",
+     "unit": "label",
+     "x": "modality"
+    },
+    {
+     "kind": "count",
+     "name": "identical_requests",
+     "unit": "request",
+     "x": "run2_determinism_audit"
+    }
+   ],
+   "label_key": "profile.row9.instrument_error",
+   "row": 9
+  }
+ ]
+}

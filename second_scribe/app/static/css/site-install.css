@@ -1,0 +1,51 @@
+/* The Install page ("Three Lights"). Colours from tokens.css only; text never below 13px; buttons at least 44px tall
+   where they are the main action. Commands in JetBrains Mono. */
+.install-page { min-width: 0; }
+.install-wrap { max-width: 920px; padding: 4px 0 24px; min-width: 0; }   /* the shell's main sets the 16px gutters */
+.install-wrap h1 { margin-bottom: 16px; font-size: clamp(34px, 4.4vw, 60px); letter-spacing: -0.04em; line-height: 1.04; }
+.install-intro { max-width: var(--measure); font-size: 19px; line-height: 1.55; color: var(--ink-2); }   /* Part 6: about 75 characters a line */
+
+/* OS picker: a segmented pill track; the selected tab is an ink pill with ground-colour text */
+.install-tablist {
+  display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; margin: 28px 0 16px; max-width: 100%;
+  background: var(--panel-2); border-radius: var(--radius-pill);
+}
+.install-tab {
+  min-height: 44px; padding: 10px 22px; border: 1px solid transparent; border-radius: var(--radius-pill);
+  background: transparent; color: var(--ink-2);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.install-tab[aria-selected="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); font-weight: 600; }
+.install-tab:hover:not([aria-selected="true"]):not(:disabled) { color: var(--ink); border-color: transparent; background: var(--lane); }
+
+.install-panel { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-card); padding: var(--space-2) var(--card-pad) var(--card-pad); }
+.install-panel[hidden] { display: none; }
+
+.install-steps { margin: 0; padding: 0 0 0 2em; }
+.install-step { padding: 22px 0 6px; border-top: 1px solid var(--rule); }
+.install-steps > .install-step:first-child { border-top: 0; }
+.install-step::marker { font-family: var(--mono); font-weight: 600; font-size: 15px; color: var(--ai); }
+.install-step h3 { font-size: 19px; letter-spacing: -0.015em; margin-bottom: 6px; }
+.install-step p { max-width: var(--measure); margin-bottom: 12px; color: var(--ink-2); }
+
+.install-cmd { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 8px; min-width: 0; }
+.install-cmd-text {
+  flex: 1 1 160px; min-width: 0; margin: 0; padding: 10px 14px; border-radius: var(--radius-input);
+  background: var(--input); border: 1px solid var(--rule); white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.install-cmd-text code { font-family: var(--mono); font-size: 14px; color: var(--ink); }
+.install-copy { min-height: 44px; min-width: 72px; }
+.install-copy-status { font-size: 13px; color: var(--muted); flex-basis: 100%; }
+.install-copy-status:empty { display: none; }
+
+.install-links { margin: 0; padding: 0; list-style: none; display: flex; gap: 8px 20px; flex-wrap: wrap; }
+.install-links a { font-family: var(--mono); font-size: 14px; display: inline-flex; min-height: 44px; align-items: center; }
+
+@media (max-width: 520px) {
+  .install-wrap { padding-top: 0; }
+  .install-intro { font-size: 16px; }
+  .install-tablist { display: flex; margin-top: 20px; }
+  .install-panel { padding-top: var(--space-1); }
+  .install-tab { padding: 10px 12px; flex: 1 1 auto; }
+  .install-steps { padding-left: 1.6em; }
+}

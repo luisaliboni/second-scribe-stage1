@@ -1,0 +1,32 @@
+<!-- title_key: nav.try -->
+<!-- scripts: data/strings.js data/tryit.js data/tryit-profile.js js/core.js js/layout.js js/encoding.js js/a11y.js js/lanes.js js/views.js js/state.js js/ledger.js js/strip.js js/profile.js js/drawer.js js/viewer.js js/glossary.js js/site-try.js -->
+<!-- styles: css/viewer.css css/views.css css/ledger.css css/strip.css css/profile.css -->
+<div class="site-intro">
+<h1>{{t:try.title}}</h1>
+<p class="site-lede" id="tryit-finding" data-part="finding" hidden></p>
+<p class="site-lede">{{t:try.lede}}</p>
+{{slot:oracle}}</div>
+<div id="tryit-viewer" class="site-viewer"></div>
+<noscript><p class="site-note">{{t:try.noscript}}</p></noscript>
+<details class="try-details" data-part="technical">
+<summary class="try-details-summary">{{t:try.details.summary}}</summary>
+<div class="try-details-body">
+<div id="tryit-profile" class="try-profile"></div>
+<section class="try-runs" aria-labelledby="try-runs-title">
+<h2 id="try-runs-title">{{t:try.runs.title}}</h2>
+{{slot:runs}}</section>
+<section class="try-runs" aria-labelledby="try-repro-title">
+<h2 id="try-repro-title">{{t:try.repro.title}}</h2>
+<p class="site-note">{{t:try.repro.intro}}</p>
+<ol class="try-runs-list">
+<li>{{t:try.repro.demo.what}} <code class="site-hash">{{t:try.repro.demo.cmd}}</code></li>
+<li>{{t:try.repro.export.what}} <code class="site-hash">{{t:try.repro.export.cmd}}</code></li>
+<li>{{t:try.repro.fingerprint.what}}</li>
+<li>{{t:try.repro.oracle.what}} <code class="site-hash">{{t:try.repro.oracle.cmd}}</code></li>
+<li>{{t:try.repro.phantom.what}} <code class="site-hash">{{t:try.repro.phantom.cmd}}</code></li>
+</ol>
+<p class="site-note">{{t:try.repro.expected}}</p>
+<p class="site-note">{{t:try.repro.scope}}</p>
+</section>
+</div>
+</details>

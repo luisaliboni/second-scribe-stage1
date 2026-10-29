@@ -1,0 +1,111 @@
+/* Base styles ("Three Lights"). Colours come from tokens.css only (no hex here), so dark and light both hold.
+   Text is never below 13px; primary buttons are at least 44px tall. Type: Schibsted Grotesk for UI and headings,
+   JetBrains Mono for labels, commands, hashes and ids. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+/* color-scheme follows the theme (same selectors as tokens.css) so native controls (radio buttons, check boxes, file
+   pickers, selects, scrollbars) draw dark in dark mode; without it an unselected radio is a white disc on the dark ground. */
+:root { color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--ground);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+h1 { font-size: 44px; letter-spacing: -0.035em; line-height: 1.05; }
+h2 { font-size: 28px; letter-spacing: -0.03em; }
+h3 { font-size: 19px; letter-spacing: -0.01em; line-height: 1.25; }
+h4 { font-size: 16px; line-height: 1.3; }
+
+p { margin: 0 0 1em; }
+
+a { color: var(--ink); text-decoration-color: var(--ai); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ai); }
+
+code, kbd, samp, pre, .mono {
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+small, .small { font-size: 13px; }
+.muted { color: var(--muted); }
+
+/* Eyebrow: a short mono label over a heading or a card (section eyebrows are cyan). */
+.ss-eyebrow {
+  display: block;
+  margin: 0 0 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ai);
+}
+
+/* Buttons are pills. Secondary: a hairline outline. Primary: cyan fill with ground-colour text. */
+button {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--ink-2); }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+
+button.primary {
+  min-height: 44px;
+  padding: 10px 22px;
+  font-weight: 600;
+  color: var(--ground);
+  background: var(--ai);
+  border-color: var(--ai);
+}
+button.primary:hover:not(:disabled) { border-color: var(--ink); }
+
+/* Native choice controls take the theme's accent (color-scheme above follows the theme). */
+input[type="radio"], input[type="checkbox"], progress { accent-color: var(--ai); }
+
+:focus-visible {
+  outline: 2px solid var(--ai);
+  outline-offset: 2px;
+}
+
+/* The brand mark: three overlapping circles, left to right the endorsed map (ink outline), the AI's map (cyan disc)
+   and the no-interview map (grey outline). Decorative only (aria-hidden in the markup); the sizes hint at map-size
+   order and are not a chart. */
+.ss-mark { position: relative; display: inline-block; flex: none; width: 38px; height: 22px; vertical-align: middle; }
+.ss-mark > i { position: absolute; top: 0; width: 22px; height: 22px; border-radius: 50%; }
+.ss-mark > i:nth-child(1) { left: 0; border: 1.5px solid var(--ink); }
+.ss-mark > i:nth-child(2) { left: 8px; background: var(--ai); mix-blend-mode: screen; opacity: 0.85; }
+.ss-mark > i:nth-child(3) { left: 16px; border: 1.5px solid var(--never); }
+:root[data-theme="light"] .ss-mark > i:nth-child(2) { mix-blend-mode: multiply; opacity: 0.75; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}

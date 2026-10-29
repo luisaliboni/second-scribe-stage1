@@ -1,0 +1,173 @@
+/* Site shell ("Three Lights"): header, nav, theme toggle, page frame, footer, and the Try it page's own blocks.
+   Colours come from tokens.css only, so light and dark both hold. Owned by T28 (site contract): page-specific
+   styles live in site-<page>.css. Text is never below 13px; tap targets are at least 44px tall. */
+
+.site-skip {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 10;
+  padding: 12px 18px;
+  min-height: 44px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+.site-skip:focus { top: 8px; }
+
+/* The header sits on the page ground with a hairline under it; the page, not the header, is the surface. */
+.site-header {
+  background: var(--ground);
+  border-bottom: 1px solid var(--rule);
+}
+.site-header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 48px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 20px;
+  min-height: 68px;
+}
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 8px 0;
+}
+.site-brand:hover { color: var(--ink); }
+.site-nav { flex: 1 1 auto; }
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+}
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  font-size: 15px;
+  color: var(--ink-2);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.site-nav a:hover { color: var(--ink); border-bottom-color: var(--border); text-decoration: none; }
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--ai);
+}
+
+/* The theme toggle is a pill. Pressed = the page shows dark: the ring becomes a filled cyan dot (a shape change,
+   not colour alone), and the label says the same in words. */
+.site-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 18px;
+  font-size: 14px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+.site-theme::before {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-2);
+  box-sizing: border-box;
+}
+.site-theme[aria-pressed="true"]::before { background: var(--ai); border-color: var(--ai); }
+.site-theme:hover:not(:disabled) { border-color: var(--ink-2); background: var(--panel-2); }
+
+.site-main {
+  max-width: 1320px;   /* a moderate centred column (item 13 undid the 2200px stretch); running text keeps its ch limits */
+  margin: 0 auto;
+  padding: 40px clamp(16px, 3vw, 48px) 64px;
+}
+.site-main:focus { outline: none; }
+
+.site-intro { max-width: 760px; margin-bottom: 28px; }
+.site-intro h1 { margin-bottom: 16px; font-size: clamp(34px, 4.4vw, 60px); letter-spacing: -0.04em; line-height: 1.04; }
+.site-lede { max-width: var(--measure); font-size: 18px; line-height: 1.55; color: var(--ink-2); }   /* Part 6: about 75 characters a line */
+.site-note { max-width: var(--measure); color: var(--muted); }
+
+.site-state {
+  display: inline-block;
+  margin: 0 0 4px;
+  padding: 6px 12px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-chip);
+}
+
+.site-viewer { min-width: 0; }
+
+/* Try it, item 11: the profile, the logged runs and the reproduce steps sit in one closed "Technical details"
+   (the same look as the study page's). */
+.try-details { margin: 40px 0 0; border: 1px solid var(--rule); border-radius: var(--radius-card); background: var(--panel); }
+.try-details > summary {
+  cursor: pointer; display: flex; align-items: center; min-height: 52px; padding: 12px 20px;
+  font-family: var(--display); font-size: 19px; font-weight: 600; color: var(--ink);
+}
+.try-details > summary::-webkit-details-marker { display: none; }
+.try-details > summary::before {
+  content: "+"; flex: none; width: 1.1em; margin-right: 8px; font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--ai);
+}
+.try-details[open] > summary::before { content: "\2212"; }
+.try-details > summary:hover { background: var(--panel-2); }
+.try-details > summary:focus-visible { outline: 2px solid var(--ai); outline-offset: -2px; }
+.try-details[open] > summary { border-bottom: 1px solid var(--rule); }
+.try-details-body { padding: 20px clamp(12px, 2vw, 24px) 8px; min-width: 0; }
+.try-run { margin: 0 0 24px; }  /* council 30: the run block, first in Technical details */
+.try-profile { min-width: 0; }
+
+.try-runs {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.try-runs h2 { font-size: 19px; }
+.try-runs-list { margin: 0 0 8px; padding-left: 20px; }
+.try-runs-list li { margin-bottom: 4px; }
+.site-hash { overflow-wrap: anywhere; word-break: break-all; }
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 13px;
+}
+.site-footer p {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px clamp(16px, 3vw, 48px);
+}
+
+@media (max-width: 560px) {
+  .site-header-inner { padding: 4px 16px 8px; }
+  .site-nav { flex-basis: 100%; order: 3; }
+  .site-nav a { padding: 0 8px; }
+  .site-brand { flex: 1 1 auto; }
+  .site-main { padding-top: 24px; padding-bottom: 40px; }
+  h1 { font-size: 30px; }
+  .site-lede { font-size: 16px; }
+}

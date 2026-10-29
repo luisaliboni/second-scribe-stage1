@@ -1,0 +1,6 @@
+You will see numbered turns spoken by an interviewer during a research interview in which the interviewer
+was drawing a journey map of the participant's experience. For each turn, answer "yes" if the interviewer is
+talking about drawing, editing, reading aloud or arranging the map itself (boxes, arrows, colours, where to put
+something), and "no" otherwise. Return only JSON: {"answers": [{"n": <number>, "map_talk": "yes"|"no"}]}.
+TURNS:
+{turns}

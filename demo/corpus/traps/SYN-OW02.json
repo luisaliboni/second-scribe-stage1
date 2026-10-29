@@ -1,0 +1,78 @@
+[
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C03",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "dead_end",
+    "sentence": "We got through the club for street food sellers, and after that the trail went cold.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C02",
+    "expected_bucket": "unanchored",
+    "expected_modality": "hypothetical",
+    "kind": "hypothetical",
+    "sentence": "If we ever move to another city, the how-to pages on the city website might work differently there.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C17",
+    "cids": [
+      "C17",
+      "C16"
+    ],
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "loop",
+    "sentence": "We got sent from the visit when the health unit checked the truck over to the person at the licensing counter, then from the person at the licensing counter back to the visit when the health unit checked the truck over, three times.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C28",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "mapping_talk",
+    "sentence": "I'll put a box for the fine for parking in the wrong spot here on the map.",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C27",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "interviewer_voiced",
+    "sentence": "So the city employee who patrols the streets came next, right?",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C29",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "workaround",
+    "sentence": "We paid a consultant out of pocket and he took us through the one-off authorization to sell at the summer festival.",
+    "speaker": "participant"
+  }
+]

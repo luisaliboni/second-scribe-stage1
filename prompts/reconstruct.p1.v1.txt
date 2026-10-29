@@ -1,0 +1,13 @@
+A research team interviewed a {role} about {domain}. Your job is to rebuild the person's journey as a map from the transcript at the bottom.
+How to build the map:
+1. Read the whole transcript first.
+2. Create one node per distinct step, service, actor (a person or an organization) or information source the person mentions. Do not merge different things into one node.
+3. Assign every node to a phase. The phases are: {phases}.
+4. Connect nodes with a directed edge whenever the person describes one leading to the next.
+5. Use the status "wished" for anything the person says was missing, should have existed, or that they would have wanted; use "experienced" for everything else.
+6. Support each node and each edge with a verbatim quote: words copied exactly from the transcript, at least 8 words long or a whole short answer. Never paraphrase a quote.
+7. If the person says, or clearly implies, how the journey felt as a whole, give that as a single word.
+Your whole reply must be JSON in exactly this shape, and nothing else:
+{schema}
+TRANSCRIPT:
+{transcript}

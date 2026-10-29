@@ -1,0 +1,10 @@
+[project]
+name = "second-scribe"
+version = "0.1.0"
+description = "a local, logged gauge of how far an AI reading of interviews is from a participant-endorsed map"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+second-scribe = "second_scribe.cli:main"

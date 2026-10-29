@@ -1,0 +1,74 @@
+[
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C08",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "workaround",
+    "sentence": "We got through the counsellor at the library who helps new businesses with the help of a friend who knew the system.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C03",
+    "expected_bucket": "unanchored",
+    "expected_modality": "other_person",
+    "kind": "other_person",
+    "sentence": "A friend of mine ended up going through the club for street food sellers twice.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C10",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "mapping_talk",
+    "sentence": "Let me draw an arrow over to the letter saying the land could be used for vending on the screen.",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C19",
+    "expected_bucket": "unanchored",
+    "expected_modality": "hypothetical",
+    "kind": "hypothetical",
+    "sentence": "If we ever move to another city, the garage test to see if the truck was fit for the road might work differently there.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C29",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "interviewer_voiced",
+    "sentence": "So the one-off authorization to sell at the summer festival came next, right?",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C28",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "dead_end",
+    "sentence": "We went through the fine for parking in the wrong spot, but nothing ever came of it.",
+    "speaker": "participant"
+  }
+]

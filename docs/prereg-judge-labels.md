@@ -1,0 +1,3 @@
+# Judge label conventions (frozen with the preregistration)
+
+When the supporting quote is the interviewer's words, the modality judge labels what the participant's reply affirms about the element, so an interviewer's statement that the participant confirms with a plain "yes" is labelled as if the participant had said it. When more than one label could fit, the judge applies this precedence: actual if the quote says it happened to or existed for the participant; otherwise wished if it fits the wished definition; otherwise negated, then other_person, then hypothetical; unsupported is used only when none fits, including when an interviewer quote has no reply.

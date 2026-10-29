@@ -1,0 +1,82 @@
+[
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C04",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "dead_end",
+    "sentence": "We went through the money we borrowed from the credit union, but nothing ever came of it.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C01",
+    "expected_bucket": "matched",
+    "expected_modality": "wished",
+    "kind": "wished",
+    "sentence": "I wish there had been the written plan for how the truck would make money.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C03",
+    "cids": [
+      "C03",
+      "C05"
+    ],
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "loop",
+    "sentence": "The club for street food sellers and the used truck we bought each pointed us at the other, three times in a row.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C14",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "mapping_talk",
+    "sentence": "I will write the paper proving we had liability coverage down on the map next to the last one.",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C21",
+    "cids": [
+      "C21",
+      "C32"
+    ],
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "unstated_edge",
+    "sentence": "",
+    "speaker": "none"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C16",
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "off_record",
+    "sentence": "",
+    "speaker": "none"
+  }
+]

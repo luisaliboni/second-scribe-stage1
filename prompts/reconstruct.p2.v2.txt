@@ -1,0 +1,18 @@
+Task: read the whole interview transcript below and build a journey map for a {role} dealing with {domain}.
+Output rule: reply with the JSON object only, nothing before or after it. Begin your answer with {
+Rules for the map:
+- Each distinct step, service, actor (person or organization) and source of information the person says was part of their journey becomes its own node, one node per item. Take them from what the participant says, never from general knowledge.
+- Each node belongs to one phase from this list: {phases}.
+- Whenever the person says one node led to another, draw an edge pointing from the first to the second.
+- Each node and edge is "experienced" or "wished". How to decide:
+{definitions}
+- Make no node or edge for something that is not part of this person's journey.
+- Every node and edge carries a quote copied word for word from the transcript: at least 8 words, or a whole short answer. Take it from a single turn spoken by a single speaker, do not copy the [I] or [P] tag, and never join a question with its answer. Prefer the participant's own words; if only the interviewer's question supports the item, copy the interviewer's words exactly. Do not reword, leave out words in the middle of a quote, or invent quotes.
+- If the person says or clearly implies how the journey felt overall, record that as one word; otherwise use null.
+Format:
+{schema}
+A node's type must be one of the listed types and is never a phase name.
+A speaker's turn may run over several lines, each starting with [I] (interviewer) or [P] (participant).
+TRANSCRIPT:
+{transcript}
+REMINDER: A node for each thing the participant says was part of their journey; nothing from general knowledge. No node for what did not happen to this person, happened only to someone else, or only might have happened (unless they wanted or needed it themselves, then wished). Each quote: exact words, one turn, one speaker, never a question joined to its answer. Output only the JSON. Begin your answer with {

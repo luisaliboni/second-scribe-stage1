@@ -1,0 +1,135 @@
+/* Profile panel (plan V3): the results headline. Colours from tokens.css only; text never below 13px.
+   Wide screens: the lead number and its sizes side by side. Narrow screens: sizes stack right under the lead.
+   The lead number (.pf-main, "what listening added") is the one inverse card of the view. The report prints this file
+   too: report.css has a print block that turns the inverse card back to paper (black on white). */
+.pf-band-top { padding: 10px 16px; border-radius: var(--radius-input); font-weight: 600; margin: 0 0 20px; }
+.pf-band-top.synthetic { background: var(--synthetic-bg); color: var(--synthetic-text); }
+.pf-band-top.pending { background: var(--lane); color: var(--ink); border: 1px dashed var(--border); font-weight: 500; }
+
+.pf-profile { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+
+.pf-row {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: var(--card-pad);
+  min-width: 0;
+}
+.pf-row-head { margin: 0 0 14px; }
+.pf-title { margin: 0 0 2px; font-size: 24px; letter-spacing: -0.025em; }
+.pf-pop { margin: 0 0 6px; color: var(--muted); font-size: 13px; }
+
+.pf-quals { list-style: none; margin: var(--space-2) 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.pf-qual {
+  font-size: 13px; line-height: var(--leading-body); padding: 2px 10px; border: 1px solid var(--rule); border-radius: var(--radius-chip);
+  color: var(--muted); background: var(--lane);
+  min-width: 0; max-width: 100%; overflow-wrap: anywhere;   /* a long chip wraps inside its row, never past the card */
+}
+
+.pf-band { font-size: 13px; color: var(--ink); margin: var(--space-2) 0 var(--space-1); }   /* Part 6 (S5): air under the chips */
+.pf-members, .pf-rests { font-size: 13px; margin: 4px 0; }
+.pf-members, .pf-rests { margin-top: 8px; padding-top: 4px; border-top: 1px solid var(--rule); }
+/* a details line: a cyan "+" that turns to "−" when open (the native marker is replaced) */
+.pf-members summary, .pf-rests summary { cursor: pointer; color: var(--ink); padding: 4px 0; list-style: none; }
+.pf-members summary::-webkit-details-marker, .pf-rests summary::-webkit-details-marker { display: none; }
+.pf-members summary::before, .pf-rests summary::before { content: "+"; display: inline-block; width: 1.1em; font-family: var(--mono); font-weight: 600; color: var(--ai); }
+.pf-members[open] > summary::before, .pf-rests[open] > summary::before { content: "\2212"; }
+.pf-members ul, .pf-rests ul { margin: 4px 0 0; padding-left: 20px; }
+
+.pf-cells { display: flex; flex-direction: column; min-width: 0; }
+.pf-cell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-areas: "label nums" "meta meta" "more more";
+  column-gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  min-width: 0;
+}
+.pf-cells > .pf-cell:first-child { border-top: 0; }
+.pf-cell > .pf-label { grid-area: label; }
+.pf-cell > .pf-nums { grid-area: nums; }
+.pf-cell > .pf-meta { grid-area: meta; }
+.pf-cell > :not(.pf-label):not(.pf-nums):not(.pf-meta) { grid-column: 1 / -1; }
+
+.pf-label { min-width: 0; overflow-wrap: anywhere; }
+.pf-name { font-weight: 500; }
+.pf-x { color: var(--muted); font-size: 13px; }
+.pf-x::before { content: " · "; }
+.pf-nums { font-variant-numeric: tabular-nums; min-width: 0; overflow-wrap: anywhere; }
+.pf-value { font-weight: 600; font-size: 16px; letter-spacing: -0.01em; margin-right: 6px; }
+.pf-ci { margin-right: 6px; white-space: nowrap; }   /* an interval never breaks inside its brackets */
+.pf-nums .pf-level { overflow-wrap: normal; }   /* labels wrap at spaces only, so "95%" never breaks inside */
+.pf-level, .pf-meta, .pf-bound, .pf-derived, .pf-formula, .pf-reason, .pf-partial { font-size: 13px; color: var(--muted); }
+.pf-meta > span + span::before { content: " · "; }
+.pf-derived { font-style: italic; color: var(--ink); }
+.pf-formula, .pf-reason { overflow-wrap: anywhere; }
+.pf-bound { color: var(--ink); }
+.pf-cell[data-state="not_run"] .pf-value { font-weight: 500; font-style: italic; color: var(--muted); }
+.pf-code { overflow-wrap: anywhere; }
+
+/* the lead */
+.pf-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "number sizes" "floors sizes" "settings settings";
+  gap: 24px 32px;
+}
+.pf-lead-number { grid-area: number; min-width: 0; }
+.pf-lead-sizes { grid-area: sizes; min-width: 0; border-left: 1px solid var(--border); padding-left: 28px; }
+.pf-lead-floors { grid-area: floors; min-width: 0; align-self: start; }
+.pf-lead-settings { grid-area: settings; min-width: 0; }
+.pf-lead h4 { margin: 0 0 6px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ai); }
+.pf-lead-derived { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.pf-caption { max-width: var(--measure); margin: 0 0 10px; color: var(--muted); }
+/* the one inverse card: ink ground, ground-colour text (what listening added) */
+.pf-main {
+  grid-template-columns: minmax(0, 1fr); grid-template-areas: "label" "nums" "meta" "more"; border-top: 0;
+  padding: 22px 26px; border-radius: var(--radius-card); background: var(--inverse); color: var(--on-inverse);
+}
+.pf-main .pf-value { font-family: var(--display); font-size: 64px; font-weight: 600; letter-spacing: -0.05em; line-height: 1.05; color: var(--on-inverse); }
+.pf-main .pf-ci { font-size: 19px; color: var(--on-inverse); }
+.pf-main .pf-x, .pf-main .pf-level, .pf-main .pf-meta, .pf-main .pf-reason, .pf-main .pf-formula, .pf-main .pf-partial { color: var(--muted-on-inverse); }
+.pf-main .pf-derived, .pf-main .pf-bound { color: var(--on-inverse); }
+.pf-main[data-state="not_run"] .pf-value { color: var(--muted-on-inverse); }
+.pf-readings { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
+/* the AI's reading is cyan-edged, the no-interview reading grey-edged (shape cue: a left bar) */
+.pf-reading { min-width: 0; padding: 12px 14px; border-radius: var(--radius-input); background: var(--lane); }
+.pf-reading-ai { border-left: 3px solid var(--ai); }
+.pf-reading-no-interview { border-left: 3px solid var(--never); }
+.pf-reading .pf-cell { grid-template-columns: minmax(0, 1fr); grid-template-areas: "label" "nums" "meta" "more"; border-top: 0; padding: 4px 0 0; }
+.pf-lane { margin: 0 0 2px; font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--ink); }
+.pf-reading-ai .pf-lane { color: var(--ai); }
+.pf-gloss { display: block; font-size: 13px; font-weight: 400; color: var(--muted); }
+
+@media (max-width: 760px) {
+  .pf-lead { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-template-areas: "number" "sizes" "floors" "settings"; }
+  .pf-lead-sizes { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: 16px; }
+}
+@media (max-width: 520px) {
+  .pf-cell { grid-template-columns: minmax(0, 1fr); grid-template-areas: "label" "nums" "meta" "more"; }
+  .pf-readings { grid-template-columns: minmax(0, 1fr); }
+  .pf-main { padding: 18px 20px; }
+  .pf-main .pf-value { font-size: 44px; }
+}
+
+/* compact (Try it): the lead block, then the rest of the profile in one closed <details> */
+.pf-lead-compact { grid-template-rows: none; grid-template-areas: "number sizes"; }
+.pf-full-summary {
+  cursor: pointer; color: var(--ink); font-weight: 600; min-height: 44px; display: flex; align-items: center;
+  padding: 0 4px;
+}
+.pf-full[open] > .pf-full-summary { margin-bottom: 8px; }
+/* display:flex drops the disclosure triangle; draw a cyan "+" (a "−" when open) so the line reads as something to open (T45) */
+.pf-full-summary::-webkit-details-marker { display: none; }
+.pf-full-summary::before { content: "+"; flex: none; width: 1.1em; margin-right: 8px; font-family: var(--mono); font-size: 18px; font-weight: 600; color: var(--ai); }
+.pf-full[open] > .pf-full-summary::before { content: "\2212"; }
+.pf-full-body { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.pf-lead-more { display: flex; flex-direction: column; gap: 20px; }
+@media (max-width: 760px) {
+  .pf-lead-compact { grid-template-areas: "number" "sizes"; }
+}
+/* audit fix D: the run footnote (one line per cloud role, run.remote_endpoints) */
+.pf-run-foot { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.pf-run-remote { margin: 2px 0; font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }

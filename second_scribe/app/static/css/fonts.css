@@ -1,0 +1,16 @@
+/* Bundled fonts (SIL OFL 1.1; provenance in ../fonts/SOURCES.md). No remote font loading. Both files are variable:
+   one file per family covers the weight range. */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(../fonts/SchibstedGrotesk-Variable-latin.woff2) format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(../fonts/JetBrainsMono-Variable-latin.woff2) format("woff2");
+}

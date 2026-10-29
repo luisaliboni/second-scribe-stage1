@@ -1,0 +1,78 @@
+[
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C02",
+    "expected_bucket": "unanchored",
+    "expected_modality": "negated",
+    "kind": "negated",
+    "sentence": "We never got the how-to pages on the city website, nobody offered it.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C11",
+    "expected_bucket": "matched",
+    "expected_modality": "wished",
+    "kind": "wished",
+    "sentence": "I wish there had been the approval from the health unit.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C09",
+    "expected_bucket": "unanchored",
+    "expected_modality": "other_person",
+    "kind": "other_person",
+    "sentence": "A friend of mine ended up going through the permit to run a business from city hall twice.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C17",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "dead_end",
+    "sentence": "We went through the visit when the health unit checked the truck over, but nothing ever came of it.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C25",
+    "cids": [
+      "C25",
+      "C32"
+    ],
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "unstated_edge",
+    "sentence": "",
+    "speaker": "none"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C16",
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "off_record",
+    "sentence": "",
+    "speaker": "none"
+  }
+]

@@ -1,0 +1,16 @@
+%% Synthetic permit journey for the Mermaid reader tests. No real data.
+flowchart LR
+    subgraph planning [Planning]
+        start([Decide to build]) --> forms[Collect forms]
+    end
+    subgraph permits ["Permits"]
+        review{Reviewer decides} -- approved --> stamp[/Stamp issued/]
+        review -.-> chaser[Chase the office]:::missing
+    end
+    forms -->|submit| review
+    stamp ==> build((Start work))
+    chaser --> review
+    wish[A call back that never came]:::missing
+    wish -.-> build
+    classDef missing stroke:#ff0000,stroke-width:3px
+    linkStyle 6 stroke:#ff0000

@@ -1,0 +1,13 @@
+You are helping a research team turn an interview into a journey map.
+The interview is with a {role}. It is about {domain}.
+Read the whole transcript and draw this person's journey as a map:
+- Make one node for each distinct step, service, actor (person or organization) or source of information in their journey.
+- Put each node in one of these phases: {phases}.
+- Add a directed edge when one node led to another in their experience.
+- Mark a node or edge "wished" when the person says it should have existed, was missing, or is what they would have wanted. Otherwise mark it "experienced".
+- For every node and edge, copy a supporting quote word for word from the transcript (at least 8 words, or a whole short answer).
+- Give one word for how the journey felt overall, if the person says or clearly implies it.
+Return only JSON in exactly this format, with no other text:
+{schema}
+TRANSCRIPT:
+{transcript}

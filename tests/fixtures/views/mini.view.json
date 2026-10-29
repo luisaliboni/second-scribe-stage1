@@ -1,0 +1,586 @@
+{
+ "schema": "view-data/1",
+ "source": "synthetic",
+ "reference_type": "A",
+ "test_pattern": true,
+ "fixture": "SYNTHETIC: hand-written mini fixture for the lanes (Task 23). Not a recorded result, not exporter output.",
+ "run": {
+  "run_id": "MINI-FIXTURE",
+  "code_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "config_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prompt_set_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "models": {
+   "recon": "fixture-recon",
+   "judge": "fixture-judge"
+  },
+  "chain_head": "0000000000000000000000000000000000000000000000000000000000000000",
+  "verify": {
+   "status": "not_run",
+   "records": 0,
+   "checked_at": "2026-10-18T00:00:00Z"
+  }
+ },
+ "phases": [
+  "Before applying",
+  "Inspection",
+  "After approval",
+  "Appeals"
+ ],
+ "rungs": [
+  "rung1",
+  "rung2",
+  "placebo",
+  "rung3"
+ ],
+ "arm_of_rung": {
+  "rung1": "rung1",
+  "rung2": "rung2",
+  "rung3": "remedy",
+  "placebo": "placebo"
+ },
+ "maps": [
+  {
+   "pid": "MINI-A",
+   "role": "owner",
+   "lanes": {
+    "script": {
+     "nodes": [
+      {
+       "node_id": "s-a2",
+       "label": "Submit application",
+       "phase": "Before applying",
+       "item_id": "a2"
+      },
+      {
+       "node_id": "s-a3",
+       "label": "Health inspection",
+       "phase": "Inspection",
+       "item_id": "a3"
+      },
+      {
+       "node_id": "s-a4",
+       "label": "Fire safety check",
+       "phase": "Inspection",
+       "item_id": "a4"
+      },
+      {
+       "node_id": "s-a6",
+       "label": "Receive permit",
+       "phase": "After approval",
+       "item_id": "a6"
+      }
+     ]
+    },
+    "reference": {
+     "nodes": [
+      {
+       "node_id": "a1",
+       "label": "Pre-application meeting",
+       "phase": "Before applying"
+      },
+      {
+       "node_id": "a2",
+       "label": "Submit application",
+       "phase": "Before applying"
+      },
+      {
+       "node_id": "a3",
+       "label": "Health inspection",
+       "phase": "Inspection"
+      },
+      {
+       "node_id": "a4",
+       "label": "Fire safety check",
+       "phase": "Inspection"
+      },
+      {
+       "node_id": "a5",
+       "label": "Neighbour consultation",
+       "phase": "Inspection"
+      },
+      {
+       "node_id": "a6",
+       "label": "Receive permit",
+       "phase": "After approval"
+      },
+      {
+       "node_id": "a7",
+       "label": "Street parking approval",
+       "phase": "After approval"
+      }
+     ]
+    },
+    "ai": {
+     "rung1": {
+      "nodes": [
+       {
+        "node_id": "rung1-a1",
+        "label": "Pre-application meeting",
+        "phase": "Before applying",
+        "item_id": "a1"
+       },
+       {
+        "node_id": "rung1-a2",
+        "label": "Submit application",
+        "phase": "Before applying",
+        "item_id": "a2"
+       },
+       {
+        "node_id": "rung1-a3",
+        "label": "Health inspection",
+        "phase": "Inspection",
+        "item_id": "a3"
+       },
+       {
+        "node_id": "rung1-a4",
+        "label": "Fire safety check",
+        "phase": "Inspection",
+        "item_id": "a4"
+       },
+       {
+        "node_id": "rung1-a6",
+        "label": "Receive permit",
+        "phase": "After approval",
+        "item_id": "a6"
+       }
+      ]
+     },
+     "rung2": {
+      "nodes": [
+       {
+        "node_id": "rung2-a1",
+        "label": "Pre-application meeting",
+        "phase": "Before applying",
+        "item_id": "a1"
+       },
+       {
+        "node_id": "rung2-a2",
+        "label": "Submit application",
+        "phase": "Before applying",
+        "item_id": "a2"
+       },
+       {
+        "node_id": "rung2-a3",
+        "label": "Health inspection",
+        "phase": "Inspection",
+        "item_id": "a3"
+       },
+       {
+        "node_id": "rung2-a4",
+        "label": "Fire safety check",
+        "phase": "Inspection",
+        "item_id": "a4"
+       },
+       {
+        "node_id": "rung2-a6",
+        "label": "Receive permit",
+        "phase": "After approval",
+        "item_id": "a6"
+       },
+       {
+        "node_id": "rung2-a7",
+        "label": "Street parking approval",
+        "phase": "After approval",
+        "item_id": "a7"
+       },
+       {
+        "node_id": "rung2-g1",
+        "label": "Ask a friend for advice",
+        "phase": "Before applying",
+        "gutter": true
+       },
+       {
+        "node_id": "rung2-g2",
+        "label": "Call the supplier twice",
+        "phase": "Before applying",
+        "gutter": true
+       }
+      ]
+     },
+     "placebo": {
+      "nodes": [
+       {
+        "node_id": "placebo-a1",
+        "label": "Pre-application meeting",
+        "phase": "Before applying",
+        "item_id": "a1"
+       },
+       {
+        "node_id": "placebo-a2",
+        "label": "Submit application",
+        "phase": "Before applying",
+        "item_id": "a2"
+       },
+       {
+        "node_id": "placebo-a3",
+        "label": "Health inspection",
+        "phase": "Inspection",
+        "item_id": "a3"
+       },
+       {
+        "node_id": "placebo-a4",
+        "label": "Fire safety check",
+        "phase": "Inspection",
+        "item_id": "a4"
+       },
+       {
+        "node_id": "placebo-a6",
+        "label": "Receive permit",
+        "phase": "After approval",
+        "item_id": "a6"
+       }
+      ]
+     },
+     "rung3": {
+      "nodes": [
+       {
+        "node_id": "rung3-a1",
+        "label": "Pre-application meeting",
+        "phase": "Before applying",
+        "item_id": "a1"
+       },
+       {
+        "node_id": "rung3-a2",
+        "label": "Submit application",
+        "phase": "Before applying",
+        "item_id": "a2"
+       },
+       {
+        "node_id": "rung3-a3",
+        "label": "Health inspection",
+        "phase": "Inspection",
+        "item_id": "a3"
+       },
+       {
+        "node_id": "rung3-a4",
+        "label": "Fire safety check",
+        "phase": "Inspection",
+        "item_id": "a4"
+       },
+       {
+        "node_id": "rung3-a6",
+        "label": "Receive permit",
+        "phase": "After approval",
+        "item_id": "a6"
+       },
+       {
+        "node_id": "rung3-a7",
+        "label": "Street parking approval",
+        "phase": "After approval",
+        "item_id": "a7"
+       },
+       {
+        "node_id": "rung3-g1",
+        "label": "Ask a neighbour",
+        "phase": "Appeals",
+        "gutter": true
+       }
+      ]
+     }
+    }
+   },
+   "items": [
+    {
+     "item_id": "a1",
+     "label": "Pre-application meeting",
+     "phase": "Before applying",
+     "x_slot": 0,
+     "reference_status": "missing",
+     "script_has": false,
+     "fate": {
+      "rung1": "kept",
+      "rung2": "leaked",
+      "placebo": "leaked",
+      "rung3": "kept"
+     },
+     "missing_kind": "never_happened",
+     "evidence": {
+      "rung2": {
+       "ai_node_id": "rung2-a1",
+       "quote": "SYNTHETIC quote: we had a chat with the council before anything else.",
+       "speaker": "participant",
+       "judge_label": "experienced",
+       "request_id": "mini-req-0001",
+       "record_index": 0,
+       "record_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+     }
+    },
+    {
+     "item_id": "a2",
+     "label": "Submit application",
+     "phase": "Before applying",
+     "x_slot": 1,
+     "reference_status": "happened",
+     "script_has": true,
+     "fate": {
+      "rung1": "recovered",
+      "rung2": "recovered",
+      "placebo": "recovered",
+      "rung3": "recovered"
+     }
+    },
+    {
+     "item_id": "a3",
+     "label": "Health inspection",
+     "phase": "Inspection",
+     "x_slot": 0,
+     "reference_status": "happened",
+     "script_has": true,
+     "fate": {
+      "rung1": "flipped",
+      "rung2": "recovered",
+      "placebo": "recovered",
+      "rung3": "recovered"
+     },
+     "evidence": {
+      "rung2": {
+       "ai_node_id": "rung2-a3",
+       "quote": "SYNTHETIC quote: the health inspector arrived early.",
+       "speaker": "interviewer",
+       "judge_label": "experienced"
+      }
+     }
+    },
+    {
+     "item_id": "a4",
+     "label": "Fire safety check",
+     "phase": "Inspection",
+     "x_slot": 1,
+     "reference_status": "missing",
+     "script_has": true,
+     "fate": {
+      "rung1": "leaked",
+      "rung2": "leaked",
+      "placebo": "leaked",
+      "rung3": "kept"
+     },
+     "missing_kind": "skipped",
+     "evidence": {
+      "rung1": {
+       "ai_node_id": "rung1-a4",
+       "quote": "SYNTHETIC quote: the fire officer came by on the Tuesday.",
+       "speaker": "participant",
+       "judge_label": "experienced",
+       "request_id": "mini-req-0004",
+       "record_index": 7,
+       "record_sha256": "1000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "rung2": {
+       "ai_node_id": "rung2-a4",
+       "quote": "SYNTHETIC quote: then the fire people looked at everything.",
+       "speaker": "participant",
+       "judge_label": "experienced",
+       "request_id": "mini-req-0005",
+       "record_index": 8,
+       "record_sha256": "2000000000000000000000000000000000000000000000000000000000000000"
+      }
+     }
+    },
+    {
+     "item_id": "a5",
+     "label": "Neighbour consultation",
+     "phase": "Inspection",
+     "x_slot": 2,
+     "reference_status": "missing",
+     "script_has": false,
+     "fate": {
+      "rung1": "missed",
+      "rung2": "missed",
+      "placebo": "missed",
+      "rung3": "missed"
+     },
+     "missing_kind": "never_happened"
+    },
+    {
+     "item_id": "a6",
+     "label": "Receive permit",
+     "phase": "After approval",
+     "x_slot": 0,
+     "reference_status": "happened",
+     "script_has": true,
+     "fate": {
+      "rung1": "recovered",
+      "rung2": "recovered",
+      "placebo": "recovered",
+      "rung3": "recovered"
+     }
+    },
+    {
+     "item_id": "a7",
+     "label": "Street parking approval",
+     "phase": "After approval",
+     "x_slot": 1,
+     "reference_status": "missing",
+     "script_has": null,
+     "fate": {
+      "rung1": "missed",
+      "rung2": "unattested",
+      "placebo": "missed",
+      "rung3": "kept"
+     },
+     "missing_kind": "never_happened",
+     "evidence": {
+      "rung2": {
+       "ai_node_id": "rung2-a7",
+       "judge_label": "wished",
+       "request_id": "mini-req-0006",
+       "record_index": 9,
+       "record_sha256": "3000000000000000000000000000000000000000000000000000000000000000"
+      }
+     }
+    }
+   ],
+   "off_record": []
+  },
+  {
+   "pid": "MINI-B",
+   "role": "inspector",
+   "lanes": {
+    "script": {
+     "nodes": [
+      {
+       "node_id": "s-b1",
+       "label": "Choose a menu",
+       "phase": "Before applying",
+       "item_id": "b1"
+      }
+     ]
+    },
+    "reference": {
+     "nodes": [
+      {
+       "node_id": "b2",
+       "label": "Order signage",
+       "phase": "After approval"
+      },
+      {
+       "node_id": "b1",
+       "label": "Choose a menu",
+       "phase": "Before applying"
+      },
+      {
+       "node_id": "b3",
+       "label": "Appeal a refusal",
+       "phase": "Appeals"
+      }
+     ]
+    },
+    "ai": {
+     "rung1": {
+      "nodes": [
+       {
+        "node_id": "rung1-b2",
+        "label": "Order signage",
+        "phase": "After approval",
+        "item_id": "b2"
+       },
+       {
+        "node_id": "rung1-b1",
+        "label": "Choose a menu",
+        "phase": "Before applying",
+        "item_id": "b1"
+       },
+       {
+        "node_id": "rung1-b3",
+        "label": "Appeal a refusal",
+        "phase": "Appeals",
+        "item_id": "b3"
+       }
+      ]
+     },
+     "rung2": {
+      "nodes": [
+       {
+        "node_id": "rung2-b2",
+        "label": "Order signage",
+        "phase": "After approval",
+        "item_id": "b2"
+       },
+       {
+        "node_id": "rung2-b1",
+        "label": "Choose a menu",
+        "phase": "Before applying",
+        "item_id": "b1"
+       },
+       {
+        "node_id": "rung2-b3",
+        "label": "Appeal a refusal",
+        "phase": "Appeals",
+        "item_id": "b3"
+       }
+      ]
+     },
+     "placebo": {
+      "nodes": [
+       {
+        "node_id": "placebo-b2",
+        "label": "Order signage",
+        "phase": "After approval",
+        "item_id": "b2"
+       },
+       {
+        "node_id": "placebo-b1",
+        "label": "Choose a menu",
+        "phase": "Before applying",
+        "item_id": "b1"
+       },
+       {
+        "node_id": "placebo-b3",
+        "label": "Appeal a refusal",
+        "phase": "Appeals",
+        "item_id": "b3"
+       }
+      ]
+     },
+     "rung3": {
+      "nodes": []
+     }
+    }
+   },
+   "items": [
+    {
+     "item_id": "b2",
+     "label": "Order signage",
+     "phase": "After approval",
+     "x_slot": 0,
+     "reference_status": "happened",
+     "script_has": false,
+     "fate": {
+      "rung1": "recovered",
+      "rung2": "recovered",
+      "placebo": "recovered"
+     }
+    },
+    {
+     "item_id": "b1",
+     "label": "Choose a menu",
+     "phase": "Before applying",
+     "x_slot": 0,
+     "reference_status": "happened",
+     "script_has": true,
+     "fate": {
+      "rung1": "recovered",
+      "rung2": "flipped",
+      "placebo": "recovered"
+     }
+    },
+    {
+     "item_id": "b3",
+     "label": "Appeal a refusal",
+     "phase": "Appeals",
+     "x_slot": 0,
+     "reference_status": "missing",
+     "script_has": false,
+     "fate": {
+      "rung1": "kept",
+      "rung2": "kept",
+      "placebo": "kept"
+     },
+     "missing_kind": "never_happened"
+    }
+   ],
+   "off_record": []
+  }
+ ]
+}

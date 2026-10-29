@@ -1,0 +1,4 @@
+# Reviewed hits of tests/test_wording.py. One per line: path<TAB>snippet<TAB>reason. The snippet is removed from the
+# text before the scan; a snippet that no longer occurs fails the test, so this file cannot go stale.
+DATAFLOW.md	script-src 'self'	The content security policy is quoted verbatim for the steward's check; script-src is a browser directive name, not a claim about the study.
+DATAFLOW.md	certificate --run runs/RUN_FOLDER --app-log logs/app.jsonl --out exports/run-record.json	The command line of the kit's certificate subcommand, quoted so the steward can run it; the output file is named run-record, as the app names it.

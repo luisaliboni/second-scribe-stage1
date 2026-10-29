@@ -1,0 +1,10 @@
+Imagine the official guidance document for a {role} who is {domain}. Without any interview, rebuild the pathway it describes as a journey map.
+How to build the map:
+1. Create one node per distinct step, service, actor (a person or an organization) or information source in the typical pathway. Keep different things in different nodes.
+2. Assign every node to a phase. The phases are: {phases}.
+3. Connect nodes with a directed edge when the official pathway leads from one to the next.
+4. Use the status "experienced" for what the official pathway contains.
+5. No transcript exists, so set every quote to null.
+6. Optionally give a single word for how the pathway typically feels; otherwise null.
+Your whole reply must be JSON in exactly this shape, and nothing else:
+{schema}

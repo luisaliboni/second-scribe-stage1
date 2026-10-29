@@ -1,0 +1,88 @@
+/* The info marker beside a technical term and its tip (glossary.js, design feedback item 32). Colours come from
+   tokens.css only, so light and dark both hold. The marker is a 24px target that takes no extra line height; the
+   visible ring is 15px. The tip is fixed to the window while open and never wider than the window minus 32px. */
+.ss-gloss-term { white-space: nowrap; }
+
+/* a <button>, or a <span role="button"> inside a label */
+.ss-gloss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  min-height: 0;
+  /* Part 6b: no space in the text between a term and its marker; the gap is this margin. The 15px ring sits in the 24px
+     box with 4.5px of air a side, so -1.5px left leaves a 3px gap after the term and -2.5px right leaves 2px before a
+     comma, full stop or ")" that follows (glossary.js keeps that punctuation inside the same no-wrap span). The 24px
+     target may overlap that punctuation by 2.5px; the ring itself never does. Vertical -6px as before (Part 6, X6). */
+  margin: -6px -2.5px -6px -1.5px;
+  padding: 0;
+  vertical-align: middle;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ai);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: help;
+}
+/* Part 6 (X5): screens size their own buttons (".ss-export-card button { min-height: 44px }" and the like) and those
+   rules used to win, so the marker grew to 44px and pushed its line away from its neighbours. The doubled class keeps
+   the 24px box everywhere, so a line that holds a marker keeps the same leading as the lines around it. */
+.ss-gloss.ss-gloss { flex: none; width: 24px; height: 24px; min-width: 0; min-height: 0; padding: 0; }   /* flex: none, so a choice box never squeezes it */
+.ss-gloss::before {
+  content: "i";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+.ss-gloss:hover:not(:disabled) { border-color: transparent; }
+.ss-gloss:hover::before,
+.ss-gloss[data-open]::before { background: var(--ai); border-color: var(--ai); color: var(--ground); }
+.ss-gloss:focus { outline: none; }
+.ss-gloss:focus-visible { outline: 2px solid var(--ai); outline-offset: -2px; }
+/* on a selected option (ink fill), the ring takes the option's text colour */
+.is-checked > .ss-gloss { color: inherit; }
+
+.ss-gloss-tip {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 32px));
+  padding: 10px 12px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius-input);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.28);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.ss-gloss-tip[hidden] { display: none; }
+
+@media print {
+  .ss-gloss, .ss-gloss-tip { display: none; }
+}

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viewer dev page</title>
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<style>
+  /* dev page layout only; colours still come from tokens */
+  main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+  .band { padding: 8px 14px; border-radius: 4px; font-weight: 600; margin: 0 0 8px; }
+  .band.synthetic { background: var(--synthetic-bg); color: var(--synthetic-text); }
+  .band.pattern { background: var(--lane); color: var(--muted); border: 1px dashed var(--border); font-weight: 500; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 0 0 24px; }
+  .surface { border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
+  .surface p { margin: 0 0 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 24px; }
+  .chip { padding: 6px 10px; border-radius: 4px; border: 2px solid var(--border); background: var(--lane); font-size: 13px; }
+  .chip.ai { border-color: var(--ai); background: var(--ai-fill); }
+  .chip.missing { border: 2px dashed var(--missing); color: var(--missing-text); }
+  .chip.never { border: 2px dotted var(--never); color: var(--muted); }
+  .chip.grey { border-color: var(--script); background: var(--script); color: var(--script-text); }
+  .sw { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
+  .sw div { width: 112px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; font-size: 13px; }
+  .sw i { display: block; height: 32px; }
+  .sw span { display: block; padding: 3px 6px; background: var(--panel); font-family: var(--mono); }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 0 0 24px; }
+  table { border-collapse: collapse; margin: 0 0 24px; }
+  td, th { text-align: left; padding: 4px 16px 4px 0; border-bottom: 1px solid var(--rule); }
+</style>
+<script>
+  // The strings this page uses, copied from strings/en.json (tests/test_tokens.py checks they match).
+  window.SS_STRINGS = {
+    "band.synthetic": "SYNTHETIC: corpus and traps written by the authors; test of the instrument",
+    "band.test_pattern": "Test pattern · not a recorded result",
+    "common.not_computed": "not computed",
+    "common.count": "{x} of {n}",
+    "common.ci_points": "{lo}–{hi} points"
+  };
+  // Dark and reduced motion are asked for through the hash: viewer.html#theme=dark
+  if (/(^|[#&])theme=dark($|&)/.test(location.hash)) document.documentElement.setAttribute("data-theme", "dark");
+  else if (/(^|[#&])theme=light($|&)/.test(location.hash)) document.documentElement.setAttribute("data-theme", "light");
+</script>
+</head>
+<body>
+<main>
+  <h1>Viewer dev page</h1>
+  <p class="muted">Developer page. Tokens, type and the SS core, in one place. Not shipped.</p>
+
+  <div id="bands"></div>
+
+  <h2>Surfaces and text</h2>
+  <div class="grid" id="surfaces"></div>
+
+  <h2>Shape and colour</h2>
+  <div class="chips" id="chips"></div>
+
+  <h2>Tokens</h2>
+  <div class="sw" id="swatches"></div>
+
+  <h2>Type</h2>
+  <h1 style="font-size:56px;margin:0">fact ff fi fl g a y</h1>
+  <p style="font-family:var(--sans);font-size:15px">Schibsted Grotesk 15px body text: the quick brown fox jumps over the lazy dog, 0123456789.</p>
+  <p><code>JetBrains Mono 13px: sha256 9b48f863 /Users/name/project</code></p>
+
+  <h2>Buttons</h2>
+  <div class="row">
+    <button class="primary" type="button">Primary, 44px</button>
+    <button type="button">Secondary</button>
+    <button type="button" disabled>Disabled</button>
+    <a href="#theme=dark">Link</a>
+  </div>
+
+  <h2>SS.fmt</h2>
+  <table id="fmt"><tbody></tbody></table>
+</main>
+<script src="../js/core.js"></script>
+<script>
+(function () {
+  "use strict";
+  function el(tag, cls, text, parent) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+
+  var bands = document.getElementById("bands");
+  el("div", "band synthetic", SS.t("band.synthetic"), bands);
+  el("div", "band pattern", SS.t("band.test_pattern"), bands);
+
+  var surfaces = document.getElementById("surfaces");
+  [["ground", "Ground"], ["panel", "Panel"], ["lane", "Lane"], ["input", "Input"]].forEach(function (s) {
+    var box = el("div", "surface", undefined, surfaces);
+    box.style.background = "var(--" + s[0] + ")";
+    el("h3", "", s[1], box);
+    [["ink", "ink text"], ["muted", "muted text"], ["navy", "navy text"], ["missing-text", "missing text"]].forEach(function (t) {
+      var p = el("p", "", t[1], box);
+      p.style.color = "var(--" + t[0] + ")";
+    });
+  });
+
+  var chips = document.getElementById("chips");
+  el("span", "chip", "item, normal", chips);
+  el("span", "chip ai", "AI, solid blue", chips);
+  el("span", "chip missing", "missing, dashed red", chips);
+  el("span", "chip never", "never drawn, dotted grey", chips);
+  el("span", "chip grey", "no-interview grey fill", chips);
+
+  var swatches = document.getElementById("swatches");
+  ["ground", "panel", "lane", "input", "rule", "border", "ink", "navy", "muted", "ai", "ai-fill",
+   "missing", "missing-text", "never", "synthetic-bg", "synthetic-text"].forEach(function (name) {
+    var d = el("div", "", undefined, swatches);
+    var i = el("i", "", undefined, d);
+    i.style.background = "var(--" + name + ")";
+    el("span", "", name, d);
+  });
+  // the two grey tokens of the no-interview lane, named by role on this page
+  [["script", "grey fill"], ["script-text", "grey text"]].forEach(function (p) {
+    var d = el("div", "", undefined, swatches);
+    var i = el("i", "", undefined, d);
+    i.style.background = "var(--" + p[0] + ")";
+    el("span", "", p[1], d);
+  });
+
+  var rows = [
+    ["count(3, 12)", SS.fmt.count(3, 12)],
+    ["count(0, 12)", SS.fmt.count(0, 12)],
+    ["pct(0.42)", SS.fmt.pct(0.42)],
+    ["ci(3.2, 7.9)", SS.fmt.ci(3.2, 7.9)],
+    ["value(undefined)", SS.fmt.value(undefined)],
+    ["value({status: 'x'})", SS.fmt.value({ status: "x" })],
+    ["value(0)", SS.fmt.value(0)],
+    ["get({a:{b:1}}, 'a.c')", String(SS.get({ a: { b: 1 } }, "a.c"))]
+  ];
+  var body = document.querySelector("#fmt tbody");
+  rows.forEach(function (r) {
+    var tr = el("tr", "", undefined, body);
+    el("td", "mono", r[0], tr);
+    el("td", "", r[1], tr);
+  });
+})();
+</script>
+</body>
+</html>

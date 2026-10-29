@@ -1,0 +1,205 @@
+{
+  "edges": [
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g1",
+      "status": "experienced",
+      "target": "g3"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g3",
+      "status": "experienced",
+      "target": "g4"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g4",
+      "status": "experienced",
+      "target": "g5"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g5",
+      "status": "experienced",
+      "target": "g6"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g6",
+      "status": "experienced",
+      "target": "g7"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g7",
+      "status": "experienced",
+      "target": "g8"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g8",
+      "status": "experienced",
+      "target": "g9"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g9",
+      "status": "experienced",
+      "target": "g10"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g4",
+      "status": "experienced",
+      "target": "g1"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g1",
+      "status": "experienced",
+      "target": "g4"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g1",
+      "status": "experienced",
+      "target": "g2"
+    }
+  ],
+  "emotion_word": null,
+  "interviewer": "I2",
+  "map_id": "SYN-OW05",
+  "meta": {
+    "interviewer_voiced": [],
+    "mapping_talk_only": [
+      "g5"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "g1",
+      "node_type": "scenario",
+      "phase": "Planning",
+      "quote": null,
+      "status": "experienced",
+      "text": "vehicle purchase",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g2",
+      "node_type": "service",
+      "phase": "Planning",
+      "quote": null,
+      "status": "experienced",
+      "text": "small business loan",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g3",
+      "node_type": "service",
+      "phase": "Planning",
+      "quote": null,
+      "status": "wished",
+      "text": "startup plan",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g4",
+      "node_type": "actor_information_source",
+      "phase": "Planning",
+      "quote": null,
+      "status": "experienced",
+      "text": "local vendor group",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g5",
+      "node_type": "information_source",
+      "phase": "Permits",
+      "quote": null,
+      "status": "experienced",
+      "text": "proof of coverage",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g6",
+      "node_type": "scenario",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "sanitation check",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g7",
+      "node_type": "scenario",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "propane and extinguisher check",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g8",
+      "node_type": "information_source",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "pre-inspection list",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g9",
+      "node_type": "service",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "design plans review",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g10",
+      "node_type": "scenario",
+      "phase": "Operating",
+      "quote": null,
+      "status": "experienced",
+      "text": "noise grievance record",
+      "x": null,
+      "y": null
+    }
+  ],
+  "origin": "synthetic_gold",
+  "unresolved_edges": 0
+}

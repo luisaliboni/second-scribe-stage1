@@ -1,0 +1,6 @@
+Each numbered label below names a step, service, person or source of information in a journey.
+For each label, give a short plain concept name of 1 to 4 words that says what it is, in lowercase
+common words, dropping names of specific people, places and organisations.
+Return only JSON: {"concepts": [{"n": <label number>, "concept": "<1-4 plain words>"}]}
+LABELS:
+{labels}

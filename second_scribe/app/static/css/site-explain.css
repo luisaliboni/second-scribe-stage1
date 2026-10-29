@@ -1,0 +1,242 @@
+/* Explain page ("Three Lights"): hero, the six-scene stage and its legend. Colours come from tokens.css only, so
+   light and dark both hold; shape carries meaning (solid, dashed, grey fill, the quote mark), colour repeats it.
+   Text is never below 13px; the primary button is at least 44px tall. Class prefix: ss-x-.
+   Motion (CSS only, the player's JS is unchanged): a scene fades and rises in when it is shown, frames fade and rise
+   as the player reveals them, the current tab carries a 2px cyan bar. All of it is off under prefers-reduced-motion
+   (see the block at the end; base.css switches every transition and animation off as well). */
+
+.ss-x { max-width: none; margin: 0 auto; padding: 0 0 64px; }   /* inside the site main, which sets width and gutters */
+
+/* ---------------------------------------------------------------- hero */
+.ss-x-hero { padding: 40px 0 56px; max-width: 920px; }
+.ss-x-title {
+  font-size: clamp(40px, 5.6vw, 84px); font-weight: 600; letter-spacing: -0.045em; line-height: 1.02;
+  margin: 0 0 24px; text-wrap: balance;
+}
+.ss-x-lead { font-size: 19px; line-height: 1.55; color: var(--ink-2); max-width: var(--measure); margin: 0 0 var(--gap-block); }
+.ss-x-install { border-left: 2px solid var(--ai); padding: 4px 0 4px 20px; }
+.ss-x-install-label { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 10px; }
+.ss-x-cmdrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
+.ss-x-cmd {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 18px;
+  font-family: var(--mono); font-size: 14px; color: var(--ink); background: var(--input);
+  border: 1px solid var(--border); border-radius: var(--radius-input);
+  overflow-wrap: anywhere;
+}
+.ss-x-copy { min-height: 44px; padding: 8px 20px; }
+.ss-x-copy-status { min-height: 1.5em; margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+.ss-x-install-more { margin: 2px 0 0; font-size: 14px; }
+
+/* ---------------------------------------------------------------- stage */
+.ss-x-how-title { font-size: clamp(26px, 3vw, 40px); letter-spacing: -0.035em; margin: 8px 0 20px; }
+.ss-x-stage { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-card); padding: 24px clamp(16px, 2.2vw, 32px) 28px; }
+.ss-x-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 0 0 20px; border-bottom: 1px solid var(--rule); }
+.ss-x-controls > * { min-width: 0; max-width: 100%; }
+
+/* scene tabs: a segmented pill track; the selected tab is an ink pill and also carries a 2px cyan bar */
+.ss-x-tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; background: var(--panel-2); border-radius: var(--radius-pill); }
+.ss-x-tab {
+  position: relative; overflow: hidden; font-size: 14px; padding: 6px 16px; min-height: 44px;
+  border: 1px solid transparent; border-radius: var(--radius-pill); background: transparent; color: var(--ink-2);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.ss-x-tab:hover:not(:disabled) { color: var(--ink); border-color: transparent; background: var(--lane); }
+.ss-x-tab[aria-current="step"] { background: var(--ink); border-color: var(--ink); color: var(--ground); font-weight: 600; }
+.ss-x-tab[aria-current="step"]::after {
+  content: ""; position: absolute; left: 16px; right: 16px; bottom: 4px; height: 2px; border-radius: 2px; background: var(--ai);
+}
+.ss-x-buttons { display: flex; gap: 8px; align-items: center; }
+.ss-x-prev, .ss-x-next { min-width: 44px; min-height: 44px; font-size: 18px; padding: 6px 12px; }
+.ss-x-play { min-width: 112px; }
+
+.ss-x-screen { padding: 24px 0 4px; }
+.ss-x-live .ss-x-scene { min-height: 560px; }
+.ss-x-scene[hidden] { display: none; }
+.ss-x-band {
+  display: inline-block; margin: 0 0 14px; padding: 6px 12px; border-radius: var(--radius-pill);
+  font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  background: var(--synthetic-bg); color: var(--synthetic-text);
+}
+.ss-x-caption { font-size: clamp(22px, 2.2vw, 30px); letter-spacing: -0.025em; line-height: 1.2; max-width: 30em; margin: 0 0 10px; }
+.ss-x-note { font-size: 16px; color: var(--ink-2); max-width: var(--measure); margin: 0 0 8px; }
+.ss-x-visual { margin: 22px 0 18px; }
+.ss-x-try-row { margin: 0; font-size: 14px; }
+.ss-x-try { font-weight: 500; }
+
+/* frames: the player reveals one element per step; reduced motion has no pending frame at all.
+   A pending frame sits 10px low and invisible; revealing it fades it in and lifts it (0.7s). */
+.ss-x-f { transition: opacity 0.7s ease, transform 0.7s ease, background-color 0.7s ease, box-shadow 0.7s ease; }
+.ss-x-pending[data-reveal="self"] { opacity: 0; transform: translateY(10px); }
+.ss-x-pending[data-reveal="marks"] .ss-x-mark,
+.ss-x-pending[data-reveal="marks"] .ss-x-key-mark { opacity: 0; }
+.ss-x-pending[data-reveal="added"] .ss-x-key-added,
+.ss-x-pending[data-reveal="added"] .ss-x-key-read { opacity: 0; }
+.ss-x-pending[data-reveal="added"] .ss-x-grow.ss-x-added { background: transparent; box-shadow: none; }
+.ss-x-mark, .ss-x-key-mark, .ss-x-key-added, .ss-x-key-read { transition: opacity 0.7s ease; }
+
+/* a scene fades and rises in each time the player shows it (hidden -> shown restarts the animation) */
+@keyframes ss-x-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.ss-x-live .ss-x-scene:not([hidden]) { animation: ss-x-rise 0.7s ease both; }
+
+/* ---------------------------------------------------------------- boxes (one look per reading) */
+.ss-x-box {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
+  padding: 8px 12px; border-radius: var(--radius-chip); font-size: 14px; line-height: 1.3;
+  border: 1.5px solid var(--ink); background: var(--panel); color: var(--ink);
+  transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+}
+.ss-x-box.ss-x-ai { border-color: var(--ai); background: var(--ai-fill); }
+.ss-x-box.ss-x-no_interview { border-color: var(--script); background: var(--script); color: var(--script-text); }
+.ss-x-box.ss-x-missing { border-style: dashed; }
+.ss-x-box.ss-x-reference.ss-x-missing { border-color: var(--missing); color: var(--missing-text); }
+.ss-x-box-label { font-weight: 500; }
+.ss-x-box-phase { font-size: 13px; color: var(--muted); }
+.ss-x-tag { font-size: 13px; font-weight: 500; }
+.ss-x-missing-tag { color: var(--missing-text); }
+.ss-x-ai-missing-tag { color: var(--ai); }
+.ss-x-mark { font-family: var(--display); font-size: 17px; line-height: 1; font-weight: 600; color: var(--ink); margin-left: auto; }
+
+/* ---------------------------------------------------------------- scene 1: the interview */
+.ss-x-transcript { max-width: 760px; border: 1px solid var(--rule); border-radius: 12px; padding: 16px 20px; background: var(--ground); }
+.ss-x-turn { display: grid; grid-template-columns: 104px 1fr; gap: 12px; margin: 0; padding: 8px 0; font-size: 16px; }
+.ss-x-turn + .ss-x-turn { border-top: 1px solid var(--rule); }
+.ss-x-speaker { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--muted); padding-top: 2px; }
+.ss-x-turn.ss-x-interviewer .ss-x-said { color: var(--muted); }
+.ss-x-turn.ss-x-participant .ss-x-said { color: var(--ink); }
+.ss-x-gap { margin: 0; padding: 8px 0 8px 116px; font-size: 13px; color: var(--muted); border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); }
+
+/* ---------------------------------------------------------------- phase columns (scenes 2 and 4) */
+.ss-x-phases { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ss-x-phase { position: relative; background: var(--lane); border-radius: 12px; padding: 12px; min-height: 120px; }
+/* a thin dashed divider in the gap between phase columns (item 16) */
+.ss-x-phase + .ss-x-phase::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -7px; width: 0; border-left: 1px dashed var(--border); pointer-events: none;
+}
+.ss-x-phase-name { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.ss-x-phase-boxes { display: flex; flex-direction: column; gap: 8px; }
+.ss-x-mapwrap { position: relative; }
+.ss-x-stamp {
+  display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0; padding: 6px 16px;
+  border: 1.5px solid var(--ink); border-radius: var(--radius-pill); font-weight: 600; font-size: 14px; color: var(--ink);
+}
+.ss-x-stamp::before {
+  content: ""; display: inline-block; box-sizing: content-box; width: 5px; height: 10px; margin: 0 4px 3px 2px;
+  border: solid currentColor; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg);
+}
+
+/* ---------------------------------------------------------------- scene 3: the AI reads */
+.ss-x-reads { display: flex; flex-direction: column; gap: 10px; }
+.ss-x-read { display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(220px, 300px); gap: 10px; align-items: center; }
+.ss-x-quote-wrap { margin: 0; padding: 4px 0 4px 14px; border-left: 2px solid var(--border); font-size: 14px; }
+.ss-x-quote-who { display: block; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ss-x-quote { color: var(--ink); }
+.ss-x-quote-removed { color: var(--muted); text-decoration: line-through; }
+.ss-x-removed-tag { color: var(--muted); }
+.ss-x-arrow { color: var(--muted); font-size: 18px; text-align: center; }
+
+/* ---------------------------------------------------------------- scene 4: the no-interview map */
+.ss-x-ni { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 20px; align-items: start; }
+.ss-x-given { margin: 0; padding: 16px 18px; border: 1px solid var(--rule); border-radius: 12px; background: var(--ground); }
+.ss-x-given-title { font-family: var(--display); font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 8px; }
+.ss-x-given dt { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+.ss-x-given dd { margin: 0; font-size: 15px; }
+.ss-x-given-none { margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 14px; color: var(--muted); }
+.ss-x-lane-name { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+
+/* ---------------------------------------------------------------- scene 5: side by side */
+.ss-x-grid { display: flex; flex-direction: column; }
+.ss-x-grow { display: grid; grid-template-columns: 112px repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; padding: 4px 8px; border-radius: 4px; }
+.ss-x-ghead { font-size: 13px; font-weight: 600; color: var(--muted); padding-bottom: 8px; align-items: end; }
+.ss-x-gphase { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--ink); }
+.ss-x-ghead .ss-x-gphase { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--muted); }
+.ss-x-gcell .ss-x-box { padding: 5px 9px; font-size: 13px; }
+.ss-x-grow.ss-x-added { background: var(--lane); box-shadow: inset 4px 0 0 var(--ink); }
+.ss-x-side-key { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; font-size: 14px; }
+.ss-x-side-key p { display: flex; align-items: center; gap: 8px; margin: 0; }
+.ss-x-side-key .ss-x-mark { margin: 0; }
+.ss-x-side-key .ss-x-key-read { display: block; flex-basis: 100%; max-width: var(--measure); font-size: 15px; color: var(--ink-2); }   /* how to read the rows (item 7) */
+.ss-x-swatch-added { display: inline-block; width: 26px; height: 18px; border-radius: 4px; background: var(--lane); box-shadow: inset 4px 0 0 var(--ink); border: 1px solid var(--border); }
+
+/* ---------------------------------------------------------------- scene 6: your interviews, your computer */
+.ss-x-own { display: grid; grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr); gap: 20px; align-items: center; max-width: 900px; }
+.ss-x-computer { border: 1.5px solid var(--ink); border-radius: var(--radius-card); padding: 18px 20px; background: var(--ground); }
+.ss-x-own-title { font-family: var(--display); font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 10px; }
+.ss-x-own-note { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
+.ss-x-docs { display: flex; gap: 8px; margin: 0 0 12px; }
+.ss-x-doc { width: 30px; height: 38px; border: 1.5px solid var(--muted); border-radius: 4px; background: var(--panel); box-shadow: inset 0 9px 0 -6px var(--rule), inset 0 17px 0 -14px var(--rule); }
+.ss-x-mini { display: flex; flex-direction: column; gap: 5px; }
+.ss-x-mini-lane { display: block; height: 12px; border-radius: 4px; border: 1.5px solid var(--ink); background: var(--panel); }
+.ss-x-mini-lane.ss-x-ai { border-color: var(--ai); background: var(--ai-fill); }
+.ss-x-mini-lane.ss-x-no_interview { border-color: var(--script); background: var(--script); }
+.ss-x-profile { display: flex; align-items: center; gap: 10px; }
+.ss-x-card { display: inline-flex; flex-direction: column; gap: 6px; padding: 10px 14px; min-width: 120px; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); font-size: 14px; font-weight: 500; }
+.ss-x-card-lines { display: block; height: 16px; background: linear-gradient(var(--rule), var(--rule)) 0 2px / 80% 3px no-repeat, linear-gradient(var(--rule), var(--rule)) 0 10px / 55% 3px no-repeat; }
+.ss-x-pool { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; border: 1px dashed var(--border); border-radius: var(--radius-card); }
+.ss-x-pool .ss-x-own-title { margin-bottom: 4px; }
+.ss-x-pool-why { margin: 6px 0 0; max-width: 46ch; font-size: 14px; color: var(--ink-2); }   /* why pooling helps (item 5) */
+.ss-x-card-you { border-color: var(--ink); border-width: 1.5px; }
+
+/* ---------------------------------------------------------------- legend */
+.ss-x-legend { margin: 24px 0 0; padding: 18px 0 0; border-top: 1px solid var(--rule); }
+.ss-x-legend-title { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ai); margin: 0 0 10px; }
+/* Part 6 (S1): the four keys sit in an even grid (4, 2 or 1 across), each starting at the top of its cell */
+.ss-x-legend-list {
+  list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: var(--space-3) var(--space-6); align-items: start; font-size: 14px;
+}
+.ss-x-legend-list li { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: start; column-gap: 8px; row-gap: 2px; }
+.ss-x-legend-list .ss-x-sample { margin-top: 1px; }
+.ss-x-legend-gloss { grid-column: 2; }
+.ss-x-legend-gloss { color: var(--muted); font-size: 13px; }
+.ss-x-sample { display: inline-block; width: 28px; height: 18px; border-radius: 5px; border: 1.5px solid var(--ink); background: var(--panel); }
+.ss-x-sample.ss-x-ai { border-color: var(--ai); background: var(--ai-fill); }
+.ss-x-sample.ss-x-no_interview { border-color: var(--script); background: var(--script); }
+.ss-x-sample.ss-x-missing { border-style: dashed; border-color: var(--missing); }
+
+/* ---------------------------------------------------------------- reduced motion: six still frames in a column */
+.ss-x-still .ss-x-screen { display: flex; flex-direction: column; gap: 0; padding-top: 0; }
+.ss-x-still .ss-x-scene { padding: 28px 0 32px; border-bottom: 1px solid var(--rule); }
+.ss-x-still .ss-x-scene:first-child { padding-top: 4px; }
+
+/* ---------------------------------------------------------------- narrow screens */
+@media (max-width: 760px) {
+  .ss-x { padding: 0 0 48px; }
+  .ss-x-hero { padding: 24px 0 32px; }
+  .ss-x-title { font-size: 36px; }
+  .ss-x-lead { font-size: 16px; }
+  .ss-x-stage { padding: 14px 14px 18px; }
+  .ss-x-controls { flex-direction: column; align-items: stretch; }
+  .ss-x-tabs { border-radius: var(--radius-card); }   /* tabs wrap to a second row instead of hiding off the edge */
+  .ss-x-band { border-radius: var(--radius-input); }   /* Part 6 (S9): a band that wraps is a box, not a pill */
+  .ss-x-buttons { justify-content: space-between; }
+  .ss-x-play { flex: 1; }
+  .ss-x-live .ss-x-scene { min-height: 0; }
+  .ss-x-caption { font-size: 21px; }
+  .ss-x-turn { grid-template-columns: 1fr; gap: 0; }
+  .ss-x-gap { padding-left: 0; }
+  .ss-x-phases { grid-template-columns: 1fr; gap: 8px; }
+  .ss-x-phase { min-height: 0; }
+  .ss-x-phase + .ss-x-phase::before { display: none; }   /* one column on a phone: no divider */
+  .ss-x-read { grid-template-columns: 1fr; gap: 4px; }
+  .ss-x-read .ss-x-arrow { transform: rotate(90deg); justify-self: start; margin-left: 8px; }
+  .ss-x-ni { grid-template-columns: 1fr; }
+  .ss-x-grow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 3px; }
+  .ss-x-grow > .ss-x-gphase { grid-column: 1 / -1; }
+  .ss-x-grow > .ss-x-gphase:empty { display: none; }
+  .ss-x-ghead > .ss-x-gphase { display: none; }
+  .ss-x-gcell .ss-x-box { padding: 3px 5px; overflow-wrap: anywhere; }
+  .ss-x-own { grid-template-columns: 1fr; }
+  .ss-x-profile .ss-x-arrow { transform: rotate(90deg); }
+  .ss-x-profile { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------------------------------------------------------------- reduced motion: nothing moves or fades.
+   (JS also draws every frame complete in that mode; this keeps the CSS honest if a pending class is ever present.) */
+@media (prefers-reduced-motion: reduce) {
+  .ss-x-f, .ss-x-mark, .ss-x-key-mark, .ss-x-key-added, .ss-x-key-read, .ss-x-box, .ss-x-tab { transition: none; }
+  .ss-x-live .ss-x-scene:not([hidden]) { animation: none; }
+  .ss-x-pending[data-reveal="self"] { transform: none; }
+}

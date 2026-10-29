@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lanes dev page</title>
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/viewer.css">
+<style>
+  /* dev page layout only */
+  main { max-width: 1180px; margin: 0 auto; padding: 16px; }
+  .band { padding: 8px 14px; border-radius: 4px; font-weight: 600; margin: 0 0 8px; }
+  .band.synthetic { background: var(--synthetic-bg); color: var(--synthetic-text); }
+  .band.pattern { background: var(--lane); color: var(--muted); border: 1px dashed var(--border); font-weight: 500; }
+  .picker { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0 12px; }
+  .picker a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); text-decoration: none; font-size: 13px; }
+  .picker a[aria-current="true"] { background: var(--navy); color: var(--ground); border-color: var(--navy); }
+</style>
+<script src="data/strings.dev.js"></script>
+</head>
+<body>
+<main>
+  <h1>Lanes dev page</h1>
+  <div id="bands"></div>
+  <div class="picker" id="picker"></div>
+  <div id="lanes"></div>
+</main>
+<script src="../js/core.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/encoding.js"></script>
+<script src="../js/a11y.js"></script>
+<script src="../js/lanes.js"></script>
+<script src="data/mini.view.js"></script>
+<script>
+(function () {
+  "use strict";
+  // #map=<index or pid>&rung=<key>&theme=dark|light&ref=B
+  var params = {};
+  location.hash.replace(/^#/, "").split("&").forEach(function (kv) {
+    var i = kv.indexOf("=");
+    if (i > 0) params[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1));
+  });
+  if (params.theme === "dark" || params.theme === "light") document.documentElement.setAttribute("data-theme", params.theme);
+
+  function el(tag, cls, text, parent) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+
+  var view = SS.view.load(JSON.parse(JSON.stringify(window.SS_DATA.mini)));
+  if (params.ref) view.reference_type = params.ref;
+  var mapIdx = 0;
+  view.maps.forEach(function (m, i) { if (m.pid === params.map || String(i) === params.map) mapIdx = i; });
+  var rung = view.rungs.indexOf(params.rung) >= 0 ? params.rung : "rung2";
+
+  var bands = document.getElementById("bands");
+  el("div", "band synthetic", SS.t("band.synthetic"), bands);
+  el("div", "band pattern", SS.t("band.test_pattern"), bands);
+
+  var picker = document.getElementById("picker");
+  function link(text, patch, current) {
+    var p = { map: view.maps[mapIdx].pid, rung: rung, theme: params.theme, ref: params.ref };
+    Object.keys(patch).forEach(function (k) { p[k] = patch[k]; });
+    var h = Object.keys(p).filter(function (k) { return p[k]; }).map(function (k) { return k + "=" + encodeURIComponent(p[k]); }).join("&");
+    var a = el("a", "", text, picker);
+    a.setAttribute("href", "#" + h);
+    a.addEventListener("click", function () { setTimeout(function () { location.reload(); }, 0); });
+    if (current) a.setAttribute("aria-current", "true");
+  }
+  view.maps.forEach(function (m) { link(m.pid, { map: m.pid }, m.pid === view.maps[mapIdx].pid); });
+  view.rungs.forEach(function (r) { link(r, { rung: r }, r === rung); });
+
+  SS.lanes.render(document.getElementById("lanes"), view, mapIdx, rung);
+  SS.bus.on("item:open", function (p) { document.title = "open " + p.lane + ":" + p.item_id; });
+})();
+</script>
+</body>
+</html>

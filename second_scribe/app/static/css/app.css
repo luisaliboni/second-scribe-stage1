@@ -1,0 +1,931 @@
+/* The local app's frame (Task 31): header, navigation, main area, and the plain "open the link" page.
+   "Three Lights": colours come from tokens.css only, so light and dark both hold; text is never below 13px.
+   Cards use --radius-card with hairline borders, inputs --radius-input on the --input well, chips --radius-chip,
+   buttons and tabs are pills. Screens add their own rules below, one commented block per screen.
+   Part 6 (items 42 and 43): every gap, card padding and text measure comes from the spacing tokens in tokens.css
+   (--space-*, --gap-heading-hint, --gap-hint-controls, --gap-block, --card-pad, --card-gap, --choice-gap, --measure).
+   Choices that may wrap (radios and checks drawn as boxes) are cards with --radius-input in an even grid, never a pill
+   that holds two rows; a segmented track that wraps on a phone becomes an even grid. */
+.ss-app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.ss-shell-header {
+  display: flex;
+  align-items: center;
+  gap: 16px 28px;
+  flex-wrap: wrap;
+  /* same left edge as the main column below (1320px cap, 16 to 48px gutter) */
+  padding: 12px max(clamp(16px, 3vw, 48px), calc((100% - 1320px) / 2 + clamp(16px, 3vw, 48px)));
+  background: var(--panel);
+  border-bottom: 1px solid var(--rule);
+}
+.ss-shell-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+/* The navigation is a segmented pill track: the current page is an ink pill with ground-colour text (and is
+   also bold and aria-current, so colour is not the only cue). */
+.ss-shell-nav {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  padding: 4px;
+  background: var(--panel-2);
+  border: 1px solid var(--rule);
+  border-radius: 26px;   /* a full pill for one row; a soft rounded box when the links wrap on a phone */
+}
+.ss-shell-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 15px;
+  color: var(--ink-2);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  transition: background-color 0.15s linear, color 0.15s linear;
+}
+.ss-shell-link:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 10%, transparent); }
+.ss-shell-link[aria-current="page"] {
+  color: var(--ground);
+  font-weight: 600;
+  background: var(--ink);
+}
+.ss-shell-link[aria-current="page"]:hover { color: var(--ground); background: var(--ink); }
+@media (max-width: 640px) {
+  .ss-shell-header { gap: 10px; }
+  /* Part 6 (X1): on a phone the six links form an even grid of three, never a pill that wraps 4 + 2 */
+  .ss-shell-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; width: 100%; border-radius: var(--radius-card); }
+  .ss-shell-link { justify-content: center; padding: 0 8px; border-radius: var(--radius-input); }
+}
+
+.ss-shell-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1320px;   /* a moderate centred column (item 13 undid the 2200px stretch); running text keeps its ch limits */
+  margin: 0 auto;
+  padding: 32px clamp(16px, 3vw, 48px) 48px;
+}
+.ss-shell-main:focus { outline: none; }
+.ss-shell-note { color: var(--muted); font-size: 15px; }
+
+.ss-open-link {
+  max-width: 560px;
+  margin: 15vh auto 0;
+  padding: 32px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+}
+.ss-open-link p { font-size: 17px; margin: 0; }
+
+/* Setup (Tasks 32-35): the step list beside the current step, forms, warnings. Coral stays for "missing" only:
+   warnings and refusals are ink with a heavy left rule (shape, not colour). */
+.ss-setup { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 8px 40px; align-items: start; }
+.ss-setup-title {
+  grid-column: 1 / -1;
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+.ss-setup-steps { margin: 0; padding: 0; list-style: none; counter-reset: ss-step; display: grid; gap: 2px; }
+.ss-setup-step { counter-increment: ss-step; }
+.ss-setup-step-link {
+  display: block;
+  min-height: 44px;
+  padding: 11px 14px;
+  font-size: 15px;
+  color: var(--ink-2);
+  text-decoration: none;
+  border-left: 3px solid var(--rule);
+  border-radius: 0 var(--radius-input) var(--radius-input) 0;
+}
+.ss-setup-step-link::before { content: counter(ss-step) ". "; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ss-setup-step-link:hover { color: var(--ink); background: var(--panel); }
+.ss-setup-step-link[aria-current="step"] { font-weight: 600; color: var(--ink); background: var(--ai-fill); border-left-color: var(--ai); }
+.ss-setup-step-link[aria-current="step"]::before { color: var(--ai); }
+.ss-setup-step[data-locked="true"] .ss-setup-step-link { color: var(--muted); }
+/* Part 5c (scout F15): each step's mark in words under its name ("Done · 12 of 12", "Needs you · 0 of 12"); a step
+   that needs you also has a solid ink edge, a done step a tick, so colour never carries the meaning alone. */
+.ss-setup-step-mark { display: block; margin-top: 2px; font-family: var(--mono); font-size: 12px; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+/* Part 6: the tick is drawn, not typed (review R6: Plex's check mark reads as a square-root sign), as on Model check. */
+.ss-setup-step-mark[data-state="done"]::before {
+  content: ""; display: inline-block; box-sizing: content-box; width: 3px; height: 7px; margin: 0 8px 3px 2px;
+  border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); vertical-align: middle;
+}
+.ss-setup-step[data-state="needs"] .ss-setup-step-link:not([aria-current]) { border-left-color: var(--ink); }
+.ss-setup-step[data-state="needs"] .ss-setup-step-mark { color: var(--ink); font-weight: 600; }
+.ss-setup-body { min-width: 0; }
+.ss-setup-step-title { margin: 0 0 12px; font-family: var(--display); font-size: 28px; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); }
+.ss-setup-subtitle { margin: 0 0 var(--space-3); font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--ink); }
+/* Part 6 (item 42 rhythm): a heading's hint sits 8px under it and 16px over the controls */
+.ss-setup-subtitle:has(+ .ss-setup-hint) { margin-bottom: var(--gap-heading-hint); }
+.ss-setup-subtitle + .ss-setup-hint { margin: 0 0 var(--gap-hint-controls); }
+.ss-setup-intro { max-width: var(--measure); font-size: 16px; color: var(--ink-2); margin: 0 0 var(--space-5); }
+.ss-setup-current, .ss-setup-form {
+  margin: 0 0 var(--card-gap);
+  padding: var(--card-pad);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+}
+.ss-setup-forms { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--card-gap); }
+.ss-setup-forms .ss-setup-form { margin: 0; }
+.ss-setup-lead { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+.ss-setup-line { margin: 0 0 6px; font-size: 15px; overflow-wrap: anywhere; }
+.ss-setup-key { display: inline-block; min-width: 72px; margin-right: 8px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ss-setup-bad { color: var(--ink); font-weight: 600; text-decoration: underline wavy; }
+.ss-setup-field { margin: 0 0 var(--space-5); }
+.ss-setup-label { display: block; margin: 0 0 var(--gap-heading-hint); font-size: 15px; font-weight: 500; }
+.ss-setup-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--input);
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius-input);
+}
+.ss-setup-input.mono { font-family: var(--mono); font-size: 14px; }
+.ss-setup-hint { max-width: var(--measure); margin: var(--space-2) 0 0; font-size: 13px; color: var(--muted); }
+/* Item 22: the folder field and its "Choose folder…" button on one line; the button drops below on a phone. */
+.ss-setup-pathrow { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+.ss-setup-pathrow > .ss-setup-input { flex: 1 1 260px; min-width: 0; }
+.ss-setup-choose { flex: none; min-height: 44px; padding: 8px 14px; white-space: nowrap; }
+.ss-setup-choose[hidden] { display: none; }
+.ss-setup-choose-note { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+.ss-setup-choose-note:empty { display: none; }
+.ss-setup-error { margin: 10px 0 0; padding: 6px 0 6px 12px; font-size: 15px; font-weight: 600; color: var(--ink); border-left: 4px solid var(--ink); }
+.ss-setup-error:empty { display: none; }
+.ss-setup-note { margin: 12px 0 0; font-size: 15px; color: var(--muted); }
+.ss-setup-warning {
+  margin: 16px 0 0;
+  padding: 16px 18px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-left: 8px solid var(--ink);
+  border-radius: var(--radius-input);
+}
+.ss-setup-warning p { margin: 0 0 10px; font-size: 15px; max-width: var(--measure); }
+.ss-setup-check { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 var(--choice-gap); font-size: 15px; }
+.ss-setup-check input { width: 20px; height: 20px; margin: 1px 0 0; }
+.ss-setup-files { margin: 0; padding-left: 20px; font-family: var(--mono); font-size: 14px; }
+.ss-setup-back { display: inline-block; min-height: 44px; padding: 11px 0; font-size: 15px; color: var(--ink); }
+@media (max-width: 760px) {
+  .ss-setup { grid-template-columns: minmax(0, 1fr); }
+  .ss-setup-title { font-size: 34px; }
+  .ss-setup-steps { margin-bottom: 16px; }
+}
+
+/* Setup: context, import, speaker labels, missing rule, map check (Task 33). Coral is only the missing mark, and a
+   missing box is also dashed and tagged "Missing", so the colour never carries the meaning alone. */
+.ss-setup-textarea { min-height: 120px; font-family: var(--sans); line-height: 1.45; resize: vertical; }
+.ss-setup-file { min-height: 44px; font-size: 15px; }
+.ss-setup-picker { padding: var(--card-pad); background: var(--panel-2); border: 1px solid var(--rule); border-radius: var(--radius-input); }
+/* Item 24: each picker is a drop area; dashed edge at rest, lit while files are dragged over it. */
+.ss-setup-drop { border-style: dashed; border-width: 2px; transition: background-color 0.12s, border-color 0.12s; }
+.ss-setup-drop[data-over="true"] { border-color: var(--ai); background: color-mix(in srgb, var(--ai) 12%, var(--panel-2)); }
+.ss-setup-drop-text { margin: 0 0 8px; font-size: 14px; color: var(--muted); }
+.ss-setup-name-tip { margin-bottom: 14px; }
+.ss-setup-import-list { margin: 12px 0 0; padding: 0; list-style: none; font-size: 14px; }
+/* Item 25: each picker's own result, inside its box: a status line, then a line per file that needs attention. */
+.ss-setup-import-status { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+.ss-setup-import-status[data-state="busy"] { font-weight: 500; color: var(--ink-2); }
+.ss-setup-import-status:empty, .ss-setup-picker .ss-setup-import-list:empty { display: none; }
+.ss-setup-picker .ss-setup-import-list { margin-top: 6px; }
+.ss-setup-import-counts { margin: 0 0 6px; color: var(--ink-2); }
+.ss-setup-pairing { margin-top: 28px; }
+/* Item 26: Remove beside each file; the question opens in a row under the file, never in a browser dialog. */
+.ss-setup-remove { margin-left: 10px; min-height: 36px; padding: 4px 12px; font-family: var(--sans); font-size: 13px; vertical-align: middle; }
+.ss-setup-remove-ask td { background: var(--panel-2); border-left: 4px solid var(--ink); }
+.ss-setup-remove-question { margin: 0 0 10px; max-width: var(--measure); font-family: var(--sans); font-size: 15px; color: var(--ink); }
+.ss-setup-remove-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.ss-setup-remove-buttons button { min-height: 44px; }
+.ss-setup-remove-yes { font-weight: 600; border-color: var(--ink); }
+.ss-setup-removed { margin: 0 0 12px; }
+.ss-setup-pairing .ss-setup-table td { vertical-align: middle; }
+.ss-setup-import-line { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; }
+.ss-setup-import-result { color: var(--muted); }
+.ss-setup-import-line[data-ok="true"] .ss-setup-import-result { color: var(--ink); }
+.ss-setup-import-result.ss-setup-error { margin: 0; flex-basis: 100%; }
+.ss-setup-identical { margin: 4px 0 0; padding-left: 10px; font-size: 13px; font-weight: 600; color: var(--ink); border-left: 4px solid var(--ink); }
+.ss-setup-import-line .ss-setup-identical { flex-basis: 100%; margin: 0; }
+.ss-setup-table-wrap { overflow-x: auto; margin: 10px 0 0; }
+.ss-setup-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.ss-setup-table th, .ss-setup-table td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); overflow-wrap: break-word; }
+.ss-setup-table thead th { white-space: nowrap; }
+.ss-setup-table thead th { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+.ss-setup-muted { color: var(--muted); }
+.ss-setup-ok { margin: 12px 0 0; padding: 6px 0 6px 12px; font-size: 15px; font-weight: 600; color: var(--ink); border-left: 4px solid var(--ai); }
+.ss-setup-card { margin: 0 0 var(--card-gap); padding: var(--card-pad); background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-card); }
+.ss-setup-card > .ss-setup-subtitle { margin-top: 0; overflow-wrap: anywhere; }
+.ss-setup-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 16px; margin-top: 12px; }
+.ss-setup-select { box-sizing: border-box; width: 100%; min-height: 44px; padding: 8px 12px; font-family: var(--sans); font-size: 15px; color: var(--ink); background: var(--input); border: 1px solid var(--field-border); border-radius: var(--radius-input); }
+.ss-setup-labels-list { margin: 8px 0 0; padding-left: 20px; font-size: 14px; }
+.ss-setup-labels-list li { margin: 0 0 4px; overflow-wrap: anywhere; }
+.ss-setup-warning-inline { margin: 12px 0 0; padding: 10px 14px; border-left-width: 6px; }
+.ss-setup-warning-inline p:last-child { margin-bottom: 0; }
+/* Item 27: the speaker-label standard and the one-row-per-transcript table. */
+.ss-setup-std-hint { max-width: var(--measure); margin: 0 0 14px; font-size: 14px; }
+.ss-setup-std-rules { margin: 4px 0 14px; }
+.ss-setup-std-rule { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 8px; font-size: 15px; }
+.ss-setup-std-rule .ss-setup-std-piece { width: 12ch; flex: none; }
+.ss-setup-std-rule-role { color: var(--ink); }
+.ss-setup-labels-table td { vertical-align: top; }
+.ss-setup-labels-table .ss-setup-select { min-width: 140px; }
+.ss-setup-labels-table .ss-setup-cellfield { margin: 0; }
+.ss-setup-labels-pid { font-size: 14px; color: var(--ink); }
+.ss-setup-labels-format { margin: 2px 0 0; }
+.ss-setup-labels-table .ss-setup-labels-list { margin: 4px 0 0; padding-left: 0; list-style: none; font-size: 13px; }
+.ss-setup-labels-table .ss-setup-labels-list li { display: inline-block; margin: 0 12px 2px 0; }
+.ss-setup-labels-state { min-width: 220px; max-width: 340px; }
+.ss-setup-labels-state .ss-setup-ok, .ss-setup-labels-state .ss-setup-filled { margin: 0 0 8px; font-size: 14px; }
+.ss-setup-labels-state button { min-height: 40px; padding: 6px 14px; font-size: 14px; }
+.ss-setup-flag { margin: 0 0 8px; padding: 4px 0 4px 10px; font-size: 14px; font-weight: 600; color: var(--ink); border-left: 4px solid var(--ink); }
+.ss-setup-labels-row[data-state="flagged"] > td { background: var(--panel-2); }
+.ss-setup-labels-foot { margin: 16px 0 0; }
+.ss-setup-labels-report { margin: 0 0 10px; }
+/* Item 28: the red-colour list as chips, the colour picker and the colours found in the maps. */
+.ss-setup-colors { grid-column: 1 / -1; }
+.ss-setup-colors .ss-setup-input { max-width: 520px; }
+.ss-setup-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+.ss-setup-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 2px 4px 2px 10px; font-size: 14px; color: var(--ink); background: var(--panel-2); border: 1px solid var(--rule); border-radius: 18px; }
+.ss-setup-swatch { flex: none; width: 18px; height: 18px; border: 1px solid var(--border); border-radius: 4px; }
+.ss-setup-chip-remove { min-width: 32px; min-height: 32px; padding: 0 8px; font-size: 18px; line-height: 1; background: transparent; border: 0; }
+.ss-setup-pick { display: flex; align-items: center; gap: 10px; margin: 12px 0 0; font-size: 14px; }
+.ss-setup-color-pick { width: 44px; height: 36px; padding: 2px; background: var(--input); border: 1px solid var(--field-border); border-radius: var(--radius-input); cursor: pointer; }
+.ss-setup-colors-full:empty { display: none; }
+.ss-setup-fieldset.ss-setup-found { margin: 24px 0 0; }
+.ss-setup-found legend { margin-bottom: 0; }
+/* Part 6 (A8): the colours found are an even grid of equal boxes, never a ragged row of pills */
+.ss-setup-found-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: var(--space-2); margin-bottom: var(--space-4); }
+.ss-setup-found-chip { min-height: 44px; padding: 4px 12px 4px 10px; border-radius: var(--radius-input); }
+.ss-setup-hint + .ss-setup-chips { margin-top: var(--gap-hint-controls); }
+.ss-setup-found-chip input { width: 18px; height: 18px; margin: 0; }
+.ss-setup-found-chip label { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; cursor: pointer; }
+.ss-setup-found-use { color: var(--muted); font-size: 13px; }
+.ss-setup-fieldset { margin: 0; padding: 0; border: 0; }
+.ss-setup-fieldset legend { padding: 0; margin-bottom: var(--gap-heading-hint); }
+.ss-setup-fieldset > legend + .ss-setup-hint { margin-top: 0; }   /* Part 6: the legend's own 8px is the gap */
+.ss-setup-details { margin: 12px 0 0; font-size: 14px; border-top: 1px solid var(--rule); }
+.ss-setup-details summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 500; color: var(--ink); }
+/* display:flex drops the browser's disclosure triangle, so draw one: a cyan "+" that turns to "-" when open */
+.ss-setup-details summary::-webkit-details-marker { display: none; }
+.ss-setup-details summary::before { content: "+"; flex: none; width: 20px; margin-right: 8px; font-family: var(--mono); font-size: 18px; line-height: 1; color: var(--ai); }
+.ss-setup-details[open] > summary::before { content: "\2212"; }
+.ss-setup-arrows { margin: 4px 0 0; padding-left: 20px; }
+.ss-setup-arrows li { margin: 0 0 4px; overflow-wrap: anywhere; }
+.ss-setup-arrows li.is-missing { text-decoration: underline dashed var(--missing); text-underline-offset: 3px; }
+.ss-setup-mapdraw { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 1fr); gap: 10px; margin: 14px 0 0; padding: 12px; overflow-x: auto; background: var(--lane); border-radius: var(--radius-input); }
+.ss-setup-mapcol { min-width: 0; }
+.ss-setup-mapcol-title { margin: 0 0 8px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+.ss-setup-mapcol.is-other .ss-setup-mapcol-title { font-style: italic; color: var(--muted); }
+.ss-setup-mapcol-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.ss-setup-mapbox { display: grid; gap: 2px; padding: 8px 10px; font-size: 14px; line-height: 1.35; background: var(--panel); border-radius: var(--radius-chip); overflow-wrap: anywhere; }
+.ss-setup-mapbox.is-happened { border: 1.5px solid var(--ink); }
+.ss-setup-mapbox.is-missing { border: 1.5px dashed var(--missing); color: var(--missing-text); }
+.ss-setup-mapbox-tag { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.ss-setup-mapbox-from { font-size: 13px; color: var(--muted); }
+.ss-setup-mapdraw-note { margin: 14px 0 0; }
+.ss-res-run-block { margin: 0 0 16px; }  /* council 30: the run block in the run's Technical details */  /* council 30: the phase-position caption, once above the drawing */
+.ss-setup-mapcol-caption { margin: var(--space-5) 0 var(--gap-heading-hint); font-size: 13px; }
+.ss-setup-mapcol-headings { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.ss-setup-mapbox[data-phase-heading="true"] { border-style: dotted; }
+.ss-setup-mapbox-heading { color: var(--muted); }
+.ss-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+@media (max-width: 760px) {
+  .ss-setup-mapdraw { grid-auto-flow: row; grid-auto-columns: auto; }
+}
+
+/* Reference and Coding (Task 37; spec 6.6-6.7, artboards AppReference, AppCoding). Coral is "missing" only: the
+   researcher's missing marks are coral AND dashed (shape too); happened marks are ink with a solid rule.
+   Refusals and the span notice are ink with a heavy left rule. */
+.ss-visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.ss-ref [hidden], .ss-coding [hidden] { display: none !important; }
+.ss-ref .ss-kicker, .ss-coding .ss-kicker {
+  margin: 0 0 8px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ai);
+}
+.ss-ref-title, .ss-coding-title { margin: 0 0 12px; font-family: var(--display); font-size: 44px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; color: var(--ink); }
+.ss-ref-intro { max-width: var(--measure); font-size: 17px; color: var(--ink-2); margin: 0 0 var(--gap-block); }
+.ss-ref-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--card-gap); margin: 0 0 var(--gap-block); }
+.ss-ref-card {
+  display: flex; flex-direction: column; padding: var(--card-pad); background: var(--panel);
+  border: 1px solid var(--rule); border-radius: var(--radius-card);
+}
+.ss-ref-card-head { display: flex; align-items: baseline; gap: 12px; margin: 0 0 8px; }
+.ss-ref-card-tag { font-family: var(--display); font-size: 26px; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); }
+.ss-ref-card-title { margin: 0; font-size: 20px; }
+.ss-ref-card-body { font-size: 15px; color: var(--ink-2); margin: 0 0 12px; }
+.ss-ref-card-list { margin: 0 0 12px; padding: 12px 0 0; border-top: 1px solid var(--rule); font-size: 14px; }
+.ss-ref-card-list dt { font-weight: 600; margin: 0 0 2px; }
+.ss-ref-card-list dd { margin: 0 0 10px; color: var(--ink-2); }
+.ss-ref-card-needs { margin: auto 0 0; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ss-ref-cnote {
+  margin: 10px 0 0; padding: 4px 0 4px 12px; font-size: 14px; font-weight: 600; color: var(--ink);
+  border-left: 3px solid var(--ink);
+}
+.ss-ref-list { margin: 0 0 32px; }
+.ss-ref-list-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 var(--gap-heading-hint); }
+.ss-ref-list-title { margin: 0; font-size: 24px; }
+.ss-ref-flash { margin: 0 0 8px; font-size: 15px; font-weight: 600; }
+.ss-ref-gate { max-width: var(--measure); margin: 0 0 var(--gap-hint-controls); font-size: 15px; color: var(--muted); }
+.ss-ref-rows { display: grid; gap: var(--space-4); }
+.ss-ref-row {
+  margin: 0; padding: var(--space-4) var(--card-pad) var(--card-pad); min-width: 0; background: var(--panel);
+  border: 1px solid var(--rule); border-radius: var(--radius-card);
+}
+.ss-ref-row-legend { padding: 0 6px; font-size: 15px; }
+.ss-ref-pid { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--ink); }
+.ss-ref-options { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-3) 0 0; }
+.ss-ref-option {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; font-size: 15px;
+  border: 1px solid var(--border); border-radius: var(--radius-input); background: var(--ground); cursor: pointer;
+}
+.ss-ref-option input { width: 18px; height: 18px; margin: 0; accent-color: var(--ai); }
+.ss-ref-option:has(input:checked) { border-color: var(--ink); background: var(--ink); font-weight: 600; color: var(--ground); }
+.ss-ref-option:has(input:checked) input { accent-color: var(--ground); }
+.ss-ref-option[data-disabled="true"] { color: var(--muted); border-style: dashed; cursor: not-allowed; }
+.ss-ref-row-notes:empty { display: none; }
+.ss-ref-row-notes { margin: 10px 0 0; }
+.ss-ref-row-note { margin: 0 0 4px; font-size: 14px; color: var(--muted); }
+.ss-ref-row-coding { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin: 8px 0 0; font-size: 15px; }
+.ss-ref-row-coding[data-locked="true"] .ss-ref-coding-state::before { content: "■ "; color: var(--ink); }
+.ss-ref-row-coding[data-locked="false"] .ss-ref-coding-state::before { content: "□ "; color: var(--ink); }
+.ss-ref-go { display: inline-block; min-height: 44px; padding: 11px 0; font-weight: 600; }
+.ss-ref-every { margin: 0 0 var(--card-gap); padding: var(--card-pad); background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-card); }
+.ss-ref-every-title { margin: 0 0 8px; font-size: 21px; }
+.ss-ref-every p:last-child { max-width: var(--measure); margin: 0; font-size: 15px; }
+.ss-ref-pooling { max-width: var(--measure); font-size: 14px; color: var(--muted); }
+
+.ss-coding-header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin: 0 0 18px; }
+.ss-coding-titles { min-width: 0; }
+.ss-coding-title { overflow-wrap: anywhere; }
+.ss-coding-pid { font-family: var(--mono); font-size: 22px; font-weight: 400; letter-spacing: 0; color: var(--ink-2); }
+.ss-coding-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.ss-coding-navlink, .ss-coding-position { white-space: nowrap; }
+.ss-coding-navlink {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; font-size: 15px;
+  color: var(--ink); text-decoration: none; background: transparent; border: 1px solid var(--border); border-radius: var(--radius-pill);
+}
+.ss-coding-navlink:hover { border-color: var(--ink-2); color: var(--ink); }
+.ss-coding-navlink[aria-disabled="true"] { color: var(--muted); border-style: dashed; }
+.ss-coding-position { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ss-coding-blind {
+  display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; margin: 0 0 14px; padding: 16px 20px;
+  background: var(--lane); border: 1px solid var(--rule); border-radius: var(--radius-card);
+}
+.ss-coding-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ss-coding-chip {
+  padding: 4px 12px; font-family: var(--display); font-size: 16px; font-weight: 600; color: var(--ink);
+  border: 1px dashed var(--ink); border-radius: var(--radius-chip);
+}
+.ss-coding-blind-text { flex: 1 1 340px; min-width: 0; }
+.ss-coding-blind-text p { margin: 0 0 4px; font-size: 15px; }
+.ss-coding-limit { max-width: var(--measure); font-size: 14px; color: var(--muted); }
+.ss-coding-limit strong { color: var(--ink); font-weight: 600; }
+.ss-coding-time { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0 0 14px; font-size: 15px; }
+.ss-coding-time-label { font-weight: 600; }
+.ss-coding-clock { font-family: var(--mono); font-size: 17px; color: var(--ink); }
+.ss-coding-time-note { font-size: 13px; color: var(--muted); }
+.ss-coding-locked {
+  margin: 0 0 14px; padding: 16px 20px; background: var(--panel); border: 1px solid var(--rule);
+  border-left: 6px solid var(--ink); border-radius: var(--radius-card);
+}
+.ss-coding-locked-title { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+.ss-coding-record { margin: 0 0 4px; overflow-wrap: anywhere; }
+.ss-coding-gate { margin: 0; font-size: 15px; color: var(--muted); }
+.ss-coding-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
+.ss-coding-reader { min-width: 0; padding: var(--card-pad); background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-card); }
+.ss-coding-reader-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin: 0 0 14px; padding: 0 0 14px; border-bottom: 1px solid var(--rule); }
+.ss-coding-how { margin: 0; font-size: 14px; color: var(--muted); }
+.ss-coding-legend { display: flex; gap: 14px; margin: 0; font-size: 13px; }
+.ss-coding-key::before {
+  content: ""; display: inline-block; width: 18px; height: 10px; margin-right: 6px; vertical-align: middle;
+}
+.ss-coding-key[data-status="happened"]::before { background: var(--panel-2); border-bottom: 2px solid var(--ink); }
+.ss-coding-key[data-status="missing"]::before { border: 1.5px dashed var(--missing); }
+.ss-coding-turn { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 2px 16px; padding: 8px 0; }
+.ss-coding-speaker { padding-top: 3px; font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--muted); }
+.ss-coding-turn[data-speaker="participant"] .ss-coding-speaker { color: var(--ink); }
+.ss-coding-text { max-width: var(--measure); margin: 0; font-size: 16px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ss-coding-text::selection, .ss-coding-text *::selection { background: var(--ink); color: var(--ground); }
+.ss-coding-hl { color: inherit; background: var(--panel-2); border-radius: 2px; }
+.ss-coding-hl[data-status="happened"] { box-shadow: inset 0 -2px 0 var(--ink); }
+.ss-coding-hl[data-status="missing"] { background: transparent; color: var(--missing-text); outline: 1.5px dashed var(--missing); outline-offset: 1px; }
+.ss-coding-hl[data-status="both"] { box-shadow: inset 0 -2px 0 var(--ink); outline: 1.5px dashed var(--missing); outline-offset: 1px; }
+.ss-coding-notice {
+  margin: 4px 0 8px 120px; padding: 6px 0 6px 12px; font-size: 15px; font-weight: 600; color: var(--ink);
+  border-left: 4px solid var(--ink);
+}
+.ss-coding-notice:empty { display: none; }
+.ss-coding-form {
+  margin: 6px 0 12px 120px; padding: 18px 20px; background: var(--panel-2); border: 1px solid var(--border);
+  border-left: 4px solid var(--ink); border-radius: var(--radius-input);
+}
+.ss-coding-form-title { margin: 0 0 6px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.ss-coding-form-quote {
+  margin: 0 0 14px; padding: 4px 0 4px 12px; font-size: 15px; border-left: 3px solid var(--border);
+  max-height: 8.5em; overflow: auto;
+}
+.ss-coding-field { margin: 0 0 12px; }
+.ss-coding-set { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; padding: 0; border: 0; min-width: 0; }
+.ss-coding-set legend { float: left; width: 100%; padding: 0; }
+.ss-coding-choice {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; font-size: 15px;
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-input); cursor: pointer;
+}
+.ss-coding-choice input { width: 18px; height: 18px; margin: 0; accent-color: var(--ai); }
+.ss-coding-choice:has(input:checked) { border-color: var(--ink); background: var(--ink); font-weight: 600; color: var(--ground); }
+.ss-coding-choice:has(input:checked) input { accent-color: var(--ground); }
+.ss-coding-choice[data-status="missing"] { border-style: dashed; border-color: var(--missing); color: var(--missing-text); }
+.ss-coding-choice[data-status="missing"]:has(input:checked) {
+  border: 1.5px dashed var(--missing); color: var(--missing-text);
+  background: color-mix(in srgb, var(--missing) 16%, transparent);
+}
+.ss-coding-choice[data-status="missing"]:has(input:checked) input { accent-color: var(--missing); }
+.ss-coding-choice[data-disabled="true"] { color: var(--muted); opacity: 0.7; cursor: not-allowed; }
+.ss-coding-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+.ss-coding-actions button { min-height: 44px; }
+.ss-coding-marks {
+  position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding: var(--card-pad);
+  background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-card);
+}
+.ss-coding-marks-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.ss-coding-marks-title { margin: 0; font-size: 21px; }
+.ss-coding-marks-rule { margin: 6px 0 10px; font-size: 13px; color: var(--muted); }
+.ss-coding-phase {
+  margin: 16px 0 6px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+}
+.ss-coding-empty { margin: 0; padding: 8px 10px; font-size: 13px; color: var(--muted); border: 1px solid var(--rule); border-radius: var(--radius-chip); }
+.ss-coding-mark-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ss-coding-mark { padding: 8px 10px; background: var(--lane); border: 1px solid var(--rule); border-radius: var(--radius-chip); }
+.ss-coding-mark[data-status="happened"] { border-left: 4px solid var(--ink); }
+.ss-coding-mark[data-status="missing"] { border: 1.5px dashed var(--missing); }
+.ss-coding-mark-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; }
+.ss-coding-mark-step { font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+.ss-coding-mark-status { font-size: 13px; }
+.ss-coding-mark[data-status="missing"] .ss-coding-mark-status { color: var(--missing-text); }
+.ss-coding-mark-quote {
+  margin: 4px 0; font-size: 13px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.ss-coding-mark-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ss-coding-remove { min-height: 32px; padding: 4px 10px; font-size: 13px; }
+.ss-coding-marks-note { margin: 14px 0 0; padding: 10px 0 0; font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); }
+/* the lock bar is this view's one inverse panel */
+.ss-coding-lockbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px;
+  margin: 20px 0 0; padding: 20px 28px; color: var(--on-inverse); background: var(--inverse); border-radius: var(--radius-card);
+}
+.ss-coding-lockbar-title { margin: 0; font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--on-inverse); }
+.ss-coding-lock {
+  min-height: 44px; padding: 10px 22px; font-weight: 600; color: var(--inverse); background: var(--on-inverse);
+  border: 1px solid var(--on-inverse); border-radius: var(--radius-pill);
+}
+.ss-coding-confirm { flex: 1 1 100%; padding: 18px 20px; color: var(--ink); background: var(--panel); border-radius: var(--radius-input); }
+.ss-coding-confirm p { margin: 0 0 8px; max-width: var(--measure); font-size: 15px; }
+.ss-coding-confirm .ss-coding-confirm-title { font-family: var(--display); font-size: 19px; font-weight: 600; color: var(--ink); }
+.ss-coding-confirm .ss-coding-lock { color: var(--ground); background: var(--ink); border-color: var(--ink); }
+.ss-coding-pick { display: grid; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; max-width: 640px; }
+.ss-coding-pick-item {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px;
+  min-height: 52px; padding: 6px 18px; background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-input);
+}
+.ss-coding-pick-item a { font-size: 15px; font-weight: 500; padding: 10px 0; }
+.ss-coding-pick-state { font-size: 14px; color: var(--muted); }
+@media (max-width: 900px) {
+  .ss-coding-grid { grid-template-columns: minmax(0, 1fr); }
+  .ss-coding-marks { position: static; max-height: none; }
+}
+@media (max-width: 560px) {
+  .ss-coding-turn { grid-template-columns: minmax(0, 1fr); }
+  .ss-coding-form, .ss-coding-notice { margin-left: 0; }
+  /* Part 6 (A4): on a phone the A / B / C choices stack as equal full-width boxes */
+  .ss-ref-options { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .ss-ref-title, .ss-coding-title { font-size: 32px; }
+}
+
+/* Setup step 6, models (Task 34): one card per role, the model list, the pair. A cloud model is struck through
+   and carries its reason in words; notices are ink with a heavy left rule (no coral: coral means "missing"). */
+.ss-models-roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--card-gap); }
+.ss-models-role { min-width: 0; }
+/* side by side, both hints take two lines so the two cards start level (the judge's hint wraps) */
+@media (min-width: 761px) { .ss-models-role-hint { min-height: 3em; } }
+.ss-models-role-hint { margin: -6px 0 12px; }
+.ss-models-form, .ss-models-current { margin: 0; }
+.ss-models-kinds { margin: 0 0 14px; padding: 0; border: 0; }
+.ss-models-kinds legend { padding: 0; margin-bottom: 8px; }
+.ss-models-kinds input, .ss-models-role .ss-setup-check input { flex: none; }
+.ss-models-subhead { margin: 0 0 8px; font-family: var(--display); font-size: 17px; font-weight: 600; color: var(--ink); }
+.ss-models-class { margin: 10px 0 0; }
+.ss-models-key { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--rule); }
+.ss-models-key .ss-models-secondary { margin: 0 0 12px; }
+.ss-models-secondary {
+  min-height: 44px;
+  padding: 8px 18px;
+  font-size: 15px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+.ss-models-form > .ss-models-secondary { margin: 0 8px 12px 0; }
+.ss-models-form > .ss-setup-hint { margin: 0 0 14px; }
+/* Item 31: the model list is a picker of fixed height that scrolls inside, under a search field. */
+.ss-models-picker { margin: 4px 0 16px; }
+.ss-models-picker .ss-setup-input { box-sizing: border-box; width: 100%; }
+.ss-models-count { margin: 8px 0 0; }
+.ss-models-other { margin: 8px 0 0; }
+.ss-models-list { max-height: 300px; overflow-y: auto; overscroll-behavior: contain; margin: 8px 0 0; padding: 0 10px; list-style: none; border: 1px solid var(--rule); border-radius: var(--radius-input); }
+.ss-models-item[hidden] { display: none; }
+.ss-models-item:last-child { border-bottom: 0; }
+.ss-models-item[data-same-family="true"] .ss-models-name { color: var(--muted); }
+.ss-models-same::before { content: "\2260  "; }
+.ss-models-rule { max-width: var(--measure); margin: 0 0 var(--gap-block); }
+.ss-models-key-optional { margin: 4px 0 14px; }
+.ss-models-key-optional .ss-models-key { border-top: 0; padding-top: 0; margin-top: 6px; }
+.ss-models-item { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.ss-models-item input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; }
+.ss-models-item-label { display: flex; flex-wrap: wrap; gap: 4px 12px; min-width: 0; font-size: 15px; }
+.ss-models-name { overflow-wrap: anywhere; font-family: var(--mono); font-size: 14px; }
+.ss-models-fam { color: var(--muted); }
+.ss-models-why { flex-basis: 100%; font-size: 13px; color: var(--ink); }
+.ss-models-item[data-cloud="true"] .ss-models-name { text-decoration: line-through; color: var(--muted); }
+.ss-models-item[data-cloud="true"] .ss-models-why::before { content: "\2715  "; }
+.ss-models-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
+.ss-models-pair, .ss-models-todo { margin: var(--gap-block) 0 0; max-width: var(--measure); }
+.ss-models-notice {
+  margin: 12px 0 0;
+  padding: 14px 16px;
+  background: var(--panel-2);
+  border-left: 8px solid var(--ink);
+  border-radius: 0 var(--radius-input) var(--radius-input) 0;
+}
+.ss-models-notice p { margin: 0; font-size: 15px; }
+.ss-models-problems { margin: 0; padding-left: 20px; font-size: 15px; }
+.ss-models-problems li { margin: 0 0 6px; }
+.ss-models-problem-role { font-weight: 600; }
+@media (max-width: 760px) {
+  .ss-models-roles { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Part 5c. Item 29: Quick setup, the two roles side by side (stacked on a phone), one "Test both" below; the
+   detailed forms wait in a closed part under it. Item 37: a control that waits says why in one line, with a link to
+   the step that fixes it. Item 38: the result line sits right under the control used. */
+.ss-models-quick { margin: 0 0 var(--gap-block); }
+.ss-quick-roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--card-gap); margin: var(--gap-hint-controls) 0 0; }
+.ss-quick-role { min-width: 0; padding: var(--card-pad); background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius-card); }
+.ss-quick-title { margin: 0 0 var(--gap-heading-hint); font-family: var(--display); font-size: 19px; font-weight: 600; color: var(--ink); }
+/* Part 6 (A7): the radios get room (12px between them) and the group 24px above and below */
+.ss-quick-where { margin: var(--space-5) 0; padding: 0; border: 0; }
+.ss-quick-where legend { padding: 0; margin-bottom: var(--space-3); }
+.ss-quick-where .ss-setup-check { margin: 0 0 var(--choice-gap); }
+.ss-quick-where input { flex: none; }
+.ss-quick-role .ss-setup-input { box-sizing: border-box; width: 100%; }
+/* side by side, both hints take two lines so the two columns start level (the judge's hint wraps) */
+@media (min-width: 761px) { .ss-quick-role > .ss-setup-hint { min-height: 3em; } }
+.ss-quick-role .ss-models-actions { margin: 12px 0 18px; }
+.ss-quick-role .ss-models-class { margin: -6px 0 16px; }
+.ss-quick-result { margin: 16px 0 0; padding: 12px 0 0; border-top: 1px solid var(--rule); }
+.ss-quick-result > :first-child { margin-top: 0; }
+.ss-quick-family { max-width: var(--measure); }
+.ss-quick-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; }
+.ss-models-advanced { margin: 8px 0 0; }
+.ss-models-advanced > .ss-models-roles { margin-top: 16px; }
+@media (max-width: 760px) {
+  .ss-quick-roles { grid-template-columns: minmax(0, 1fr); }
+}
+.ss-why { max-width: var(--measure); color: var(--ink); }
+.ss-why[hidden] { display: none; }
+.ss-why-fix, .ss-ref-fix, .ss-res-fix { white-space: nowrap; }
+.ss-ref-why, .ss-res-why { flex-basis: 100%; max-width: var(--measure); margin: 10px 0 0; font-size: 13px; color: var(--ink); }
+.ss-export-why, .ss-coding-kind-why { max-width: var(--measure); color: var(--ink); }
+.ss-ref-why[hidden], .ss-res-why[hidden], .ss-export-why[hidden], .ss-coding-kind-why[hidden] { display: none; }
+.ss-place-after { max-width: var(--measure); }
+
+/* Setup steps 7-8, model check and time (Task 35): the check's state, the time estimate and the optional cost
+   line. Notices are ink with a heavy left rule (no coral: coral means "missing"); a pass reads in words with a tick. */
+.ss-check-box, .ss-check-estimate { margin: var(--gap-block) 0 0; max-width: var(--measure); }
+.ss-check-estimate { padding: 20px 0 0; border-top: 1px solid var(--rule); }
+.ss-check-head { margin: 0 0 6px; font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--ink); }
+.ss-check-status { margin: 12px 0 14px; }
+.ss-check-status p { margin: 0 0 8px; font-size: 15px; }
+.ss-check-bar { display: block; width: 100%; max-width: 420px; height: 10px; margin: 6px 0 4px; accent-color: var(--ai); }
+.ss-check-notice { padding: 14px 16px; background: var(--panel-2); border-left: 8px solid var(--ink); border-radius: 0 var(--radius-input) var(--radius-input) 0; }
+.ss-check-notice p:last-child { margin-bottom: 0; }
+.ss-check-failed-head { font-weight: 600; }
+.ss-check-codes { margin: 4px 0 10px; padding: 0; list-style: none; overflow-wrap: anywhere; font-family: var(--mono); font-size: 14px; }
+.ss-check-codes li { margin: 2px 0; }
+.ss-check-passed { font-weight: 600; }
+/* The tick is drawn, not typed: Plex's own check mark reads as a square-root sign (review R6). */
+.ss-check-passed::before {
+  content: ""; display: inline-block; box-sizing: content-box; width: 5px; height: 10px; margin: 0 12px 2px 4px;
+  border: solid currentColor; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); vertical-align: middle;
+}
+.ss-check-rungs { margin: 14px 0; padding: 0; border: 0; }
+.ss-check-rungs legend { padding: 0; margin-bottom: 8px; }
+.ss-check-rungs .ss-setup-check input { flex: none; }
+.ss-check-result { margin: 16px 0 0; }
+.ss-check-result p { margin: 0 0 8px; font-size: 15px; }
+.ss-check-time { font-family: var(--display); font-size: 28px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.15; color: var(--ink); }
+.ss-check-cost { max-width: 320px; margin-top: 16px; }
+.ss-check-cost-line { margin: 6px 0 0; font-size: 15px; }
+/* Part 5b: before the check (calls, time), one line per part, the "now" line, the switch buttons, the next step */
+.ss-check-plan { margin: 0 0 14px; }
+.ss-check-plan p { margin: 0 0 8px; font-size: 15px; }
+.ss-check-parts { margin: 6px 0 8px; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 15px; }
+.ss-check-part[aria-current] { font-weight: 600; }
+.ss-check-part[data-done="true"] { color: var(--muted); }
+.ss-check-status .ss-check-now { font-weight: 500; }
+.ss-check-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 12px; }
+.ss-check-actions button { min-height: 44px; }
+.ss-check-next { margin: 4px 0 0; font-size: 15px; }
+.ss-check-time-moved { margin: 18px 0 0; max-width: var(--measure); }
+
+/* ---- Task 40: Instructions ("Compare instructions") and Results ----------------------------------------------- */
+.ss-ins { max-width: none; }
+/* Results take the whole main column, so the lanes (which scroll sideways inside their panel) show more of a map. */
+.ss-res { max-width: none; }
+.ss-ins-title, .ss-res-title { margin: 0 0 12px; font-family: var(--display); font-size: 44px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; color: var(--ink); }
+.ss-ins-intro, .ss-res-purpose { max-width: var(--measure); margin: 0 0 var(--gap-block); font-size: 17px; color: var(--ink-2); }
+.ss-res-purpose { font-family: var(--display); font-size: 20px; line-height: 1.4; color: var(--ink); }
+.ss-ins-section {
+  margin: 0 0 var(--card-gap); padding: var(--card-pad); min-width: 0; background: var(--panel);
+  border: 1px solid var(--rule); border-radius: var(--radius-card);
+}
+.ss-ins-heading { margin: 0 0 var(--space-3); font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+.ss-ins-subheading { margin: 18px 0 6px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ai); }
+.ss-ins-body { max-width: var(--measure); margin: 8px 0; font-size: 15px; }
+.ss-ins-note { max-width: var(--measure); margin: 8px 0; font-size: 14px; color: var(--muted); }
+.ss-ins-readings { margin: 0 0 12px; padding: 0 0 0 18px; display: grid; gap: 8px; font-size: 15px; max-width: var(--measure); }
+.ss-ins-lane { font-weight: 600; }
+.ss-ins-gloss { font-style: italic; }
+.ss-ins-check, .ss-ins-radio {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 16px; margin: 4px 8px 4px 0;
+  font-size: 15px; background: var(--ground); border: 1px solid var(--border); border-radius: var(--radius-input); cursor: pointer;
+}
+.ss-ins-check input, .ss-ins-radio input { width: 18px; height: 18px; margin: 0; accent-color: var(--ai); }
+.ss-ins-check:has(input:checked), .ss-ins-radio:has(input:checked) { border-color: var(--ai); background: var(--ai-fill); font-weight: 600; }
+.ss-ins-check input:disabled + span { color: var(--muted); }
+/* Part 6 (A5): the choices of a group sit in an even grid of equal boxes, one per row on a phone */
+.ss-ins-modes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: var(--space-2); margin: var(--space-2) 0; }
+.ss-ins-modes > .ss-ins-check, .ss-ins-modes > .ss-ins-radio { margin: 0; }
+/* the prompt text sits in a <details>: a cyan "+" that turns to "-" when open */
+.ss-ins-prompt { margin: 10px 0 0; border-top: 1px solid var(--rule); }
+.ss-ins-prompt > summary {
+  display: flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 11px 0; cursor: pointer;
+  font-weight: 500; color: var(--ink); list-style: none;
+}
+.ss-ins-prompt > summary::-webkit-details-marker { display: none; }
+.ss-ins-prompt > summary::before { content: "+"; flex: none; width: 20px; margin-right: 8px; font-family: var(--mono); font-size: 18px; line-height: 1; color: var(--ai); }
+.ss-ins-prompt[open] > summary::before { content: "\2212"; }
+/* Part 6 (A6): a card that opens with its closed part has no hairline over it */
+.ss-ins-section > .ss-ins-prompt:first-child { margin-top: 0; border-top: 0; }
+.ss-ins-file { margin: 4px 0 8px; font-family: var(--mono); font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+.ss-ins-part { margin: 12px 0 4px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.ss-ins-text {
+  margin: 0; padding: 14px 16px; max-height: 360px; overflow: auto; font-family: var(--mono); font-size: 13px; line-height: 1.5;
+  white-space: pre-wrap; overflow-wrap: anywhere; background: var(--input); border: 1px solid var(--rule); border-radius: var(--radius-input);
+}
+.ss-ins-own { display: grid; gap: 8px; margin: 10px 0 0; }
+.ss-ins-label { font-size: 15px; font-weight: 600; }
+.ss-ins-textarea {
+  width: 100%; box-sizing: border-box; min-height: 160px; padding: 12px 14px; font-family: var(--sans); font-size: 14px; color: var(--ink);
+  background: var(--input); border: 1px solid var(--field-border); border-radius: var(--radius-input); resize: vertical;
+}
+.ss-ins-save { justify-self: start; min-height: 44px; }
+.ss-ins-wrapper { margin: 6px 0 0; }
+.ss-ins-placebo { margin: 8px 0; padding: 4px 0 4px 12px; font-size: 15px; font-weight: 600; border-left: 3px solid var(--ink); }
+.ss-ins-placebo[data-placebo="false"] { font-weight: 400; color: var(--muted); border-left-style: dashed; border-left-color: var(--border); }
+.ss-ins-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 20px; }
+.ss-ins-harms, .ss-ins-null { max-width: var(--measure); font-size: 15px; }
+.ss-ins-null-text {
+  margin: 6px 0 0; padding: 14px 18px; font-family: var(--display); font-size: 16px; line-height: 1.5;
+  background: var(--panel-2); border-left: 4px solid var(--ink); border-radius: 0 var(--radius-input) var(--radius-input) 0;
+}
+.ss-ins-estimate { margin: 10px 0 0; font-size: 16px; font-weight: 600; }
+.ss-ins-estimate:empty { display: none; }
+.ss-ins-estimate-run, .ss-ins-act { min-height: 44px; }
+.ss-ins-start-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 0; border-top: 1px solid var(--rule);
+}
+.ss-ins-start-row:first-of-type { border-top: 0; }
+.ss-ins-group { flex: 1 1 260px; font-size: 15px; font-weight: 500; }
+.ss-ins-start { min-height: 44px; }
+.ss-ins-last { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; font-size: 14px; }
+.ss-ins-last-state { font-weight: 500; }
+.ss-ins-last .ss-ins-note { margin: 0; }
+.ss-ins-run { margin: 0 0 8px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.ss-ins-stages { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.ss-ins-stage {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 10px 16px; font-size: 15px;
+  background: var(--lane); border: 1px solid var(--rule); border-radius: var(--radius-input);
+}
+.ss-ins-stage[data-status="done"] { border-left: 4px solid var(--ink); }
+.ss-ins-stage[data-status="current"] { border: 1.5px solid var(--ai); background: var(--ai-fill); font-weight: 600; }
+.ss-ins-stage[data-status="waiting"] { color: var(--muted); border-style: dashed; border-color: var(--border); }
+.ss-ins-stage-count { font-family: var(--mono); font-size: 13px; }
+.ss-ins-state { max-width: var(--measure); margin: 10px 0; font-size: 15px; }
+.ss-ins-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+/* Part 5b: the readiness list, the reason beside a Start that cannot go ahead, the estimate beside Start, the
+   model-server warning; hashes and other code wrap on a phone (scout F16) */
+.ss-ins code, .ss-ins .mono { overflow-wrap: anywhere; }
+.ss-ins-ready { margin: 12px 0 4px; }
+.ss-ins-ready-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; max-width: var(--measure); }
+.ss-ins-ready-item {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; padding: 8px 14px; font-size: 15px;
+  background: var(--lane); border: 1px solid var(--rule); border-radius: var(--radius-input);
+}
+.ss-ins-ready-item[data-ok="false"] { border-left: 4px solid var(--ink); font-weight: 500; }
+.ss-ins-ready-mark { flex: none; min-width: 9ch; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.ss-ins-ready-item[data-ok="false"] .ss-ins-ready-mark { color: var(--ink); }
+.ss-ins-ready-text { flex: 1 1 200px; min-width: 0; }
+.ss-ins-estimate-box { margin: 16px 0 4px; padding: 4px 0 0; border-top: 1px solid var(--rule); }
+.ss-ins-groups-note { margin-top: 16px; }
+.ss-ins-reason { flex: 1 1 100%; margin: 0; font-size: 14px; }
+.ss-ins-reason a, .ss-ins-ready-item a { white-space: nowrap; }
+.ss-ins-server, .ss-check-server {
+  max-width: var(--measure); margin: 10px 0; padding: 10px 14px; font-size: 15px; font-weight: 500;
+  background: var(--panel-2); border-left: 4px solid var(--ink); border-radius: 0 var(--radius-input) var(--radius-input) 0;
+}
+.ss-ins-next { margin: 4px 0 10px; }
+
+.ss-res-gate {
+  margin: 0 0 var(--space-5); padding: 14px 18px; max-width: var(--measure); font-size: 15px; background: var(--panel);
+  border: 1px solid var(--rule); border-left: 4px solid var(--ai); border-radius: 0 var(--radius-input) var(--radius-input) 0;
+}
+.ss-res-gate[data-open="false"] { border-left-color: var(--ink); font-weight: 600; }
+.ss-res-gate-text { margin: 0 0 4px; }
+/* tabs: a segmented pill track; the selected tab is an ink pill with ground-colour text (bold as well) */
+.ss-res-tabs {
+  display: flex; flex-wrap: wrap; gap: 2px; width: fit-content; max-width: 100%; margin: 0; padding: 4px;
+  background: var(--panel-2); border: 1px solid var(--rule); border-radius: 26px;
+}
+.ss-res-tab {
+  min-height: 44px; padding: 8px 20px; font-size: 15px; color: var(--ink-2); background: transparent;
+  border: 0; border-radius: var(--radius-pill); cursor: pointer;
+}
+.ss-res-tab:hover:not([aria-selected="true"]) { color: var(--ink); background: color-mix(in srgb, var(--ink) 10%, transparent); }
+.ss-res-tab[aria-selected="true"] { color: var(--ground); font-weight: 600; background: var(--ink); }
+.ss-res-panel { padding: 20px 0 6px; }
+.ss-res-note { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
+.ss-res-run {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: var(--space-4) var(--card-pad); background: var(--panel);
+  border: 1px solid var(--rule); border-radius: var(--radius-card); margin: 0 0 var(--space-3);
+}
+.ss-res-run-id { font-family: var(--mono); font-size: 14px; color: var(--ink); }
+.ss-res-run-note { font-size: 14px; color: var(--muted); }
+.ss-res-show { min-height: 44px; }
+.ss-res-body:empty { display: none; }
+.ss-res-run-head { margin: 24px 0 12px; padding: 18px 0 0; border-top: 1px solid var(--rule); }
+.ss-res-heading { margin: 0 0 var(--gap-heading-hint); font-family: var(--display); font-size: 28px; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); }
+.ss-res-refused {
+  margin: 0 0 18px; padding: 14px 18px; max-width: var(--measure); background: var(--panel);
+  border: 1px solid var(--rule); border-left: 6px solid var(--ink); border-radius: 0 var(--radius-input) var(--radius-input) 0;
+}
+.ss-res-refused-title { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+.ss-res-reasons { margin: 6px 0; padding: 0 0 0 20px; font-size: 14px; overflow-wrap: anywhere; }
+.ss-res-secondary { margin: 24px 0 0; padding: 14px 0 0; font-size: 14px; color: var(--muted); border-top: 1px solid var(--rule); }
+/* Part 5a (scout F9, F10): a run row in words; the plain lead; the closed Technical details (same look as Try it's) */
+.ss-res-run-about { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 320px; }
+.ss-res-run-facts { margin: 0; font-size: 15px; color: var(--ink); overflow-wrap: anywhere; }
+.ss-res-run-head .ss-res-run-facts { color: var(--ink-2); }
+.ss-res-run-newest {
+  display: inline-block; padding: 1px 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
+  color: var(--ground); background: var(--ink); border-radius: 999px; vertical-align: 1px;
+}
+.ss-res-run-about .ss-res-run-id { font-size: 12px; color: var(--muted); }
+.ss-res-lead { max-width: var(--measure); margin: 8px 0 12px; }
+.ss-res-lead .pf-plain { margin: 0 0 10px; font-family: var(--display); font-size: 18px; line-height: 1.5; color: var(--ink); }
+.ss-res-next { max-width: var(--measure); margin: 0 0 16px; font-size: 15px; color: var(--ink-2); }
+.ss-res-details { margin: 32px 0 0; border: 1px solid var(--rule); border-radius: var(--radius-card); background: var(--panel); }
+.ss-res-details > summary {
+  cursor: pointer; display: flex; align-items: center; min-height: 52px; padding: 12px 20px;
+  font-family: var(--display); font-size: 19px; font-weight: 600; color: var(--ink);
+}
+.ss-res-details > summary::-webkit-details-marker { display: none; }
+.ss-res-details > summary::before {
+  content: "+"; flex: none; width: 1.1em; margin-right: 8px; font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--ai);
+}
+.ss-res-details[open] > summary::before { content: "\2212"; }
+.ss-res-details > summary:hover { background: var(--panel-2); }
+.ss-res-details > summary:focus-visible { outline: 2px solid var(--ai); outline-offset: -2px; }
+.ss-res-details[open] > summary { border-bottom: 1px solid var(--rule); }
+.ss-res-details-body { padding: 20px clamp(12px, 2vw, 24px) 8px; min-width: 0; }
+.ss-res-details-intro { max-width: var(--measure); margin: 0 0 16px; font-size: 15px; color: var(--ink-2); }
+.ss-res-profile { min-width: 0; }
+@media (max-width: 560px) {
+  .ss-ins-title, .ss-res-title { font-size: 32px; }
+  /* Part 6: on a phone the reference tabs stack as equal boxes, never a track that wraps one tab per row in a pill */
+  .ss-res-tabs { display: grid; grid-template-columns: minmax(0, 1fr); width: 100%; border-radius: var(--radius-card); }
+  .ss-res-tab { border-radius: var(--radius-input); }
+  .ss-ref-bulk { border-radius: var(--radius-input); }   /* a long button that wraps is a box, not a pill */
+  .ss-ins-check, .ss-ins-radio { display: flex; margin: 4px 0; }
+}
+
+/* Export (Task 42; spec 6.9, 9; plan V13): the report is the main card, then the profile for comparison, the methods
+   paragraph and the run record. Refusals are ink with a heavy left rule (coral stays for "missing"). */
+.ss-export { max-width: none; }
+.ss-export-title { margin: 0 0 12px; font-family: var(--display); font-size: 44px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; color: var(--ink); }
+.ss-export-intro { max-width: var(--measure); margin: 0 0 var(--space-5); font-size: 17px; color: var(--ink-2); }
+.ss-export-closed { max-width: var(--measure); margin: 0; padding: 12px 0 12px 16px; font-size: 15px; font-weight: 600; border-left: 6px solid var(--ink); }
+.ss-export-run { margin: 0 0 var(--space-5); }
+/* Part 6 (A11): the run's reference line sits 8px under the select, not against it */
+.ss-export-run-line { margin: var(--space-2) 0 0; font-size: 15px; }
+.ss-export-run-select { max-width: 420px; }
+.ss-export-card {
+  min-width: 0;
+  margin: 0 0 var(--card-gap);
+  padding: var(--card-pad);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+}
+.ss-export-card-main { border: 1px solid var(--ai); background: var(--ai-fill); }
+.ss-export-card-title { margin: 0 0 8px; font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+.ss-export-card-main .ss-export-card-title { font-size: 28px; letter-spacing: -0.03em; }
+.ss-export-card-body { max-width: var(--measure); margin: 0 0 var(--gap-hint-controls); font-size: 15px; }
+.ss-export-rest { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+.ss-export-card button { min-height: 44px; }
+.ss-export-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.ss-export-result { margin: 12px 0 0; }
+.ss-export-result:empty { display: none; }
+.ss-export-k { max-width: 320px; }
+.ss-export-made, .ss-export-saved, .ss-export-people { margin: 0 0 6px; font-size: 15px; }
+.ss-export-path { display: inline-block; font-family: var(--mono); font-size: 13px; overflow-wrap: anywhere; }
+.ss-export-file { display: block; padding: 10px 12px; background: var(--input); border-radius: var(--radius-chip); }
+.ss-export-refusals { margin: 0 0 12px; padding: 8px 0 8px 14px; border-left: 6px solid var(--ink); }
+.ss-export-refusals-title, .ss-export-warnings-title { margin: 0 0 4px; font-size: 15px; font-weight: 600; }
+.ss-export-refusal-list, .ss-export-warning-list, .ss-export-declaration { margin: 0 0 8px; padding-left: 20px; font-size: 15px; }
+.ss-export-warnings { margin: 0 0 12px; }
+.ss-export-open { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 6px 0 10px; }
+.ss-export-open .ss-export-open-btn { min-height: 44px; padding: 8px 14px; font-size: 14px; }
+.ss-export-open-error { flex-basis: 100%; font-size: 14px; color: var(--ink); }
+.ss-export-open-error:empty { display: none; }
+.ss-export-list-row .ss-export-open { margin: 4px 0 0; }
+.ss-export-checks { margin: 0 0 14px; max-width: var(--measure); }
+.ss-export-checks-title { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+.ss-export-check-list { margin: 0; padding: 0; list-style: none; }
+.ss-export-check { display: grid; grid-template-columns: minmax(0, 8.5em) minmax(0, 1fr); gap: 4px 12px; padding: 8px 0; border-top: 1px solid var(--rule); font-size: 15px; }
+.ss-export-check-status { font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em; color: var(--muted); padding-top: 2px; }
+.ss-export-check[data-status="fail"] .ss-export-check-status { color: var(--ink); font-weight: 600; }
+.ss-export-check[data-status="fail"] { border-left: 4px solid var(--ink); padding-left: 10px; }
+.ss-export-state { margin: 0 0 10px; max-width: var(--measure); font-size: 15px; color: var(--ink-2); }
+@media (max-width: 640px) { .ss-export-check { grid-template-columns: minmax(0, 1fr); } }
+.ss-export-lines { margin: 0 0 12px; border-top: 1px solid var(--rule); }
+.ss-export-lines summary { display: flex; align-items: center; min-height: 44px; padding: 11px 0; font-size: 15px; cursor: pointer; list-style: none; }
+.ss-export-lines summary::-webkit-details-marker { display: none; }
+.ss-export-lines summary::before { content: "+"; flex: none; width: 20px; margin-right: 8px; font-family: var(--mono); font-size: 18px; line-height: 1; color: var(--ai); }
+.ss-export-lines[open] > summary::before { content: "\2212"; }
+.ss-export-pre {
+  max-width: 100%;
+  max-height: 360px;
+  overflow: auto;
+  margin: 0;
+  padding: 12px 14px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: pre;
+  background: var(--input);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-input);
+}
+.ss-export-methods-text {
+  max-width: var(--measure);
+  margin: 0 0 8px;
+  padding: 14px 16px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--input);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-input);
+}
+.ss-export-list { margin: 8px 0 0; }
+.ss-export-list-title { margin: 0 0 8px; font-family: var(--display); font-size: 19px; font-weight: 600; color: var(--ink); }
+.ss-export-list-rows { margin: 0; padding: 0; list-style: none; }
+.ss-export-list-row { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 8px 0; font-size: 15px; border-top: 1px solid var(--rule); }
+.ss-export-list-kind { min-width: 180px; font-weight: 500; }
+@media (max-width: 560px) {
+  .ss-export-title { font-size: 32px; }
+}

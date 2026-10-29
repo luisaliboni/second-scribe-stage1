@@ -1,0 +1,14 @@
+Each numbered label below names a step, service, person or source of information in a journey. Your task is to give each label a concept name.
+
+For each label:
+- Write a plain concept name of 1 to 4 words, in lowercase, that keeps the meaning of the label. Keep the label's own key words when they already name the thing; do not swap them for broader or more usual words.
+- Replace the name of a specific person, place or organisation with the most specific kind of thing it is (a named driving school becomes "driving school", not "school"). Write an abbreviation out in full only when the label itself makes its meaning clear; otherwise keep it as written, in lowercase.
+- Do not generalize: keep the label's own level of detail. "Booking a road test" becomes "road test booking", not "scheduling" or "transport"; "driving instructor" stays "driving instructor", not "teacher".
+- Keep distinct things distinct, and the same things the same: labels that name different things get different concept names, even when they belong to the same area; labels that name the same thing in different words get the same concept name.
+- If a label names two things, keep both if they fit in 4 words; otherwise name the first.
+
+Return only JSON in exactly this format. Begin your answer with {, and write no text before or after the JSON:
+{"concepts": [{"n": <label number>, "concept": "<1-4 plain words>"}]}
+LABELS:
+{labels}
+REMINDER: Give one concept name of 1 to 4 plain lowercase words for every label number. Keep the label's meaning, level of detail and own key words; do not generalize; same thing, same name; different things, different names. Reply with only the JSON {"concepts": [...]}. Begin your answer with {

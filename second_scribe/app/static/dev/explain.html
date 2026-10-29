@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explain dev harness</title>
+<!-- Dev only (never shipped: build_site skips static/dev/). Written by
+     python3 -m second_scribe.app.explain_data --dev second_scribe/app/static/dev
+     The body is pages/explain.html verbatim. Hash: #theme=dark|light, #motion=reduce, #scene=<id>, #w=390 (a real 390px frame). -->
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/site-explain.css">
+<script>
+  (function () {
+    var h = location.hash, html = document.documentElement;
+    if (/(^|[#&])theme=dark($|&)/.test(h)) html.setAttribute("data-theme", "dark");
+    if (/(^|[#&])theme=light($|&)/.test(h)) html.setAttribute("data-theme", "light");
+    if (/(^|[#&])motion=reduce($|&)/.test(h)) html.setAttribute("data-motion", "reduce");
+    // headless Chrome opens no window narrower than 500px, so #w=390 shows the page in an iframe that wide
+    var w = /(?:^|[#&])w=(\d+)/.exec(h);
+    if (w && window.top === window) {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.textContent = "";
+        document.body.style.margin = "0";
+        var f = document.createElement("iframe");
+        f.src = location.pathname + h.replace(/(^#|&)w=\d+/, "$1");
+        f.setAttribute("title", "Explain at " + w[1] + "px");
+        f.style.border = "0";
+        f.style.display = "block";
+        f.style.height = "100vh";
+        f.style.width = w[1] + "px";
+        document.body.appendChild(f);
+      });
+    }
+  })();
+</script>
+</head>
+<body>
+<div class="ss-x" data-ss-explain>
+  <section class="ss-x-hero">
+    <h1 class="ss-x-title" data-ss-t="explain.hero.title"></h1>
+    <p class="ss-x-lead" data-ss-t="explain.hero.lead"></p>
+    <div class="ss-x-install">
+      <p class="ss-x-install-label" data-ss-t="explain.install_label"></p>
+      <div class="ss-x-cmdrow">
+        <code class="ss-x-cmd" data-ss-t="explain.install_command"></code>
+        <button type="button" class="ss-x-copy" data-ss-copy data-ss-t="explain.copy"></button>
+      </div>
+      <p class="ss-x-copy-status" role="status" aria-live="polite"></p>
+      <p class="ss-x-install-more"><a href="install.html" data-ss-t="explain.install_link"></a></p>
+    </div>
+  </section>
+  <section class="ss-x-how" aria-labelledby="ss-x-how-title">
+    <h2 class="ss-x-how-title" id="ss-x-how-title" data-ss-t="explain.stage_label"></h2>
+    <div class="ss-x-host" data-ss-explain-stage></div>
+  </section>
+</div>
+
+<script src="data/explain.strings.js"></script>
+<script src="data/explain.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/site-explain.js"></script>
+</body>
+</html>

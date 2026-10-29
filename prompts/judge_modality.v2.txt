@@ -1,0 +1,29 @@
+RUBRIC CARD
+You will see numbered items. Each item is a short ELEMENT from a map and a QUOTE from an interview. Decide what the QUOTE says about the ELEMENT. Judge only from the words of the quote, and, when the quote is the interviewer's, the participant's REPLY.
+
+Definitions:
+{definitions}
+
+Labels (use exactly one per item):
+- actual: the quote says the element is experienced, as defined above: it happened to the participant or existed for them.
+- wished: the quote says the element is wished, as defined above: the participant wanted or needed it, or says it should have existed for them, and does not say that it happened or existed for them.
+- negated: the participant says it did NOT happen or did NOT exist for them.
+- hypothetical: the participant talks about it only as a possibility, a condition or a guess; it only MIGHT have happened.
+- other_person: the participant says it happened only to SOMEONE ELSE, not to them.
+- unsupported: the quote does not talk about this element, or talks about it without the participant saying any of the above.
+
+If more than one label could fit: use actual if the quote says it happened to or existed for the participant; otherwise wished if it fits the wished definition above; otherwise negated, then other_person, then hypothetical. Use unsupported only when none fits.
+When the quote is the interviewer's words, label what the participant's REPLY affirms about the element (a plain "yes" affirms the interviewer's statement). If an interviewer quote has no REPLY, use unsupported.
+
+Reference examples, for reference only. They are not items to judge.
+Example A. ELEMENT: Signing the lease. QUOTE: "We signed the lease at the agent's office on a Friday afternoon." Label: actual.
+Example B. ELEMENT: Video viewing. QUOTE: "I would have loved to tour the flat on a video call before flying out." Label: wished.
+Example C. ELEMENT: Security deposit. QUOTE: "Nobody ever asked us for a deposit, not at any stage." Label: negated.
+Example D. ELEMENT: Rent increase. QUOTE: "If the landlord raises the rent next year, I suppose we might look for another place." Label: hypothetical.
+Example E. ELEMENT: Eviction notice. QUOTE: "My sister's landlord sent her an eviction notice last spring." Label: other_person.
+Example F. ELEMENT: Broker fee. QUOTE: "The kitchen had a lovely view over the river." Label: unsupported.
+
+Now judge the numbered items below, one label each. Return only JSON, in exactly this form: {"labels": [{"n": <number>, "modality": "<label>"}]}
+ITEMS:
+{items}
+REMINDER: Judge each item only from its own quote and reply. Use only the six labels. Give one label for every number, and nothing else. The reference examples above are not items. Begin your answer with {

@@ -1,0 +1,22 @@
+Two lists describe steps, services, people and information sources in the same kind of journey. Your task is to find which items of LIST A and LIST B belong together.
+
+For each item in LIST A, give the numbers of the items in LIST B that stand in one of these two relations to it:
+- same: both items refer to the same thing (the same step, service, person or source), whatever words they use and however much detail each gives about it (who, when, how long, how many).
+- close: one item is broader and the other is one part or one kind of it, so they refer to the same thing at a different level of detail (for example a whole stage and one step inside it).
+Anything else is no pair. Two items that only share a word, belong to the same area, or are steps before or after each other are not a pair.
+Use only the items as written. Most items match nothing; that is fine. An item may have several partners, and several items may share a partner.
+
+Examples, for illustration only (they are not items to judge):
+- "Booking a road test" and "Scheduling the driving exam": same.
+- "Driving lessons" and "Six weekly lessons with a named instructor": same.
+- "Getting ready for the road test" and "Practising three-point turns": close.
+- "Booking a road test" and "Taking the road test": no pair.
+
+Return only JSON in exactly this format. Begin your answer with {, and write no text before or after the JSON:
+{"pairs": [{"a": <A number>, "b": <B number>, "rel": "same"|"close"}]}
+If there are no pairs, return {"pairs": []}.
+LIST A:
+{left}
+LIST B:
+{right}
+REMINDER: Pair items only when they refer to the same thing (same) or one is a part or kind of the other (close). Different wording or detail does not prevent a pair; a shared word, area or adjacent step does not make one. Reply with only the JSON {"pairs": [...]}. Begin your answer with {

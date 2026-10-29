@@ -1,0 +1,18 @@
+A research team interviewed a {role} about {domain}. Your job is to rebuild the person's journey as a map from the transcript given below.
+Your whole reply must be JSON. Begin your answer with {, and write nothing before or after the JSON.
+How to build the map:
+1. Read the whole transcript first. A speaker's turn may run over several lines, each starting with [I] (interviewer) or [P] (participant).
+2. Create one node per distinct step, service, actor (a person or an organization) or information source the person says was part of their journey. Do not merge different things into one node. Stay with what the participant says, and add nothing from general knowledge.
+3. Assign every node to a phase. The phases are: {phases}.
+4. Connect two nodes with a directed edge, pointing to the node that the other led to, whenever the person says one led to the other.
+5. Give every node and edge the status "experienced" or "wished". Definitions:
+{definitions}
+6. Make no node or edge for something that is not part of this person's journey.
+7. Support each node and each edge with a verbatim quote of at least 8 words, or a whole short answer. A quote is copied exactly from one turn by one speaker, without the [I] or [P] tag. Never join a question to its answer, never paraphrase, never leave out words in the middle of a quote, and never invent one. Prefer the participant's own words; when the interviewer's question is the only support, copy the interviewer's words exactly.
+8. If the person says, or clearly implies, how the journey felt as a whole, give that as a single word; otherwise null.
+The JSON must have exactly this shape:
+{schema}
+A node's type must be one of the listed types and is never a phase name.
+TRANSCRIPT:
+{transcript}
+REMINDER: Everything the participant says was part of their journey goes in the map, and nothing from general knowledge. If something did not happen to them, happened only to someone else, or only might have happened, it gets no node (unless they wanted or needed it themselves: wished). Each quote is copied exactly from one turn of one speaker; never join question and answer. JSON only. Begin your answer with {

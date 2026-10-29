@@ -1,0 +1,74 @@
+[
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C02",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "workaround",
+    "sentence": "We got through the how-to pages on the city website with the help of a friend who knew the system.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C03",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "interviewer_voiced",
+    "sentence": "And then the club for street food sellers followed, is that right?",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C09",
+    "expected_bucket": "matched",
+    "expected_modality": "wished",
+    "kind": "wished",
+    "sentence": "I really wish somebody had offered us the permit to run a business from city hall.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C12",
+    "expected_bucket": "unanchored",
+    "expected_modality": "negated",
+    "kind": "negated",
+    "sentence": "We never got the sign-off from the fire department, nobody offered it.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C27",
+    "expected_bucket": "unanchored",
+    "expected_modality": "hypothetical",
+    "kind": "hypothetical",
+    "sentence": "If we ever move to another city, the city employee who patrols the streets might work differently there.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "unanchored",
+      "removed": "unanchored"
+    },
+    "cid": "C32",
+    "expected_bucket": "unanchored",
+    "expected_modality": "other_person",
+    "kind": "other_person",
+    "sentence": "My neighbour had the neighbour's objection to the noise sorted in a week.",
+    "speaker": "participant"
+  }
+]

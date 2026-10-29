@@ -1,0 +1,108 @@
+/* The rung selector and the absent-steps table (Task 25). Loaded after viewer.css and views.css, which hold the
+   cell shapes (ss-mk-*). Colours come from tokens.css only. Text is never below 13px; targets are at least 44px.
+   The table scrolls sideways inside its own box, never the page. */
+
+/* ---- rung selector ---- */
+/* Item 42 (Part 5c): room around the block (32px above it, 8px legend to note, 16px note to the choices) and an even
+   grid of equal cards, 4 across on a wide screen, 2 x 2 at medium width, 1 per row on a phone. Each card holds the
+   radio, a short title and a muted second line; its info marker sits in the top-right corner. The checked card is
+   ink with ground-colour text (the same cue as the pressed pills), and its radio is checked, so colour is not the
+   only cue. */
+.ss-rungsel { margin: 0; padding: 0; border: 0; min-width: 0; }
+.ss-rungsel-legend { padding: 0; font-family: var(--display); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; color: var(--ink); }
+.ss-rungsel-note { margin: 8px 0 16px; max-width: var(--measure); font-size: 14px; line-height: 1.5; }
+.ss-rungsel-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ss-rungsel-option {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 14px 40px 14px 14px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  cursor: pointer;
+}
+.ss-rungsel-option:hover:not(.is-checked) { border-color: var(--ink-2); }
+.ss-rungsel-option.is-checked { color: var(--ground); background: var(--ink); border-color: var(--ink); }
+.ss-rungsel-input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--ai); }
+.ss-rungsel-option.is-checked .ss-rungsel-input { accent-color: var(--ground); }
+.ss-rungsel-option:focus-within { outline: 2px solid var(--ai); outline-offset: 2px; }
+.ss-rungsel-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ss-rungsel-text { display: block; font-weight: 600; }
+.ss-rungsel-text::first-letter { text-transform: uppercase; }
+.ss-rungsel-desc { display: block; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.ss-rungsel-option.is-checked .ss-rungsel-desc { color: var(--ground); opacity: 0.85; }
+/* the info marker of the title's term, in the card's top-right corner */
+.ss-rungsel-option .ss-gloss-term { white-space: normal; }
+.ss-rungsel-option .ss-gloss { position: absolute; top: 10px; right: 10px; margin: 0; }
+.ss-rungsel-option.is-checked .ss-gloss { color: var(--ground); }
+
+/* ---- absent-steps table ---- */
+/* Part 6 (S2): the table, its title and its note are one card. The note reads under the table as its key (flex
+   order), so nothing sits loose between the panel above and the table; the DOM order is unchanged. */
+.ss-ledger { display: flex; flex-direction: column; margin: 0 0 20px; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-card); }
+.ss-ledger > .ss-scroll-hint { order: 1; }
+.ss-ledger > .ss-ledger-frame { order: 2; }
+.ss-ledger-note { order: 3; margin: var(--space-3) var(--card-pad) var(--space-4); max-width: var(--measure); font-size: 14px; line-height: 1.5; }
+.ss-ledger-empty { margin: 0; padding: var(--space-4) var(--card-pad); font-size: 14px; line-height: 1.5; }
+p.ss-ledger-title { margin: 0; }
+.ss-ledger-scroll { overflow-x: auto; }
+.ss-ledger .ss-ledger-frame::before, .ss-ledger .ss-ledger-frame::after { top: 0; bottom: 0; border-radius: 0; }
+.ss-ledger-scroll:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+.ss-ledger-table { border-collapse: collapse; width: 100%; min-width: 820px; font-family: var(--sans); font-size: 14px; }
+.ss-ledger-title {
+  caption-side: top;
+  text-align: left;
+  padding: var(--space-4) var(--card-pad) 10px;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.ss-ledger-table th, .ss-ledger-table td { padding: 8px 10px; border-top: 1px solid var(--rule); vertical-align: middle; text-align: left; }
+.ss-ledger-table th:first-child, .ss-ledger-table td:first-child { padding-left: var(--card-pad); }
+.ss-ledger-table thead th { background: var(--band); font-size: 13px; font-weight: 600; color: var(--muted); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--border); line-height: 1.3; }
+.ss-ledger-step, .ss-ledger-rowhead { width: 22%; }
+.ss-ledger-rowhead { font-weight: 500; color: var(--ink); }
+.ss-ledger-col.is-current, .ss-ledger-td.is-current { background: var(--lane); }
+.ss-ledger-table thead th.ss-ledger-col.is-current { background: var(--lane); }
+.ss-ledger-col.is-current { color: var(--ink); border-bottom: 2px solid var(--ai); }
+.ss-ledger-table tr.is-selected .ss-ledger-rowhead { box-shadow: inset 4px 0 0 var(--ai); }
+.ss-ledger-na { display: inline-block; padding: 4px 6px; font-size: 13px; }
+
+.ss-ledger-cell {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 4px 8px;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+  border-radius: var(--radius-chip);
+  cursor: pointer;
+  /* border and fill come from the shape class (ss-mk-*, views.css) */
+}
+.ss-ledger-cell:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+/* the no-interview map lacks the step: plain, no fill (the grey fill means it drew the step) */
+.ss-ledger-cell.ss-mk-none { border: 1px solid var(--border); background: transparent; color: var(--muted); }
+.ss-ledger-cell.ss-mk-leaked { padding: 2px 6px; color: var(--missing-text); }
+.ss-ledger-cell .ss-mark-glyph { margin-right: 4px; }
+
+@media (max-width: 1100px) {
+  .ss-rungsel-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .ss-rungsel-options { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,0 +1,262 @@
+{
+  "run_id": "smoke-q",
+  "corpus": {
+    "kind": "synthetic",
+    "maps_glob": "../demo/corpus/maps/*.vsdx",
+    "transcripts_glob": "../demo/corpus/transcripts/*.docx",
+    "pairs": null,
+    "participant_labels": {
+      "*": [
+        "pt"
+      ]
+    },
+    "interviewer_labels": {
+      "*": [
+        "iv"
+      ]
+    },
+    "roles": {
+      "SYN-OW01": "owner",
+      "SYN-OW02": "owner",
+      "SYN-OW03": "owner",
+      "SYN-OW04": "owner",
+      "SYN-OW05": "owner",
+      "SYN-OW06": "owner",
+      "SYN-OW07": "owner",
+      "SYN-OF01": "officer",
+      "SYN-OF02": "officer",
+      "SYN-OF03": "officer",
+      "SYN-OF04": "officer",
+      "SYN-OF05": "officer"
+    },
+    "interviewers": {
+      "SYN-OW01": "I1",
+      "SYN-OW02": "I2",
+      "SYN-OW03": "I3",
+      "SYN-OW04": "I1",
+      "SYN-OW05": "I2",
+      "SYN-OW06": "I3",
+      "SYN-OW07": "I1",
+      "SYN-OF01": "I2",
+      "SYN-OF02": "I3",
+      "SYN-OF03": "I1",
+      "SYN-OF04": "I2",
+      "SYN-OF05": "I3"
+    },
+    "synthetic_dir": "../demo/corpus"
+  },
+  "context": {
+    "domain": "food-truck licensing in a mid-sized city",
+    "roles": {
+      "owner": "food-truck owner",
+      "officer": "city licensing officer"
+    },
+    "phases": [
+      "Planning",
+      "Permits",
+      "Inspections",
+      "Operating"
+    ],
+    "extract": {
+      "phase_names": [
+        "Planning",
+        "Permits",
+        "Inspections",
+        "Operating"
+      ]
+    }
+  },
+  "specs": [
+    {
+      "arm": "removed",
+      "variant": "p0",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p0",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "removed",
+      "variant": "p1",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "removed",
+      "variant": "p2",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p1",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p2",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "removed",
+      "variant": "p0",
+      "temperature": 0.7,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p0",
+      "temperature": 0.7,
+      "replicate": 0
+    }
+  ],
+  "prior_only": {
+    "variants": [
+      "p0",
+      "p1",
+      "p2"
+    ],
+    "samples": 2,
+    "temperature": 0.7
+  },
+  "settings": [
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same_or_close"
+    }
+  ],
+  "models": {
+    "recon": "RECON",
+    "judge": null,
+    "judge2": null
+  },
+  "out_dir": "../out/smoke-q",
+  "ladder": {
+    "rungs": [
+      "rung2",
+      "rung3",
+      "placebo",
+      "rung1"
+    ],
+    "draws": 1,
+    "n_perm": 200,
+    "B": 200,
+    "seed": 0
+  },
+  "stats": {
+    "B": 200,
+    "n_perm": 200,
+    "n_derangements": 10,
+    "seed": 0,
+    "min_words": 8
+  },
+  "smoke_q": {
+    "what": "Qwen-only live smoke (group Q) on the SYNTHETIC corpus plus one synthetic transcript padded to real length. Run: python3 -m second_scribe.cli smoke-q --config configs/smoke-q.json --out out/smoke-q [--plan]. Never on real data; the judge is never contacted.",
+    "env_usage": {
+      "URL": "SS_RECON_URL: the Qwen server's OpenAI base URL ending in /v1 (loopback, private LAN or Tailscale only; any other address is refused before a request)",
+      "MODEL": "SS_RECON_MODEL: the served model id from GET /v1/models (must contain 'qwen')",
+      "KEY_ENV": "SS_RECON_KEY_ENV: the NAME of an environment variable that holds the server's access token (the token itself is never written in a file)",
+      "PARAMS": "SS_RECON_PARAMS: JSON, required to switch thinking off, nested exactly as {\"chat_template_kwargs\": {\"enable_thinking\": false}}; a top-level enable_thinking is ignored by the server"
+    },
+    "padded": {
+      "target_words": 12000,
+      "n_transcripts": 1,
+      "draws": 1
+    },
+    "real": {
+      "n_maps": 46,
+      "n_roles": 2,
+      "draws": 1,
+      "prior_only_samples": 5,
+      "interviewer_turns_per_transcript": 120,
+      "recon_completion_tokens": 3500,
+      "note": "n_roles and interviewer_turns_per_transcript are assumptions: set them to the real corpus before reading the projection"
+    },
+    "options": {
+      "full": {
+        "rungs": [
+          "rung2",
+          "rung3",
+          "placebo",
+          "rung1"
+        ],
+        "draws": 1
+      },
+      "without_real_rung1": {
+        "rungs": [
+          "rung2",
+          "rung3",
+          "placebo"
+        ],
+        "draws": 1
+      },
+      "minimum": {
+        "rungs": [
+          "rung2",
+          "rung3",
+          "placebo"
+        ],
+        "draws": 1
+      }
+    },
+    "judge_estimates_h": {
+      "label": "estimate, unmeasured until the judge window",
+      "main_grid": [
+        8,
+        12
+      ],
+      "per_ladder_arm_draw": [
+        1.0,
+        1.5
+      ],
+      "source": "local compute budget estimate: judge about 8 to 12 h for the 46-map main grid, 1 to 1.5 h per extra arm and draw"
+    },
+    "extras": {
+      "optional_sensitivity_t07": {
+        "rungs": [
+          "rung2",
+          "rung3",
+          "placebo"
+        ],
+        "draws": 3,
+        "temperature": 0.7,
+        "note": "DECISIONS C7: optional, on top of any option; shown at the L12 stop"
+      }
+    },
+    "options_note": "DECISIONS C7: one draw per ladder arm at the primary setting (T=0), so the earlier 2- and 3-draw options cannot exist and minimum equals without_real_rung1; the optional T=0.7 sensitivity is an extra"
+  }
+}

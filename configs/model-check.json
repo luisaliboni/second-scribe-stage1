@@ -1,0 +1,125 @@
+{
+  "run_id": "model-check",
+  "corpus": {
+    "kind": "synthetic",
+    "maps_glob": "../demo/corpus/maps/*.vsdx",
+    "transcripts_glob": "../demo/corpus/transcripts/*.docx",
+    "pairs": null,
+    "participant_labels": {
+      "*": [
+        "pt"
+      ]
+    },
+    "interviewer_labels": {
+      "*": [
+        "iv"
+      ]
+    },
+    "roles": {
+      "SYN-OW01": "owner",
+      "SYN-OW03": "owner",
+      "SYN-OW06": "owner",
+      "SYN-OF01": "officer",
+      "SYN-OF03": "officer",
+      "SYN-OF05": "officer"
+    },
+    "interviewers": {
+      "SYN-OW01": "I1",
+      "SYN-OW03": "I3",
+      "SYN-OW06": "I3",
+      "SYN-OF01": "I2",
+      "SYN-OF03": "I1",
+      "SYN-OF05": "I3"
+    },
+    "synthetic_dir": "../demo/corpus",
+    "audit_determinism_k": 6
+  },
+  "context": {
+    "domain": "food-truck licensing in a mid-sized city",
+    "roles": {
+      "owner": "food-truck owner",
+      "officer": "city licensing officer"
+    },
+    "phases": [
+      "Planning",
+      "Permits",
+      "Inspections",
+      "Operating"
+    ],
+    "extract": {
+      "phase_names": [
+        "Planning",
+        "Permits",
+        "Inspections",
+        "Operating"
+      ]
+    }
+  },
+  "specs": [
+    {
+      "arm": "removed",
+      "variant": "p0",
+      "temperature": 0.0,
+      "replicate": 0
+    }
+  ],
+  "prior_only": {
+    "variants": [],
+    "samples": 0,
+    "temperature": 0.7
+  },
+  "reading3": {
+    "variant": "p0",
+    "samples": 1,
+    "temperature": 0
+  },
+  "settings": [
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same_or_close"
+    }
+  ],
+  "models": {
+    "recon": "RECON",
+    "judge": "JUDGE",
+    "judge2": null
+  },
+  "out_dir": "../out/model-check",
+  "prereg_required": false,
+  "ladder": {},
+  "stats": {
+    "B": 200,
+    "n_perm": 200,
+    "n_derangements": 10,
+    "seed": 0,
+    "min_words": 8
+  }
+}

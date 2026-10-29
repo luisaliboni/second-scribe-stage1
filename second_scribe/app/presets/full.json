@@ -1,0 +1,111 @@
+{
+  "schema": "preset/1",
+  "name": "full",
+  "source": "configs/real.template.json",
+  "specs": [
+    {
+      "arm": "removed",
+      "variant": "p0",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p0",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "removed",
+      "variant": "p1",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "removed",
+      "variant": "p2",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p1",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p2",
+      "temperature": 0.0,
+      "replicate": 0
+    },
+    {
+      "arm": "removed",
+      "variant": "p0",
+      "temperature": 0.7,
+      "replicate": 0
+    },
+    {
+      "arm": "full",
+      "variant": "p0",
+      "temperature": 0.7,
+      "replicate": 0
+    }
+  ],
+  "prior_only": {
+    "variants": [
+      "p0",
+      "p1",
+      "p2"
+    ],
+    "samples": 5,
+    "temperature": 0.7
+  },
+  "reading3": {
+    "variant": "p0",
+    "samples": 1,
+    "temperature": 0
+  },
+  "settings": [
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same_or_close"
+    }
+  ],
+  "stats": {
+    "B": 2000,
+    "n_perm_script": 10000,
+    "alpha_script": 0.05
+  },
+  "ladder": {
+    "draws": 1
+  }
+}

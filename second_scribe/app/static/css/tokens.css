@@ -1,0 +1,136 @@
+/* Design tokens: the "Three Lights" system. Dark is the default on :root; light is a full alternative, set by
+   data-theme="light" (the site's toggle, ?theme=light in the app, #theme=light in a report). data-theme="dark" is the
+   default made explicit and repeats the :root values.
+   The three readings keep one colour each everywhere: the endorsed map is the ink colour, the AI's map is cyan
+   (--ai), the no-interview map and the official pathway are neutral grey (--script, --never). Coral (--missing) is only
+   for "missing" and "the AI drew a missing step as happened". Colour never carries meaning alone: lanes and items also
+   change shape (dashed = missing, solid coral + triangle = drawn as happened, dotted = never drawn, flat grey = script).
+   --navy is kept as the name of the accent that headings, links and the reference reading use; it now equals the ink.
+   --field-border outlines text fields and selects: 3:1 against the field and the panels (hairlines stay --border).
+   Inverse cards (--inverse / --on-inverse) hold the one number or panel that matters most on a view, at most one. */
+:root {
+  --ground: #0f1216;
+  --panel: #151920;
+  --panel-2: #1d222a;
+  --band: #12161b;
+  --lane: #1a1e25;
+  --input: #0b0d10;
+  --rule: #222831;
+  --border: #39404a;
+  --field-border: #646c77;
+  --ink: #ece8df;
+  --ink-2: #b7bcc4;
+  --navy: #ece8df;
+  --muted: #8b9099;
+  --ai: #6cc6d9;
+  --ai-fill: #21313a;
+  --missing: #f2765a;
+  --missing-text: #f2765a;
+  --script: #262b33;
+  --script-text: #b7bcc4;
+  --never: #6f7680;
+  --synthetic-bg: #f0d78a;
+  --synthetic-text: #3d3000;
+  --inverse: #ece8df;
+  --on-inverse: #0f1216;
+  --muted-on-inverse: #4f555e;
+  --ai-on-inverse: #176d80;
+  --missing-on-inverse: #a8391f;
+
+  --display: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: var(--display);   /* the old name of the heading face, kept so older rules read the display face */
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --radius-chip: 8px;
+  --radius-input: 10px;
+  --radius-card: 16px;
+  --radius-pill: 999px;
+
+  /* Spacing and measure (Part 6, the author's items 42 and 43: "tudo muito apertado"). One scale for every gap, and a
+     few named gaps that every screen uses: about 32px before a block, 8px from a heading to its hint, 16px from a
+     hint to the controls under it. Cards share one padding (smaller on a phone, below) and one gap. Running text
+     stops at --measure: in Schibsted Grotesk one "ch" (the zero) is about 1.34 average letters wide, so 56ch holds
+     about 75 characters a line. Mode-independent: nothing here changes with the theme. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --gap-heading-hint: var(--space-2);
+  --gap-hint-controls: var(--space-4);
+  --gap-block: var(--space-6);
+  --card-pad: var(--space-5);
+  --card-gap: 20px;
+  --choice-gap: var(--space-3);
+  --leading-body: 1.5;
+  --measure: 56ch;
+}
+
+/* a phone: cards keep a smaller inner padding so text keeps its width */
+@media (max-width: 560px) {
+  :root { --card-pad: 18px; }
+}
+
+:root[data-theme="dark"] {
+  --ground: #0f1216;
+  --panel: #151920;
+  --panel-2: #1d222a;
+  --band: #12161b;
+  --lane: #1a1e25;
+  --input: #0b0d10;
+  --rule: #222831;
+  --border: #39404a;
+  --field-border: #646c77;
+  --ink: #ece8df;
+  --ink-2: #b7bcc4;
+  --navy: #ece8df;
+  --muted: #8b9099;
+  --ai: #6cc6d9;
+  --ai-fill: #21313a;
+  --missing: #f2765a;
+  --missing-text: #f2765a;
+  --script: #262b33;
+  --script-text: #b7bcc4;
+  --never: #6f7680;
+  --synthetic-bg: #f0d78a;
+  --synthetic-text: #3d3000;
+  --inverse: #ece8df;
+  --on-inverse: #0f1216;
+  --muted-on-inverse: #4f555e;
+  --ai-on-inverse: #176d80;
+  --missing-on-inverse: #a8391f;
+}
+
+:root[data-theme="light"] {
+  --ground: #f6f5f1;
+  --panel: #ffffff;
+  --panel-2: #efede8;
+  --band: #eeece6;
+  --lane: #f3f1ec;
+  --input: #fbfaf7;
+  --rule: #e3e1da;
+  --border: #cfccc4;
+  --field-border: #80858c;
+  --ink: #14171c;
+  --ink-2: #4f555e;
+  --navy: #14171c;
+  --muted: #61676f;
+  --ai: #1a7386;
+  --ai-fill: #e8f1f3;
+  --missing: #d4553a;
+  --missing-text: #b83f26;
+  --script: #e7e4dc;
+  --script-text: #4f555e;
+  --never: #80868f;
+  --synthetic-bg: #f0d78a;
+  --synthetic-text: #3d3000;
+  --inverse: #14171c;
+  --on-inverse: #f6f5f1;
+  --muted-on-inverse: #b7bcc4;
+  --ai-on-inverse: #6cc6d9;
+  --missing-on-inverse: #f2765a;
+}

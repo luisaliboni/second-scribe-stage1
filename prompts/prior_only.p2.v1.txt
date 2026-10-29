@@ -1,0 +1,11 @@
+Return only JSON, in the exact format shown below, and no other text.
+Task: map the typical official pathway of a {role} who is {domain}, as official guidance would describe it. Do not use any interview.
+Rules for the map:
+- One node for each distinct step, service, actor (person or organization) and source of information in the pathway.
+- Each node belongs to one phase from this list: {phases}.
+- An edge points from a node to the node that follows it in the pathway.
+- The status is "experienced" for what the official pathway contains.
+- All quote fields must be null, because there is no transcript.
+- Record one word for the overall feeling of the journey, or null.
+Format:
+{schema}

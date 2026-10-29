@@ -1,0 +1,13 @@
+Return only JSON, in the exact format shown below, and no other text.
+Task: from the interview transcript at the end, build a journey map for a {role} dealing with {domain}.
+Rules for the map:
+- Each distinct step, service, actor (person or organization) and source of information the person talks about becomes its own node, with one node per item.
+- Each node belongs to one phase from this list: {phases}.
+- An edge points from one node to the node that followed it in the person's experience.
+- Things the person says were missing, should have existed or would have been wanted get the status "wished". Everything else is "experienced".
+- Every node and edge carries a quote copied word for word from the transcript: at least 8 words, or a whole short answer. Do not reword, shorten inside the quote, or invent quotes.
+- If the person says or clearly implies one word for the overall feeling of the journey, record it; otherwise use null.
+Format:
+{schema}
+TRANSCRIPT:
+{transcript}

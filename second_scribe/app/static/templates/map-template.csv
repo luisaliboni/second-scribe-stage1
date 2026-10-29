@@ -1,0 +1,6 @@
+kind,id,label,phase,status,missing_kind,from,to
+box,s1,EXAMPLE (replace this row): a step the person described,Phase A,happened,,,
+box,s2,EXAMPLE (replace this row): a step the person wished for,Phase A,missing,wished for,,
+box,s3,EXAMPLE (replace this row): a later step,Phase B,happened,,,
+arrow,,,,happened,,s1,s3
+arrow,,,,missing,,s2,s3

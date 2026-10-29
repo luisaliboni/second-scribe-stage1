@@ -1,0 +1,65 @@
+/* Print (Task 42; spec 9.1): the report on paper or as the browser's Save as PDF. Everything prints in black, white
+   and greys: the lanes, the AI's marks and the missing marks keep their meaning through their shapes (border styles,
+   outlines, glyphs), which is what the encoding carries anyway (tokens.css: colour never carries meaning alone). The
+   run and its reference type head every printed page (the @page margin box in the report's css/report-head.css). The
+   interactive parts of the viewer (view switch, map picker, rung selector, chart switch, the empty drawer, the print button) are left out;
+   the lanes of every map print instead (report.js, .report-maps). */
+@media print {
+  :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
+    --ground: #ffffff;
+    --panel: #ffffff;
+    --lane: #f2f2f2;
+    --input: #f2f2f2;
+    --rule: #bdbdbd;
+    --border: #8c8c8c;
+    --ink: #000000;
+    --navy: #000000;
+    --muted: #404040;
+    --ai: #000000;
+    --ai-fill: #ebebeb;
+    --missing: #000000;
+    --missing-text: #000000;
+    --script: #d9d9d9;
+    --script-text: #000000;
+    --never: #595959;
+    --synthetic-bg: #ffffff;
+    --synthetic-text: #000000;
+  }
+  @page { margin: 18mm 14mm 16mm; }
+  html, body { background: #ffffff; color: #000000; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; }
+
+  .report-main { max-width: none; padding: 0 2px; }
+  /* the run line heads every page from the page's top margin box (css/report-head.css, written per run), so no
+     content sits under it; the in-page copy (hidden on screen too) stays out of print */
+  .report-running { display: none; }
+  /* the controls are left out; the map boxes and ledger cells are buttons too, and they print */
+  .report-print, .ss-viewswitch-btn, .ss-viewer-pick, .ss-behind-btn, .sd-mode, .ss-viewer-controls,
+  .ss-viewer-selector, .ss-viewer-switch, .ss-viewer-picker, .ss-drawer-close, .ss-drawer-behind-close,
+  noscript { display: none !important; }
+
+  /* the one map picked on screen gives way to every map below it */
+  .report-viewer .ss-section-views .ss-viewer-panel, .report-viewer .ss-viewer-stamp { display: none; }
+  .report-viewer .ss-section-drawer { display: none; }
+
+  .report-band-synthetic { border: 1.5pt dashed #000000; }
+  .report-band-own { border: 1.5pt solid #000000; }
+  .report-stamp, .report-declaration, .report-record, .report-map, .ss-drawer {
+    border-color: #000000;
+    break-inside: avoid;
+  }
+  .report-main h2, .report-main h3, .report-map-title { break-after: avoid; }
+  .report-record { break-before: page; }
+  .ss-lanes-scroll { overflow: visible !important; }
+  .ss-scroll-hint { display: none !important; }
+  .ss-ledger-frame::before, .ss-ledger-frame::after { display: none !important; }
+  .ss-lanes .ss-lanes-scroll { -webkit-mask-image: none !important; mask-image: none !important; }
+  /* the absent-steps table fits the printed line instead of scrolling */
+  .ss-ledger-scroll { overflow: visible !important; }
+  .ss-ledger-table { min-width: 0; font-size: 8pt; }
+  .ss-ledger-cell { min-height: 0; padding: 4px 6px; font-size: 8pt; }
+  .report-map-body { zoom: var(--report-print-zoom, 0.62); }
+  a { color: #000000; text-decoration: none; }
+  code, .mono { font-size: 8pt; }
+  body { font-size: 10pt; }
+}

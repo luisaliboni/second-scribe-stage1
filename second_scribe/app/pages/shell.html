@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{csp}}
+<title>{{title}}</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/glossary.css">
+{{styles}}<script src="js/site-shell.js"></script>
+</head>
+<body class="site site-page-{{page}}">
+<a class="site-skip" href="#main">{{t:site.skip}}</a>
+<header class="site-header">
+<div class="site-header-inner">
+<a class="site-brand" href="index.html"><span class="ss-mark" aria-hidden="true"><i></i><i></i><i></i></span>{{t:app.name}}</a>
+<nav class="site-nav" aria-label="{{t:nav.label}}">
+<ul>
+{{nav}}</ul>
+</nav>
+<button type="button" id="site-theme" class="site-theme" aria-pressed="false">{{t:site.theme}}</button>
+</div>
+</header>
+<main id="main" class="site-main" tabindex="-1">
+{{body}}</main>
+<footer class="site-footer">
+<p>{{t:site.footer}}</p>
+</footer>
+{{scripts}}</body>
+</html>

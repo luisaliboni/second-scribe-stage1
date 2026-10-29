@@ -1,0 +1,88 @@
+{
+  "domain": "food-truck licensing",
+  "participants": [
+    {
+      "fmt": "bracket",
+      "interviewer": "I1",
+      "pid": "SYN-OW01",
+      "role": "owner"
+    },
+    {
+      "fmt": "first_token",
+      "interviewer": "I2",
+      "pid": "SYN-OW02",
+      "role": "owner"
+    },
+    {
+      "fmt": "bracket",
+      "interviewer": "I3",
+      "pid": "SYN-OW03",
+      "role": "owner"
+    },
+    {
+      "fmt": "first_token",
+      "interviewer": "I1",
+      "pid": "SYN-OW04",
+      "role": "owner"
+    },
+    {
+      "fmt": "bracket",
+      "interviewer": "I2",
+      "pid": "SYN-OW05",
+      "role": "owner"
+    },
+    {
+      "fmt": "first_token",
+      "interviewer": "I3",
+      "pid": "SYN-OW06",
+      "role": "owner"
+    },
+    {
+      "fmt": "bracket",
+      "interviewer": "I1",
+      "pid": "SYN-OW07",
+      "role": "owner"
+    },
+    {
+      "fmt": "first_token",
+      "interviewer": "I2",
+      "pid": "SYN-OF01",
+      "role": "officer"
+    },
+    {
+      "fmt": "bracket",
+      "interviewer": "I3",
+      "pid": "SYN-OF02",
+      "role": "officer"
+    },
+    {
+      "fmt": "first_token",
+      "interviewer": "I1",
+      "pid": "SYN-OF03",
+      "role": "officer"
+    },
+    {
+      "fmt": "bracket",
+      "interviewer": "I2",
+      "pid": "SYN-OF04",
+      "role": "officer"
+    },
+    {
+      "fmt": "first_token",
+      "interviewer": "I3",
+      "pid": "SYN-OF05",
+      "role": "officer"
+    }
+  ],
+  "phases": [
+    "Planning",
+    "Permits",
+    "Inspections",
+    "Operating"
+  ],
+  "roles": {
+    "officer": "municipal licensing or inspection officer who processes the applications",
+    "owner": "food-truck owner who applied for and holds the licences"
+  },
+  "seed": 0
+}

@@ -1,0 +1,3153 @@
+{
+ "pooling": {
+  "meta_analysis": false,
+  "rule": "side_by_side",
+  "within": [
+   "reference_type",
+   "prompt_set_pair",
+   "state"
+  ]
+ },
+ "population": {
+  "label": "12 of 12",
+  "n_people": 12,
+  "n_total": 12
+ },
+ "reference": {
+  "map_size": {
+   "ai_boxes": 110,
+   "ai_per_endorsed": 0.866,
+   "ai_per_map": 9.167,
+   "endorsed_boxes": 127,
+   "endorsed_per_map": 10.583,
+   "reading3_map_size": {
+    "edges_per_map": 9.0,
+    "nodes_per_map": 10.0,
+    "note": "pooled_only",
+    "over_ai_nodes": 1.091,
+    "source": "kit:r12_prior_size"
+   },
+   "source": "kit:a1_recall_matchers+kit:a7_additions_source; reading3_map_size from work/prior_only (kit:r12_prior_size)"
+  },
+  "type": "participant-endorsed"
+ },
+ "rows": [
+  {
+   "band": {
+    "hi": 0.587,
+    "lo": 0.587,
+    "over": "lenient"
+   },
+   "cells": [
+    {
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "ci_lo": 0.862,
+     "kind": "share",
+     "n": 121,
+     "name": "ai_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.909,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "ci_lo": 0.244,
+     "kind": "share",
+     "n": 121,
+     "name": "no_interview_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.322,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "ci_lo": 0.491,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.587,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "ci_lo": 0.862,
+     "kind": "share",
+     "n": 121,
+     "name": "ai_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.909,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "ci_lo": 0.244,
+     "kind": "share",
+     "n": 121,
+     "name": "no_interview_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.322,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "ci_lo": 0.491,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.587,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "ci_lo": 0.478,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added_attested_line",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.57,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "ci_lo": 0.478,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added_attested_line",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.57,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.08,
+     "ci_level": 0.95,
+     "ci_lo": 0.022,
+     "kind": "share",
+     "n": 121,
+     "name": "real_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.05,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.039,
+     "ci_level": 0.95,
+     "ci_lo": 0.008,
+     "kind": "share",
+     "n": 1210,
+     "name": "shuffled_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.023,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 0.026,
+      "lo": 0.021,
+      "members": [
+       {
+        "value": 0.026,
+        "x": "judge"
+       },
+       {
+        "value": 0.021,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.045,
+     "ci_level": 0.95,
+     "ci_lo": 0.01,
+     "kind": "difference",
+     "n": 121,
+     "name": "wrong_transcript_difference",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.026,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "rank",
+     "n": 12,
+     "name": "own_map_mean_rank",
+     "p_lt": 0.001,
+     "source": "kit:f1_floors_checks",
+     "unit": "map",
+     "value": 1.0,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "rank",
+     "n": 12,
+     "name": "rank_null_expectation",
+     "source": "kit:f1_floors_checks",
+     "unit": "map",
+     "value": 6.5,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "ci_lo": 8.167,
+     "kind": "mean",
+     "n": 12,
+     "name": "ai_nodes_per_map",
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 9.167
+    },
+    {
+     "ci_level": null,
+     "kind": "mean",
+     "n": 12,
+     "name": "no_interview_nodes_per_map",
+     "note": "pooled_only",
+     "qualifiers": [
+      "size_beside_lead",
+      "pooled_only",
+      "no_interval"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 10.0
+    },
+    {
+     "ci_hi": 0.333,
+     "ci_level": 0.95,
+     "ci_lo": -1.833,
+     "kind": "difference",
+     "n": 12,
+     "name": "ai_minus_no_interview_nodes_per_map",
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": -0.833
+    },
+    {
+     "ci_hi": 9.583,
+     "ci_level": 0.95,
+     "ci_lo": 6.75,
+     "kind": "mean",
+     "n": 12,
+     "name": "ai_edges_per_map",
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 8.083
+    },
+    {
+     "ci_level": null,
+     "kind": "mean",
+     "n": 12,
+     "name": "no_interview_edges_per_map",
+     "note": "pooled_only",
+     "qualifiers": [
+      "size_beside_lead",
+      "pooled_only",
+      "no_interval"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 9.0
+    },
+    {
+     "ci_hi": 0.583,
+     "ci_level": 0.95,
+     "ci_lo": -2.25,
+     "kind": "difference",
+     "n": 12,
+     "name": "ai_minus_no_interview_edges_per_map",
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": -0.917
+    },
+    {
+     "ci_hi": 11.75,
+     "ci_level": 0.95,
+     "ci_lo": 9.583,
+     "kind": "mean",
+     "n": 12,
+     "name": "endorsed_nodes_per_map",
+     "qualifiers": [
+      "size_beside_lead"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 10.583
+    },
+    {
+     "ci_level": null,
+     "kind": "ratio",
+     "n": 12,
+     "name": "no_interview_over_ai_nodes",
+     "note": "pooled_only",
+     "qualifiers": [
+      "size_beside_lead",
+      "pooled_only",
+      "no_interval"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 1.091
+    },
+    {
+     "ci_level": null,
+     "derived": true,
+     "formula_code": "yield_per_box:ai",
+     "kind": "ratio",
+     "name": "yield_per_box",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 1.0,
+     "x": "ai"
+    },
+    {
+     "ci_level": null,
+     "derived": true,
+     "formula_code": "yield_per_box:no_interview",
+     "kind": "ratio",
+     "name": "yield_per_box",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead"
+     ],
+     "source": "kit:a1_recall_matchers+kit:f1_floors_checks+kit:r12_prior_size",
+     "unit": "node",
+     "value": 0.325,
+     "x": "no_interview"
+    },
+    {
+     "ci_level": null,
+     "derived": true,
+     "formula_code": "equal_size_bound",
+     "kind": "share",
+     "name": "equal_size_bound",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead",
+      "floor_not_estimate"
+     ],
+     "source": "kit:f1_floors_checks+kit:r12_prior_size",
+     "unit": "node",
+     "value": 0.295,
+     "x": "no_interview"
+    },
+    {
+     "ci_level": null,
+     "derived": true,
+     "formula_code": "listening_edge_equal_size",
+     "kind": "difference",
+     "name": "listening_edge_equal_size",
+     "qualifiers": [
+      "not_a_test",
+      "derived_arithmetic",
+      "descriptive",
+      "size_beside_lead",
+      "floor_not_estimate"
+     ],
+     "source": "kit:f1_floors_checks+kit:r12_prior_size",
+     "unit": "node",
+     "value": 0.614,
+     "x": "no_interview"
+    }
+   ],
+   "label_key": "profile.lead",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "paired_by_map",
+    "one_draw",
+    "ci_excludes_draw_variance",
+    "attested_line_one_sided",
+    "size_beside_lead"
+   ],
+   "rests_on": [
+    "R",
+    "AL",
+    "LX",
+    "IT",
+    "P",
+    "AS",
+    "Q",
+    "MO",
+    "CN"
+   ],
+   "row": "lead",
+   "source": [
+    "kit:a1_recall_matchers",
+    "kit:f1_floors_checks",
+    "kit:r12_prior_size"
+   ]
+  },
+  {
+   "band": {
+    "hi": 108,
+    "lo": 0,
+    "members": [
+     {
+      "value": 102,
+      "x": "lexical_only_04"
+     },
+     {
+      "value": 102,
+      "x": "lexical_only_05"
+     },
+     {
+      "value": 102,
+      "x": "lexical_only_06"
+     },
+     {
+      "value": 108,
+      "x": "lexical_only_07"
+     },
+     {
+      "value": 0,
+      "x": "judge_only_same"
+     },
+     {
+      "value": 0,
+      "x": "judge_only_same_or_close"
+     },
+     {
+      "value": 0,
+      "x": "primary"
+     },
+     {
+      "value": 0,
+      "x": "lenient"
+     }
+    ],
+    "over": "8_settings",
+    "subbands": [
+     {
+      "hi": 0,
+      "lo": 0,
+      "name": "judge_using"
+     },
+     {
+      "hi": 108,
+      "lo": 102,
+      "name": "lexical_only"
+     }
+    ]
+   },
+   "cells": [
+    {
+     "ci_hi": 0.138,
+     "ci_level": 0.95,
+     "ci_lo": 0.045,
+     "kind": "share",
+     "n": 121,
+     "name": "omitted_share",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.091
+    },
+    {
+     "band": {
+      "hi": 108,
+      "lo": 0,
+      "members": [
+       {
+        "value": 102,
+        "x": "lexical_only_04"
+       },
+       {
+        "value": 102,
+        "x": "lexical_only_05"
+       },
+       {
+        "value": 102,
+        "x": "lexical_only_06"
+       },
+       {
+        "value": 108,
+        "x": "lexical_only_07"
+       },
+       {
+        "value": 0,
+        "x": "judge_only_same"
+       },
+       {
+        "value": 0,
+        "x": "judge_only_same_or_close"
+       },
+       {
+        "value": 0,
+        "x": "primary"
+       },
+       {
+        "value": 0,
+        "x": "lenient"
+       }
+      ],
+      "over": "8_settings",
+      "subbands": [
+       {
+        "hi": 0,
+        "lo": 0,
+        "name": "judge_using"
+       },
+       {
+        "hi": 108,
+        "lo": 102,
+        "name": "lexical_only"
+       }
+      ]
+     },
+     "ci_level": null,
+     "derived": "ledger_band",
+     "kind": "count",
+     "n": 110,
+     "name": "attested_absent_from_map",
+     "qualifiers": [
+      "ceiling",
+      "not_bounded_below",
+      "derived_arithmetic"
+     ],
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:s00_reproduce+kit:a1_recall_matchers+kit:a3_size_adjusted",
+     "unit": "ai_box",
+     "value": 0,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 16.0,
+      "lo": 2.0,
+      "members": [
+       {
+        "value": 2.0,
+        "x": "judge"
+       },
+       {
+        "value": 16.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": false,
+      "over": "labellers"
+     },
+     "ci_level": null,
+     "kind": "count",
+     "n": 110,
+     "name": "unanchored",
+     "qualifiers": [
+      "labeller_dependent"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:s00_reproduce+kit:a10_band",
+     "unit": "ai_box",
+     "value": 2,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 127,
+     "name": "off_record_endorsed",
+     "rests_on": [
+      "IT"
+     ],
+     "source": "kit:s00_reproduce",
+     "unit": "node",
+     "value": 6,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 0.0,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.0,
+        "x": "judge"
+       },
+       {
+        "value": 0.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "count",
+     "n": 110,
+     "name": "attested_absent_from_map",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:a10_band",
+     "unit": "ai_box",
+     "value": 0,
+     "x": "labellers"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "name": "ai_boxes_total",
+     "source": "kit:a1_recall_matchers",
+     "unit": "ai_box",
+     "value": 110
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 110,
+     "name": "ai_boxes_attested_on_map",
+     "source": "kit:a3_size_adjusted",
+     "unit": "ai_box",
+     "value": 108,
+     "x": "primary"
+    }
+   ],
+   "label_key": "profile.ledger",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "ceiling",
+    "no_ratio",
+    "labeller_dependent",
+    "derived_arithmetic"
+   ],
+   "rests_on": [
+    "R",
+    "LX",
+    "AL",
+    "IT",
+    "Q",
+    "MO"
+   ],
+   "row": "ledger",
+   "source": [
+    "kit:a10_band",
+    "kit:a1_recall_matchers",
+    "kit:a3_size_adjusted",
+    "kit:s00_reproduce"
+   ]
+  },
+  {
+   "band": {
+    "hi": 0.909,
+    "lo": 0.0,
+    "members": [
+     {
+      "value": 0.05,
+      "x": "lexical_only_04"
+     },
+     {
+      "value": 0.05,
+      "x": "lexical_only_05"
+     },
+     {
+      "value": 0.05,
+      "x": "lexical_only_06"
+     },
+     {
+      "value": 0.0,
+      "x": "lexical_only_07"
+     },
+     {
+      "value": 0.909,
+      "x": "judge_only_same"
+     },
+     {
+      "value": 0.909,
+      "x": "judge_only_same_or_close"
+     },
+     {
+      "value": 0.909,
+      "x": "primary"
+     },
+     {
+      "value": 0.909,
+      "x": "lenient"
+     }
+    ],
+    "over": "8_settings",
+    "subbands": [
+     {
+      "hi": 0.909,
+      "lo": 0.909,
+      "name": "judge_using"
+     },
+     {
+      "hi": 0.05,
+      "lo": 0.0,
+      "name": "lexical_only"
+     }
+    ]
+   },
+   "cells": [
+    {
+     "band": {
+      "hi": 0.909,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.05,
+        "x": "lexical_only_04"
+       },
+       {
+        "value": 0.05,
+        "x": "lexical_only_05"
+       },
+       {
+        "value": 0.05,
+        "x": "lexical_only_06"
+       },
+       {
+        "value": 0.0,
+        "x": "lexical_only_07"
+       },
+       {
+        "value": 0.909,
+        "x": "judge_only_same"
+       },
+       {
+        "value": 0.909,
+        "x": "judge_only_same_or_close"
+       },
+       {
+        "value": 0.909,
+        "x": "primary"
+       },
+       {
+        "value": 0.909,
+        "x": "lenient"
+       }
+      ],
+      "over": "8_settings",
+      "subbands": [
+       {
+        "hi": 0.909,
+        "lo": 0.909,
+        "name": "judge_using"
+       },
+       {
+        "hi": 0.05,
+        "lo": 0.0,
+        "name": "lexical_only"
+       }
+      ]
+     },
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "ci_lo": 0.862,
+     "kind": "share",
+     "n": 121,
+     "name": "kept",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.909
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "share",
+     "n": 121,
+     "name": "coarsened",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.0
+    },
+    {
+     "ci_hi": 0.138,
+     "ci_level": 0.95,
+     "ci_lo": 0.045,
+     "kind": "share",
+     "n": 121,
+     "name": "omitted",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.091
+    },
+    {
+     "band": {
+      "hi": 0.893,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.05,
+        "x": "lexical_only_04"
+       },
+       {
+        "value": 0.05,
+        "x": "lexical_only_05"
+       },
+       {
+        "value": 0.05,
+        "x": "lexical_only_06"
+       },
+       {
+        "value": 0.0,
+        "x": "lexical_only_07"
+       },
+       {
+        "value": 0.893,
+        "x": "judge_only_same"
+       },
+       {
+        "value": 0.893,
+        "x": "judge_only_same_or_close"
+       },
+       {
+        "value": 0.893,
+        "x": "primary"
+       },
+       {
+        "value": 0.893,
+        "x": "lenient"
+       }
+      ],
+      "over": "8_settings",
+      "subbands": [
+       {
+        "hi": 0.893,
+        "lo": 0.893,
+        "name": "judge_using"
+       },
+       {
+        "hi": 0.05,
+        "lo": 0.0,
+        "name": "lexical_only"
+       }
+      ]
+     },
+     "ci_hi": 0.933,
+     "ci_level": 0.95,
+     "ci_lo": 0.851,
+     "kind": "share",
+     "n": 121,
+     "name": "attested_recall",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.893,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.933,
+     "ci_level": 0.95,
+     "ci_lo": 0.851,
+     "kind": "share",
+     "n": 121,
+     "name": "attested_recall",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "IT",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.893,
+     "x": "lenient"
+    },
+    {
+     "kind": "ratio",
+     "name": "r_star",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:a2_calibration",
+     "state": "not_run",
+     "unit": "node",
+     "value": null
+    }
+   ],
+   "label_key": "profile.row1.coverage",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "recall_is_a_band"
+   ],
+   "rests_on": [
+    "R",
+    "LX",
+    "AL",
+    "IT",
+    "Q",
+    "MO"
+   ],
+   "row": 1,
+   "source": [
+    "kit:a1_recall_matchers"
+   ]
+  },
+  {
+   "cells": [
+    {
+     "ci_level": null,
+     "kind": "count",
+     "name": "ai_boxes",
+     "source": "kit:a1_recall_matchers",
+     "unit": "ai_box",
+     "value": 110
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "name": "endorsed_boxes",
+     "source": "kit:a7_additions_source",
+     "unit": "node",
+     "value": 127
+    },
+    {
+     "ci_level": null,
+     "derived": "ratio_ai_per_endorsed",
+     "kind": "ratio",
+     "name": "ai_per_endorsed",
+     "source": "kit:a1_recall_matchers+kit:a7_additions_source",
+     "value": 0.866
+    },
+    {
+     "ci_level": null,
+     "derived": "per_map_mean",
+     "kind": "count",
+     "name": "ai_per_map",
+     "source": "kit:a1_recall_matchers+kit:a12_ladder",
+     "unit": "ai_box",
+     "value": 9.167
+    },
+    {
+     "ci_level": null,
+     "derived": "per_map_mean",
+     "kind": "count",
+     "name": "endorsed_per_map",
+     "source": "kit:a7_additions_source",
+     "unit": "node",
+     "value": 10.583
+    },
+    {
+     "ci_level": null,
+     "derived": "ratio_ai_per_endorsed",
+     "kind": "ratio",
+     "name": "ai_per_endorsed",
+     "qualifiers": [
+      "one_draw",
+      "no_interval"
+     ],
+     "source": "kit:a7_additions_source+kit:a12_ladder",
+     "value": 0.866,
+     "x": "rung1"
+    },
+    {
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "ci_lo": 8.167,
+     "kind": "mean",
+     "n": 12,
+     "name": "ai_nodes_per_map",
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 9.167
+    },
+    {
+     "ci_hi": 9.583,
+     "ci_level": 0.95,
+     "ci_lo": 6.75,
+     "kind": "mean",
+     "n": 12,
+     "name": "ai_edges_per_map",
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 8.083
+    },
+    {
+     "ci_hi": 11.75,
+     "ci_level": 0.95,
+     "ci_lo": 9.583,
+     "kind": "mean",
+     "n": 12,
+     "name": "endorsed_nodes_per_map",
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:r12_prior_size",
+     "unit": "map",
+     "value": 10.583
+    }
+   ],
+   "label_key": "profile.row2.size",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "one_draw",
+    "no_interval",
+    "derived_arithmetic"
+   ],
+   "rests_on": [
+    "R"
+   ],
+   "row": 2,
+   "source": [
+    "kit:a12_ladder",
+    "kit:a1_recall_matchers",
+    "kit:a7_additions_source",
+    "kit:r12_prior_size"
+   ]
+  },
+  {
+   "band": {
+    "hi": 0.982,
+    "lo": 0.0,
+    "members": [
+     {
+      "value": 0.055,
+      "x": "lexical_only_04"
+     },
+     {
+      "value": 0.055,
+      "x": "lexical_only_05"
+     },
+     {
+      "value": 0.055,
+      "x": "lexical_only_06"
+     },
+     {
+      "value": 0.0,
+      "x": "lexical_only_07"
+     },
+     {
+      "value": 0.982,
+      "x": "judge_only_same"
+     },
+     {
+      "value": 0.982,
+      "x": "judge_only_same_or_close"
+     },
+     {
+      "value": 0.982,
+      "x": "primary"
+     },
+     {
+      "value": 0.982,
+      "x": "lenient"
+     }
+    ],
+    "over": "8_settings",
+    "subbands": [
+     {
+      "hi": 0.982,
+      "lo": 0.982,
+      "name": "judge_using"
+     },
+     {
+      "hi": 0.055,
+      "lo": 0.0,
+      "name": "lexical_only"
+     }
+    ]
+   },
+   "cells": [
+    {
+     "band": {
+      "hi": 0.982,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.055,
+        "x": "lexical_only_04"
+       },
+       {
+        "value": 0.055,
+        "x": "lexical_only_05"
+       },
+       {
+        "value": 0.055,
+        "x": "lexical_only_06"
+       },
+       {
+        "value": 0.0,
+        "x": "lexical_only_07"
+       },
+       {
+        "value": 0.982,
+        "x": "judge_only_same"
+       },
+       {
+        "value": 0.982,
+        "x": "judge_only_same_or_close"
+       },
+       {
+        "value": 0.982,
+        "x": "primary"
+       },
+       {
+        "value": 0.982,
+        "x": "lenient"
+       }
+      ],
+      "over": "8_settings",
+      "subbands": [
+       {
+        "hi": 0.982,
+        "lo": 0.982,
+        "name": "judge_using"
+       },
+       {
+        "hi": 0.055,
+        "lo": 0.0,
+        "name": "lexical_only"
+       }
+      ]
+     },
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.957,
+     "kind": "share",
+     "n": 110,
+     "name": "precision",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "ai_box",
+     "value": 0.982,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 0.893,
+      "lo": 0.777,
+      "members": [
+       {
+        "value": 0.893,
+        "x": "judge"
+       },
+       {
+        "value": 0.777,
+        "x": "keyword"
+       }
+      ],
+      "narrow": false,
+      "over": "labellers"
+     },
+     "ci_hi": 0.933,
+     "ci_level": 0.95,
+     "ci_lo": 0.851,
+     "kind": "share",
+     "n": 121,
+     "name": "attested_recall",
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:a1_recall_matchers+kit:a10_band",
+     "unit": "node",
+     "value": 0.893,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 0.0,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.0,
+        "x": "judge"
+       },
+       {
+        "value": 0.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_level": null,
+     "kind": "count",
+     "n": 110,
+     "name": "attested_absent_from_map",
+     "qualifiers": [
+      "ceiling",
+      "not_bounded_below"
+     ],
+     "rests_on": [
+      "R",
+      "LX",
+      "AL",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:s00_reproduce+kit:a10_band",
+     "unit": "ai_box",
+     "value": 0,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 16.0,
+      "lo": 2.0,
+      "members": [
+       {
+        "value": 2.0,
+        "x": "judge"
+       },
+       {
+        "value": 16.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": false,
+      "over": "labellers"
+     },
+     "ci_level": null,
+     "kind": "count",
+     "n": 110,
+     "name": "unanchored",
+     "qualifiers": [
+      "labeller_dependent"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:s00_reproduce+kit:a10_band",
+     "unit": "ai_box",
+     "value": 2,
+     "x": "primary"
+    }
+   ],
+   "label_key": "profile.row3.support",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "labeller_dependent"
+   ],
+   "rests_on": [
+    "R",
+    "LX",
+    "AL",
+    "Q",
+    "MO"
+   ],
+   "row": 3,
+   "source": [
+    "kit:a10_band",
+    "kit:a1_recall_matchers",
+    "kit:s00_reproduce"
+   ]
+  },
+  {
+   "band": {
+    "hi": 0.959,
+    "lo": 0.959,
+    "over": "lenient"
+   },
+   "cells": [
+    {
+     "ci_hi": 0.3,
+     "ci_level": 0.95,
+     "ci_lo": 0.138,
+     "kind": "share",
+     "n": 124,
+     "name": "endpoint_lost",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.218,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "share",
+     "n": 124,
+     "name": "collapsed",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.0,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.862,
+     "ci_level": 0.95,
+     "ci_lo": 0.7,
+     "kind": "share",
+     "n": 124,
+     "name": "eligible_share",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.782,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 124,
+     "name": "eligible_edges",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 97,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 0.959,
+      "lo": 0.959,
+      "over": "lenient"
+     },
+     "ci_hi": 0.989,
+     "ci_level": 0.95,
+     "ci_lo": 0.933,
+     "kind": "share",
+     "n": 97,
+     "name": "direct",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.959,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "share",
+     "n": 97,
+     "name": "direct_null_expected",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.104,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "ratio",
+     "n": 97,
+     "name": "direct_over_null",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 9.192,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.989,
+     "ci_level": 0.95,
+     "ci_lo": 0.933,
+     "kind": "share",
+     "n": 97,
+     "name": "undirected",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.959,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "ci_lo": 1.0,
+     "kind": "share",
+     "n": 97,
+     "name": "path_le2",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 1.0,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "share",
+     "n": 97,
+     "name": "collapsed_share_of_matched",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.0,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.3,
+     "ci_level": 0.95,
+     "ci_lo": 0.138,
+     "kind": "share",
+     "n": 124,
+     "name": "endpoint_lost",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.218,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.862,
+     "ci_level": 0.95,
+     "ci_lo": 0.7,
+     "kind": "share",
+     "n": 124,
+     "name": "eligible_share",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.782,
+     "x": "lenient"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 124,
+     "name": "eligible_edges",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 97,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.989,
+     "ci_level": 0.95,
+     "ci_lo": 0.933,
+     "kind": "share",
+     "n": 97,
+     "name": "direct",
+     "source": "kit:a4_edges",
+     "unit": "edge",
+     "value": 0.959,
+     "x": "lenient"
+    }
+   ],
+   "label_key": "profile.row4.links",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "no_structural_claim",
+    "seam_withheld_k"
+   ],
+   "rests_on": [
+    "R",
+    "IT",
+    "LX",
+    "AL",
+    "Q",
+    "MO"
+   ],
+   "row": 4,
+   "source": [
+    "kit:a4_edges"
+   ]
+  },
+  {
+   "band": {
+    "hi": 0.0,
+    "lo": 0.0,
+    "members": [
+     {
+      "value": 0.0,
+      "x": "judge"
+     },
+     {
+      "value": 0.0,
+      "x": "keyword"
+     }
+    ],
+    "narrow": true,
+    "over": "labellers"
+   },
+   "cells": [
+    {
+     "ci_level": null,
+     "kind": "count",
+     "name": "n_ideals",
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 7,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "n_matched",
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 7,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "recovered_as_wished",
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 7,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "flattened",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "counterfactual",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "missed",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "derived": "sum_of_counts",
+     "kind": "count",
+     "n": 7,
+     "name": "unanchored",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "n_matched",
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 7,
+     "x": "lenient"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "recovered_as_wished",
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 7,
+     "x": "lenient"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "flattened",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0,
+     "x": "lenient"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "counterfactual",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0,
+     "x": "lenient"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 7,
+     "name": "missed",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.41,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "rate",
+     "n": 7,
+     "name": "flattening_rate",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0.0,
+     "x": "primary"
+    },
+    {
+     "ci_level": 0.95,
+     "kind": "upper_bound",
+     "n": 7,
+     "name": "counterfactual_upper_bound",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0.348,
+     "x": "all_ideals"
+    },
+    {
+     "ci_level": 0.95,
+     "kind": "upper_bound",
+     "n": 7,
+     "name": "counterfactual_upper_bound",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0.348,
+     "x": "matched"
+    },
+    {
+     "ci_level": 0.95,
+     "kind": "upper_bound",
+     "n": 7,
+     "name": "counterfactual_upper_bound",
+     "qualifiers": [
+      "zero_count"
+     ],
+     "source": "kit:f1_floors_checks",
+     "unit": "ideal",
+     "value": 0.348,
+     "x": "matched_lenient"
+    },
+    {
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "ci_lo": 1.0,
+     "kind": "rate",
+     "n": 7,
+     "name": "recovery_rate",
+     "source": "kit:a5_one_pull",
+     "unit": "ideal",
+     "value": 1.0,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 0.0,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.0,
+        "x": "judge"
+       },
+       {
+        "value": 0.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "rate",
+     "n": 7,
+     "name": "matcher_free_rate",
+     "qualifiers": [
+      "labeller_dependent"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:a9_keyword_scope",
+     "unit": "node",
+     "value": 0.0,
+     "x": "judge"
+    },
+    {
+     "kind": "rate",
+     "name": "matcher_free_rate",
+     "needs": [
+      "J2"
+     ],
+     "source": "kit:a10_band",
+     "state": "not_run",
+     "unit": "node",
+     "value": null,
+     "x": "judge2"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "rate",
+     "n": 6,
+     "name": "matcher_free_rate",
+     "rests_on": [
+      "R",
+      "Q",
+      "MO"
+     ],
+     "source": "kit:a9_keyword_scope",
+     "unit": "node",
+     "value": 0.0,
+     "x": "keyword"
+    }
+   ],
+   "label_key": "profile.row5.absences",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "zero_count",
+    "labeller_dependent"
+   ],
+   "rests_on": [
+    "R",
+    "IT",
+    "LX",
+    "AL",
+    "Q",
+    "MO"
+   ],
+   "row": 5,
+   "source": [
+    "kit:a5_one_pull",
+    "kit:a9_keyword_scope",
+    "kit:f1_floors_checks"
+   ]
+  },
+  {
+   "band": {
+    "hi": 0.008,
+    "lo": 0.007,
+    "over": "variants"
+   },
+   "cells": [
+    {
+     "band": {
+      "hi": 0.008,
+      "lo": 0.007,
+      "over": "variants"
+     },
+     "ci_hi": 0.042,
+     "ci_level": 0.95,
+     "ci_lo": -0.025,
+     "kind": "difference",
+     "n": 12,
+     "name": "pull",
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS",
+      "LX"
+     ],
+     "source": "kit:a5_one_pull",
+     "unit": "map",
+     "value": 0.008,
+     "x": "canonical"
+    },
+    {
+     "ci_hi": 0.036,
+     "ci_level": 0.9,
+     "ci_lo": -0.019,
+     "kind": "difference",
+     "n": 12,
+     "name": "pull_90",
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS",
+      "LX"
+     ],
+     "source": "kit:a5_one_pull",
+     "unit": "map",
+     "value": 0.008,
+     "x": "canonical"
+    },
+    {
+     "ci_hi": 0.042,
+     "ci_level": 0.95,
+     "ci_lo": -0.025,
+     "kind": "difference",
+     "n": 12,
+     "name": "pull_variant",
+     "rests_on": [
+      "R",
+      "P",
+      "AS",
+      "LX"
+     ],
+     "source": "kit:a5_one_pull",
+     "unit": "map",
+     "value": 0.008,
+     "x": "raw_wording"
+    },
+    {
+     "ci_hi": 0.042,
+     "ci_level": 0.95,
+     "ci_lo": -0.025,
+     "kind": "difference",
+     "n": 12,
+     "name": "pull_variant",
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS"
+     ],
+     "source": "kit:a5_one_pull",
+     "unit": "map",
+     "value": 0.008,
+     "x": "judge_only"
+    },
+    {
+     "ci_hi": 0.029,
+     "ci_level": 0.95,
+     "ci_lo": -0.015,
+     "kind": "difference",
+     "n": 12,
+     "name": "pull_variant",
+     "rests_on": [
+      "R",
+      "P",
+      "CN",
+      "AS",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a5_one_pull",
+     "unit": "map",
+     "value": 0.007,
+     "x": "in_transcript_only"
+    },
+    {
+     "kind": "share",
+     "name": "scripted_share_unanchored",
+     "needs": [],
+     "reason_code": "group_empty",
+     "source": "kit:a7_additions_source",
+     "state": "not_run",
+     "unit": "ai_box",
+     "value": null,
+     "x": "own_script"
+    },
+    {
+     "kind": "share",
+     "name": "scripted_share_attested_absent",
+     "needs": [],
+     "reason_code": "group_empty",
+     "source": "kit:a7_additions_source",
+     "state": "not_run",
+     "unit": "ai_box",
+     "value": null,
+     "x": "own_script"
+    },
+    {
+     "kind": "difference",
+     "name": "scripted_share_difference",
+     "needs": [],
+     "reason_code": "group_empty",
+     "source": "kit:a7_additions_source",
+     "state": "not_run",
+     "unit": "ai_box",
+     "value": null,
+     "x": "own_script"
+    },
+    {
+     "kind": "difference",
+     "name": "scripted_share_difference",
+     "needs": [
+      "judge_script"
+     ],
+     "source": "kit:a7_additions_source",
+     "state": "not_run",
+     "unit": "ai_box",
+     "value": null,
+     "x": "other_family_script"
+    },
+    {
+     "kind": "upper_bound",
+     "name": "largest_excess_ruled_out",
+     "needs": [
+      "judge_script"
+     ],
+     "source": "kit:a7_additions_source",
+     "state": "not_run",
+     "unit": "ai_box",
+     "value": null,
+     "x": "other_family_script"
+    }
+   ],
+   "label_key": "profile.row6.slant",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "partly_lexical",
+    "descriptive"
+   ],
+   "rests_on": [
+    "R",
+    "P",
+    "CN",
+    "AS",
+    "LX",
+    "Q",
+    "MO",
+    "AL",
+    "JS",
+    "IT"
+   ],
+   "row": 6,
+   "source": [
+    "kit:a5_one_pull"
+   ]
+  },
+  {
+   "band": {
+    "hi": 0.587,
+    "lo": 0.587,
+    "over": "lenient"
+   },
+   "cells": [
+    {
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "ci_lo": 0.862,
+     "kind": "share",
+     "n": 121,
+     "name": "ai_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.909,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "ci_lo": 0.244,
+     "kind": "share",
+     "n": 121,
+     "name": "no_interview_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.322,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "ci_lo": 0.491,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.587,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "ci_lo": 0.862,
+     "kind": "share",
+     "n": 121,
+     "name": "ai_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.909,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.393,
+     "ci_level": 0.95,
+     "ci_lo": 0.244,
+     "kind": "share",
+     "n": 121,
+     "name": "no_interview_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.322,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.694,
+     "ci_level": 0.95,
+     "ci_lo": 0.491,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.587,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "ci_lo": 0.478,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added_attested_line",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.57,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.672,
+     "ci_level": 0.95,
+     "ci_lo": 0.478,
+     "kind": "difference",
+     "n": 121,
+     "name": "listening_added_attested_line",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.57,
+     "x": "lenient"
+    },
+    {
+     "ci_hi": 0.08,
+     "ci_level": 0.95,
+     "ci_lo": 0.022,
+     "kind": "share",
+     "n": 121,
+     "name": "real_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.05,
+     "x": "primary"
+    },
+    {
+     "ci_hi": 0.039,
+     "ci_level": 0.95,
+     "ci_lo": 0.008,
+     "kind": "share",
+     "n": 1210,
+     "name": "shuffled_recall",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.023,
+     "x": "primary"
+    },
+    {
+     "band": {
+      "hi": 0.026,
+      "lo": 0.021,
+      "members": [
+       {
+        "value": 0.026,
+        "x": "judge"
+       },
+       {
+        "value": 0.021,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.045,
+     "ci_level": 0.95,
+     "ci_lo": 0.01,
+     "kind": "difference",
+     "n": 121,
+     "name": "wrong_transcript_difference",
+     "source": "kit:f1_floors_checks",
+     "unit": "node",
+     "value": 0.026,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "rank",
+     "n": 12,
+     "name": "own_map_mean_rank",
+     "p_lt": 0.001,
+     "source": "kit:f1_floors_checks",
+     "unit": "map",
+     "value": 1.0,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "kind": "rank",
+     "n": 12,
+     "name": "rank_null_expectation",
+     "source": "kit:f1_floors_checks",
+     "unit": "map",
+     "value": 6.5,
+     "x": "primary"
+    }
+   ],
+   "label_key": "profile.row7.floors",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "paired_by_map",
+    "one_draw",
+    "ci_excludes_draw_variance"
+   ],
+   "rests_on": [
+    "R",
+    "AL",
+    "LX",
+    "IT",
+    "P",
+    "AS",
+    "Q",
+    "MO",
+    "CN"
+   ],
+   "row": 7,
+   "source": [
+    "kit:f1_floors_checks"
+   ]
+  },
+  {
+   "band": {
+    "hi": 9.167,
+    "lo": 9.167,
+    "members": [
+     {
+      "value": 9.167,
+      "x": "rung1"
+     },
+     {
+      "value": 9.167,
+      "x": "rung2"
+     },
+     {
+      "value": 9.167,
+      "x": "remedy"
+     },
+     {
+      "value": 9.167,
+      "x": "placebo"
+     }
+    ],
+    "over": "variants"
+   },
+   "cells": [
+    {
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "ci_lo": 8.167,
+     "kind": "count",
+     "name": "ai_per_map",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "ai_box",
+     "value": 9.167,
+     "x": "rung1"
+    },
+    {
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "ci_lo": 8.167,
+     "kind": "count",
+     "name": "ai_per_map",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "ai_box",
+     "value": 9.167,
+     "x": "rung2"
+    },
+    {
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "ci_lo": 8.167,
+     "kind": "count",
+     "name": "ai_per_map",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "ai_box",
+     "value": 9.167,
+     "x": "remedy"
+    },
+    {
+     "ci_hi": 10.333,
+     "ci_level": 0.95,
+     "ci_lo": 8.167,
+     "kind": "count",
+     "name": "ai_per_map",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "ai_box",
+     "value": 9.167,
+     "x": "placebo"
+    },
+    {
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.957,
+     "kind": "share",
+     "n": 110,
+     "name": "size_adjusted_recall",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.982,
+     "x": "rung1"
+    },
+    {
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.957,
+     "kind": "share",
+     "n": 110,
+     "name": "size_adjusted_recall",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.982,
+     "x": "rung2"
+    },
+    {
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.957,
+     "kind": "share",
+     "n": 110,
+     "name": "size_adjusted_recall",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.982,
+     "x": "remedy"
+    },
+    {
+     "ci_hi": 1.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.957,
+     "kind": "share",
+     "n": 110,
+     "name": "size_adjusted_recall",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.982,
+     "x": "placebo"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "difference",
+     "name": "size_adjusted_recall_2_minus_1",
+     "p": 1.0,
+     "p_holm": 1.0,
+     "qualifiers": [
+      "one_draw",
+      "package_contrast",
+      "descriptive"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.0,
+     "x": "rung2-rung1"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "difference",
+     "name": "lived_recall_remedy_minus_placebo",
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.0,
+     "x": "remedy-placebo"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "difference",
+     "name": "ai_nodes_remedy_minus_placebo",
+     "rests_on": [
+      "R"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "ai_box",
+     "value": 0.0,
+     "x": "remedy-placebo"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "difference",
+     "name": "false_wished_remedy_minus_placebo",
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT",
+      "MO"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.0,
+     "x": "remedy-placebo"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "difference",
+     "name": "flip_remedy_minus_placebo",
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.0,
+     "x": "remedy-placebo"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "rate",
+     "n": 7,
+     "name": "leak_rate",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a8_nulls",
+     "unit": "ideal",
+     "value": 0.0,
+     "x": "remedy"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "rate",
+     "n": 7,
+     "name": "leak_rate",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a8_nulls",
+     "unit": "ideal",
+     "value": 0.0,
+     "x": "placebo"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "difference",
+     "n": 7,
+     "name": "leak_rate_remedy_minus_placebo",
+     "p": 1.0,
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a8_nulls",
+     "unit": "ideal",
+     "value": 0.0,
+     "x": "remedy-placebo"
+    },
+    {
+     "ci_hi": 0.0,
+     "ci_level": 0.9,
+     "ci_lo": 0.0,
+     "kind": "difference",
+     "n": 7,
+     "name": "leak_rate_remedy_minus_placebo_90",
+     "qualifiers": [
+      "one_draw"
+     ],
+     "rests_on": [
+      "R",
+      "Q",
+      "LD",
+      "LX",
+      "IT"
+     ],
+     "source": "kit:a8_nulls",
+     "unit": "ideal",
+     "value": 0.0,
+     "x": "remedy-placebo"
+    },
+    {
+     "ci_level": null,
+     "kind": "difference",
+     "n": 7,
+     "name": "mde80_leak_contrast",
+     "source": "kit:a8_nulls",
+     "unit": "ideal",
+     "value": 0.0,
+     "x": "remedy-placebo"
+    }
+   ],
+   "label_key": "profile.row8.instruction",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "one_draw",
+    "descriptive",
+    "package_contrast"
+   ],
+   "rests_on": [
+    "R",
+    "Q",
+    "LD",
+    "LX",
+    "IT",
+    "MO"
+   ],
+   "row": 8,
+   "source": [
+    "kit:a12_ladder",
+    "kit:a8_nulls"
+   ]
+  },
+  {
+   "band": {
+    "hi": 0.893,
+    "lo": 0.777,
+    "members": [
+     {
+      "value": 0.893,
+      "x": "judge"
+     },
+     {
+      "value": 0.777,
+      "x": "keyword"
+     }
+    ],
+    "narrow": false,
+    "over": "labellers"
+   },
+   "cells": [
+    {
+     "ci_hi": 0.08,
+     "ci_level": 0.95,
+     "ci_lo": 0.022,
+     "kind": "share",
+     "n": 121,
+     "name": "lexical_floor",
+     "rests_on": [
+      "R",
+      "IT",
+      "LX"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.05,
+     "x": "lexical_only_04"
+    },
+    {
+     "ci_hi": 0.955,
+     "ci_level": 0.95,
+     "ci_lo": 0.862,
+     "kind": "share",
+     "n": 121,
+     "name": "any_node_recall",
+     "rests_on": [
+      "R",
+      "IT",
+      "LX",
+      "AL"
+     ],
+     "source": "kit:a1_recall_matchers",
+     "unit": "node",
+     "value": 0.909,
+     "x": "primary"
+    },
+    {
+     "ci_level": null,
+     "derived": "sum_of_cleared_counts",
+     "kind": "count",
+     "n": 114,
+     "name": "rejudge_changed",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0,
+     "x": "lived_steps"
+    },
+    {
+     "ci_level": null,
+     "derived": "ratio_of_cleared_counts",
+     "kind": "share",
+     "n": 114,
+     "name": "rejudge_changed_share",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0.0,
+     "x": "lived_steps"
+    },
+    {
+     "ci_level": null,
+     "derived": "net",
+     "kind": "count",
+     "n": 114,
+     "name": "rejudge_net",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "node",
+     "value": 0,
+     "x": "lived_steps"
+    },
+    {
+     "ci_level": null,
+     "derived": "sum_of_cleared_counts",
+     "kind": "count",
+     "n": 7,
+     "name": "rejudge_changed",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "ideal",
+     "value": 0,
+     "x": "ideals"
+    },
+    {
+     "ci_level": null,
+     "derived": "net",
+     "kind": "count",
+     "n": 7,
+     "name": "rejudge_net",
+     "rests_on": [
+      "AL",
+      "LD"
+     ],
+     "source": "kit:a12_ladder",
+     "unit": "ideal",
+     "value": 0,
+     "x": "ideals"
+    },
+    {
+     "band": {
+      "hi": 0.893,
+      "lo": 0.777,
+      "members": [
+       {
+        "value": 0.893,
+        "x": "judge"
+       },
+       {
+        "value": 0.777,
+        "x": "keyword"
+       }
+      ],
+      "narrow": false,
+      "over": "labellers"
+     },
+     "ci_hi": 0.933,
+     "ci_level": 0.95,
+     "ci_lo": 0.851,
+     "kind": "share",
+     "n": 121,
+     "name": "attested_recall",
+     "source": "kit:a9_keyword_scope+kit:a10_band",
+     "unit": "node",
+     "value": 0.893,
+     "x": "judge"
+    },
+    {
+     "band": {
+      "hi": 0.0,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.0,
+        "x": "judge"
+       },
+       {
+        "value": 0.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "count",
+     "n": 110,
+     "name": "attested_absent_from_map",
+     "source": "kit:a9_keyword_scope+kit:a10_band",
+     "unit": "ai_box",
+     "value": 0,
+     "x": "judge"
+    },
+    {
+     "band": {
+      "hi": 16.0,
+      "lo": 2.0,
+      "members": [
+       {
+        "value": 2.0,
+        "x": "judge"
+       },
+       {
+        "value": 16.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": false,
+      "over": "labellers"
+     },
+     "ci_hi": 4.741,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "count",
+     "n": 110,
+     "name": "unanchored",
+     "source": "kit:a9_keyword_scope+kit:a10_band",
+     "unit": "ai_box",
+     "value": 2,
+     "x": "judge"
+    },
+    {
+     "band": {
+      "hi": 0.0,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.0,
+        "x": "judge"
+       },
+       {
+        "value": 0.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "rate",
+     "n": 7,
+     "name": "matcher_free_rate",
+     "source": "kit:a9_keyword_scope+kit:a10_band",
+     "unit": "node",
+     "value": 0.0,
+     "x": "judge"
+    },
+    {
+     "band": {
+      "hi": 0.0,
+      "lo": 0.0,
+      "members": [
+       {
+        "value": 0.0,
+        "x": "judge"
+       },
+       {
+        "value": 0.0,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.0,
+     "ci_level": 0.95,
+     "ci_lo": 0.0,
+     "kind": "rate",
+     "n": 101,
+     "name": "quote_actual_drawn_as_wished",
+     "source": "kit:a9_keyword_scope+kit:a10_band",
+     "unit": "node",
+     "value": 0.0,
+     "x": "judge"
+    },
+    {
+     "band": {
+      "hi": 0.124,
+      "lo": 0.109,
+      "members": [
+       {
+        "value": 0.109,
+        "x": "judge"
+       },
+       {
+        "value": 0.124,
+        "x": "keyword"
+       }
+      ],
+      "narrow": true,
+      "over": "labellers"
+     },
+     "ci_hi": 0.152,
+     "ci_level": 0.95,
+     "ci_lo": 0.068,
+     "kind": "share",
+     "n": 238,
+     "name": "contaminated_share",
+     "source": "kit:a9_keyword_scope+kit:a10_band",
+     "unit": "element",
+     "value": 0.109,
+     "x": "judge"
+    },
+    {
+     "kind": "rate",
+     "name": "flip_rate",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:sidejudge",
+     "state": "not_run",
+     "unit": "label",
+     "value": null,
+     "x": "modality"
+    },
+    {
+     "kind": "count",
+     "name": "identical_requests",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:sidejudge",
+     "state": "not_run",
+     "unit": "request",
+     "value": null,
+     "x": "modality"
+    },
+    {
+     "kind": "rate",
+     "name": "flip_rate",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:sidejudge",
+     "state": "not_run",
+     "unit": "label",
+     "value": null,
+     "x": "alignment"
+    },
+    {
+     "kind": "count",
+     "name": "identical_requests",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:sidejudge",
+     "state": "not_run",
+     "unit": "request",
+     "value": null,
+     "x": "alignment"
+    },
+    {
+     "kind": "count",
+     "name": "identical_requests",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:sidejudge",
+     "state": "not_run",
+     "unit": "request",
+     "value": null,
+     "x": "canonical_names"
+    },
+    {
+     "kind": "index",
+     "name": "canonical_ari",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:sidejudge",
+     "state": "not_run",
+     "unit": "label",
+     "value": null,
+     "x": "canonical_names"
+    },
+    {
+     "kind": "rate",
+     "name": "label_order_changed_rate",
+     "needs": [
+      "sidejudge"
+     ],
+     "source": "kit:sidejudge",
+     "state": "not_run",
+     "unit": "label",
+     "value": null,
+     "x": "modality"
+    },
+    {
+     "ci_level": null,
+     "kind": "count",
+     "n": 20,
+     "name": "identical_requests",
+     "source": "kit:audits",
+     "unit": "request",
+     "value": 20,
+     "x": "run2_determinism_audit"
+    }
+   ],
+   "label_key": "profile.row9.instrument_error",
+   "n_people": 12,
+   "population": "12 of 12",
+   "qualifiers": [
+    "not_reproducible_to_the_digit"
+   ],
+   "rests_on": [
+    "R",
+    "IT",
+    "LX",
+    "AL",
+    "LD",
+    "MO",
+    "J2",
+    "CN"
+   ],
+   "row": 9,
+   "source": [
+    "kit:a10_band",
+    "kit:a12_ladder",
+    "kit:a1_recall_matchers",
+    "kit:a9_keyword_scope",
+    "kit:audits"
+   ]
+  }
+ ],
+ "run": {
+  "declaration_log": null,
+  "gate_chain": null,
+  "kit": {
+   "release_commit": "6b8c3986d46cb6190ff2e9a7fa0888f8dc339911",
+   "run_commits": [
+    "6b8c3986d46cb6190ff2e9a7fa0888f8dc339911"
+   ],
+   "source": "release_commit = HEAD of the kit now; run_commits = code_commit of every run_start"
+  },
+  "models": [
+   {
+    "family": "oracle",
+    "model_id": "oracle",
+    "quantisation": "[SOURCE]",
+    "role": "reconstructor",
+    "source": "run_start of the run log; quantisation and weights from --model-info, else [SOURCE]",
+    "weights": "[SOURCE]"
+   },
+   {
+    "family": "oracle",
+    "model_id": "oracle",
+    "quantisation": "[SOURCE]",
+    "role": "judge",
+    "source": "run_start of the run log; quantisation and weights from --model-info, else [SOURCE]",
+    "weights": "[SOURCE]"
+   }
+  ],
+  "prompt_set": {
+   "j_m_phase_sha256": "fcb27f0efc56ff87d1fb6a45db0f9d1e3999dbc16de0ff51d88d741bc7aa5f20",
+   "q_phase_sha256": "fcb27f0efc56ff87d1fb6a45db0f9d1e3999dbc16de0ff51d88d741bc7aa5f20"
+  },
+  "reading3_prompt": {
+   "agree": null,
+   "path": "prompts/prior_only.p0.v2.txt",
+   "sha256": "9b48f8639447dfb74da3fd24876cb5c69d3adff8878fd4b50dcdceffd84302c0",
+   "source": "prompts/MANIFEST.json, when its set hash is the Q session's"
+  },
+  "run_chain_heads": {
+   "head": "b4888404064190f82d28e736812b9367b44862e63f4a5b489c88d84935e013d7",
+   "manifest_hash": "c2631c791634276be10f7ceb158f810832c525ac3304783161ad57e24f23a6e5",
+   "records": 2190,
+   "source": "logs/run.manifest.json, checked by audit.verify.verify_run"
+  },
+  "settings": {
+   "bootstrap_resamples": 2000,
+   "bootstrap_seed": 20261017,
+   "gate_k_people": 10,
+   "interval_method": "cluster_bootstrap",
+   "match_settings": {
+    "judge_only_same": {
+     "judge_label": "same",
+     "lexical_threshold": 1.01
+    },
+    "judge_only_same_or_close": {
+     "judge_label": "same_or_close",
+     "lexical_threshold": 1.01
+    },
+    "lenient": {
+     "judge_label": "same_or_close",
+     "lexical_threshold": 0.4
+    },
+    "lexical_only_04": {
+     "judge_label": "none",
+     "lexical_threshold": 0.4
+    },
+    "lexical_only_05": {
+     "judge_label": "none",
+     "lexical_threshold": 0.5
+    },
+    "lexical_only_06": {
+     "judge_label": "none",
+     "lexical_threshold": 0.6
+    },
+    "lexical_only_07": {
+     "judge_label": "none",
+     "lexical_threshold": 0.7
+    },
+    "primary": {
+     "judge_label": "same",
+     "lexical_threshold": 0.6
+    }
+   },
+   "matcher_lenient": {
+    "judge_label": "same_or_close",
+    "lexical_threshold": 0.4
+   },
+   "matcher_primary": {
+    "judge_label": "same",
+    "lexical_threshold": 0.6
+   },
+   "matcher_row4_lenient": {
+    "judge_label": "same_or_close",
+    "lexical_threshold": 0.6
+   },
+   "reading3_draws": 2,
+   "reading3_temperature": 0.7,
+   "reconstructor_temperature": 0.0,
+   "source": "RunConfig; bootstrap B and seed as given to the export"
+  }
+ },
+ "schema": "orgsci-profile/v2",
+ "state": "synthetic"
+}

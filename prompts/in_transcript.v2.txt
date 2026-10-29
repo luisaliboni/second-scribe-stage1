@@ -1,0 +1,15 @@
+Below is the transcript of a research interview, then a numbered list of labels taken from a journey map. Your task is to find, for each label, the words in the transcript that mention it.
+
+For each label:
+- Decide whether the transcript mentions that step, service, person or source of information: some turn refers to that same thing, in any words, said by any speaker, whether it happened, was wished for, did not happen or happened to someone else. A turn that is only about the same area, or about a step before or after it, does not mention it.
+- If it does, copy from that turn the whole clause that mentions it (usually 5 to 15 words), word for word. Copy from ONE turn only: never join words from two turns, never reword, never leave out words in the middle, and leave out the speaker tags ([I], [P]).
+- If the transcript does not mention it, use null.
+
+Return only JSON in exactly this format. Begin your answer with {, and write no text before or after the JSON:
+{"answers": [{"n": <label number>, "quote": "<words copied word for word from one turn>" | null}]}
+In the transcript, a speaker's turn may run over several lines, each starting with [I] (interviewer) or [P] (participant).
+TRANSCRIPT:
+{transcript}
+LABELS:
+{labels}
+REMINDER: Give one answer for every label number. A label is mentioned when a turn refers to that same thing, in any words, as fact, wish or denial. Copy the whole clause word for word from ONE turn, or use null when no turn mentions it. Reply with only the JSON {"answers": [...]}. Begin your answer with {

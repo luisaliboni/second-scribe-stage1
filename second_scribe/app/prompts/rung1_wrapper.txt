@@ -1,0 +1,7 @@
+The interview is with a {role}. It is about {domain}.
+Put each node of the map in one of these phases: {phases}.
+For every node and edge, copy one supporting quote word for word from the transcript.
+Return only JSON in exactly this format, with no other text:
+{schema}
+TRANSCRIPT:
+{transcript}

@@ -1,0 +1,82 @@
+[
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C13",
+    "cids": [
+      "C13",
+      "C12"
+    ],
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "loop",
+    "sentence": "The deal for renting kitchen space to prepare food and the sign-off from the fire department each pointed us at the other, three times in a row.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C16",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "dead_end",
+    "sentence": "We got through the person at the licensing counter, and after that the trail went cold.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "missed"
+    },
+    "cid": "C27",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "interviewer_voiced",
+    "sentence": "Would the city employee who patrols the streets be the next thing?",
+    "speaker": "interviewer"
+  },
+  {
+    "arm_expectation": {
+      "full": "matched",
+      "removed": "matched"
+    },
+    "cid": "C26",
+    "expected_bucket": "matched",
+    "expected_modality": "actual",
+    "kind": "workaround",
+    "sentence": "In the end we hired a fixer ourselves, and he walked us through the paperwork we redo every year.",
+    "speaker": "participant"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C20",
+    "cids": [
+      "C20",
+      "C31"
+    ],
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "unstated_edge",
+    "sentence": "",
+    "speaker": "none"
+  },
+  {
+    "arm_expectation": {
+      "full": "off_record",
+      "removed": "off_record"
+    },
+    "cid": "C01",
+    "expected_bucket": "off_record",
+    "expected_modality": "unsupported",
+    "kind": "off_record",
+    "sentence": "",
+    "speaker": "none"
+  }
+]

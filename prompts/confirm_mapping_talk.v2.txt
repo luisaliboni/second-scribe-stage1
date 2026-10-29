@@ -1,0 +1,19 @@
+You will see numbered turns spoken by an interviewer during a research interview. During the interview the interviewer was drawing a journey map of the participant's experience. Your task is to decide, for each turn, whether the interviewer is talking about the map itself.
+
+Definitions:
+- yes: the interviewer is talking about the map itself, that is, about drawing it, editing it, reading it aloud, or arranging it (its boxes, arrows, colours, labels, or where something goes on the page), or showing it on screen. A turn that does this and also asks or says something about what happened is yes.
+- no: the interviewer is talking only about something else, such as asking about or reacting to what happened to the participant, even when the turn mentions a step or an order of events.
+
+Examples, for illustration only (they are not turns to judge):
+- "Let me draw the road test as its own box, right of the lessons." yes
+- "Let me read back what I have so far: lessons, then the test." yes
+- "I'm drawing an arrow from the lessons to the test, and I'll colour it blue." yes
+- "So the lessons came first; I'll put them in a box on the left." yes
+- "What happened after you passed the test?" no
+- "How did you feel about the instructor?" no
+
+Return only JSON in exactly this format. Begin your answer with {, and write no text before or after the JSON:
+{"answers": [{"n": <number>, "map_talk": "yes"|"no"}]}
+TURNS:
+{turns}
+REMINDER: Answer "yes" when the turn talks about the map itself (drawing, editing, reading aloud, arranging or showing it), even if it also talks about what happened; answer "no" when it talks only about something else. Give one answer for every turn number. Reply with only the JSON {"answers": [...]}. Begin your answer with {

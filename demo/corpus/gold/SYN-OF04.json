@@ -1,0 +1,253 @@
+{
+  "edges": [
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g1",
+      "status": "experienced",
+      "target": "g2"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g2",
+      "status": "experienced",
+      "target": "g3"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g3",
+      "status": "experienced",
+      "target": "g4"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g4",
+      "status": "experienced",
+      "target": "g5"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g5",
+      "status": "experienced",
+      "target": "g6"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g6",
+      "status": "experienced",
+      "target": "g7"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g7",
+      "status": "experienced",
+      "target": "g8"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g8",
+      "status": "experienced",
+      "target": "g9"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g9",
+      "status": "experienced",
+      "target": "g11"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g11",
+      "status": "experienced",
+      "target": "g12"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g12",
+      "status": "experienced",
+      "target": "g13"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g9",
+      "status": "experienced",
+      "target": "g8"
+    },
+    {
+      "glued": true,
+      "label": null,
+      "quote": null,
+      "source": "g9",
+      "status": "experienced",
+      "target": "g10"
+    }
+  ],
+  "emotion_word": null,
+  "interviewer": "I2",
+  "map_id": "SYN-OF04",
+  "meta": {
+    "interviewer_voiced": [
+      "g1"
+    ],
+    "mapping_talk_only": [
+      "g11"
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "g1",
+      "node_type": "actor",
+      "phase": "Planning",
+      "quote": null,
+      "status": "experienced",
+      "text": "free startup counsellor",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g2",
+      "node_type": "actor_information_source",
+      "phase": "Planning",
+      "quote": null,
+      "status": "experienced",
+      "text": "local vendor group",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g3",
+      "node_type": "actor",
+      "phase": "Permits",
+      "quote": null,
+      "status": "experienced",
+      "text": "front desk staff member",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g4",
+      "node_type": "information_source",
+      "phase": "Permits",
+      "quote": null,
+      "status": "experienced",
+      "text": "proof of coverage",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g5",
+      "node_type": "service",
+      "phase": "Permits",
+      "quote": null,
+      "status": "experienced",
+      "text": "city business permit",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g6",
+      "node_type": "scenario",
+      "phase": "Permits",
+      "quote": null,
+      "status": "experienced",
+      "text": "public health authorization",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g7",
+      "node_type": "service",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "design plans review",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g8",
+      "node_type": "scenario",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "propane and extinguisher check",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g9",
+      "node_type": "information_source",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "pre-inspection list",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g10",
+      "node_type": "scenario",
+      "phase": "Inspections",
+      "quote": null,
+      "status": "experienced",
+      "text": "sanitation check",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g11",
+      "node_type": "service",
+      "phase": "Operating",
+      "quote": null,
+      "status": "experienced",
+      "text": "licence renewal cycle",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g12",
+      "node_type": "actor",
+      "phase": "Operating",
+      "quote": null,
+      "status": "experienced",
+      "text": "enforcement officer",
+      "x": null,
+      "y": null
+    },
+    {
+      "node_id": "g13",
+      "node_type": "information_source",
+      "phase": "Operating",
+      "quote": null,
+      "status": "experienced",
+      "text": "permitted location roster",
+      "x": null,
+      "y": null
+    }
+  ],
+  "origin": "synthetic_gold",
+  "unresolved_edges": 0
+}

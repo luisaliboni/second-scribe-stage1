@@ -1,0 +1,83 @@
+{
+  "run_id": "study-1",
+  "corpus": {
+    "kind": "real",
+    "maps_glob": "../data/maps/*.vsdx",
+    "transcripts_glob": "../data/transcripts/*.docx",
+    "pairs": null,
+    "participant_labels": {
+      "*": [
+        "<speaker label of the participant in the transcripts>"
+      ]
+    },
+    "interviewer_labels": {
+      "*": [
+        "<speaker label of the interviewer>"
+      ]
+    },
+    "roles": {
+      "<participant id>": "<role key from context.roles>"
+    },
+    "interviewers": {
+      "<participant id>": "<interviewer code>"
+    },
+    "participant_id_map": "../private/participant_id_map.json"
+  },
+  "context": {
+    "domain": "<a noun phrase, e.g. food-truck licensing in a mid-sized city>",
+    "roles": {
+      "<role key>": "<role as a noun phrase>"
+    },
+    "phases": [
+      "<phase 1>",
+      "<phase 2>"
+    ],
+    "extract": {
+      "phase_names": [
+        "<phase 1>",
+        "<phase 2>"
+      ]
+    }
+  },
+  "specs": [
+    {"arm": "removed", "variant": "p0", "temperature": 0.0, "replicate": 0},
+    {"arm": "full", "variant": "p0", "temperature": 0.0, "replicate": 0},
+    {"arm": "removed", "variant": "p1", "temperature": 0.0, "replicate": 0},
+    {"arm": "removed", "variant": "p2", "temperature": 0.0, "replicate": 0},
+    {"arm": "full", "variant": "p1", "temperature": 0.0, "replicate": 0},
+    {"arm": "full", "variant": "p2", "temperature": 0.0, "replicate": 0},
+    {"arm": "removed", "variant": "p0", "temperature": 0.7, "replicate": 0},
+    {"arm": "full", "variant": "p0", "temperature": 0.7, "replicate": 0}
+  ],
+  "prior_only": {
+    "variants": ["p0", "p1", "p2"],
+    "samples": 5,
+    "temperature": 0.7
+  },
+  "reading3": {"variant": "p0", "samples": 1, "temperature": 0},
+  "settings": [
+    {"lex_threshold": 0.6, "judge_accept": "same"},
+    {"lex_threshold": 0.4, "judge_accept": "same"},
+    {"lex_threshold": 0.4, "judge_accept": "same_or_close"},
+    {"lex_threshold": 0.5, "judge_accept": "same"},
+    {"lex_threshold": 0.5, "judge_accept": "same_or_close"},
+    {"lex_threshold": 0.6, "judge_accept": "same_or_close"},
+    {"lex_threshold": 0.7, "judge_accept": "same"},
+    {"lex_threshold": 0.7, "judge_accept": "same_or_close"}
+  ],
+  "models": {
+    "recon": "RECON",
+    "judge": "JUDGE",
+    "judge2": null
+  },
+  "out_dir": "../private/study-1",
+  "script_sources": [
+    {"name": "judgescript", "role": "judge", "variants": ["p0", "p1", "p2"], "samples": 5, "temperature": 0.7}
+  ],
+  "ladder": {"rungs": ["rung2", "rung3", "placebo", "rung1"], "draws": 1},
+  "stats": {
+    "B": 2000,
+    "n_perm_script": 10000,
+    "alpha_script": 0.05
+  }
+}

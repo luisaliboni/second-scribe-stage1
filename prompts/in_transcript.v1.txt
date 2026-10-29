@@ -1,0 +1,9 @@
+Below is the transcript of a research interview, then a numbered list of labels taken from a journey map.
+For each label, decide whether the transcript mentions that step, service, person or source of information
+(in any words, spoken by anyone). If it does, copy the exact words from the transcript that mention it,
+unchanged; if it does not, use null. Do not paraphrase the quote.
+Return only JSON: {"answers": [{"n": <label number>, "quote": "<verbatim words from the transcript that mention it>" | null}]}
+TRANSCRIPT:
+{transcript}
+LABELS:
+{labels}

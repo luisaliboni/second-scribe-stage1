@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ledger dev page</title>
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/viewer.css">
+<link rel="stylesheet" href="../css/views.css">
+<link rel="stylesheet" href="../css/ledger.css">
+<style>
+  /* dev page layout only */
+  main { max-width: 1180px; margin: 0 auto; padding: 16px; }
+  .band { padding: 8px 14px; border-radius: 4px; font-weight: 600; margin: 0 0 8px; }
+  .band.synthetic { background: var(--synthetic-bg); color: var(--synthetic-text); }
+  .band.pattern { background: var(--lane); color: var(--muted); border: 1px dashed var(--border); font-weight: 500; }
+  .picker { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0 12px; }
+  .picker button { min-height: 44px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); color: var(--ink); font-size: 13px; font-family: var(--sans); cursor: pointer; }
+  .picker button[aria-pressed="true"] { background: var(--navy); color: var(--ground); border-color: var(--navy); }
+  .stamp { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 8px 0; }
+  iframe.narrow { display: block; border: 1px solid var(--border); background: var(--ground); }
+</style>
+<script src="data/strings.ledger.js"></script>
+</head>
+<body>
+<main id="main">
+  <h1>Ledger dev page</h1>
+  <div id="bands"></div>
+  <div class="picker" id="picker"></div>
+  <div id="selector"></div>
+  <div id="table"></div>
+  <p class="stamp" id="stamp"></p>
+</main>
+<script src="../js/core.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/encoding.js"></script>
+<script src="../js/a11y.js"></script>
+<script src="../js/lanes.js"></script>
+<script src="../js/views.js"></script>
+<script src="../js/state.js"></script>
+<script src="../js/ledger.js"></script>
+<script src="data/mini.view.js"></script>
+<script>
+(function () {
+  "use strict";
+  // #map=<pid>&rung=<key>&item=<item_id>   plus dev-only: theme=dark|light, ref=B, w=390 (shows the page in a 390px frame),
+  // drop=rung3 (a view that did not run that rung)
+  var dev = {};
+  location.hash.replace(/^#/, "").split("&").forEach(function (kv) {
+    var i = kv.indexOf("=");
+    if (i > 0) dev[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1));
+  });
+  if (dev.w) {
+    var main = document.getElementById("main");
+    main.textContent = "";
+    var f = document.createElement("iframe");
+    f.className = "narrow";
+    f.width = dev.w;
+    f.height = "900";
+    f.src = "ledger.html#" + location.hash.replace(/^#/, "").split("&").filter(function (p) { return p.indexOf("w=") !== 0; }).join("&");
+    main.appendChild(f);
+    return;
+  }
+  if (dev.theme === "dark" || dev.theme === "light") document.documentElement.setAttribute("data-theme", dev.theme);
+
+  function el(tag, cls, text, parent) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+
+  var view = SS.view.load(JSON.parse(JSON.stringify(window.SS_DATA.mini)));
+  if (dev.ref) view.reference_type = dev.ref;
+  if (dev.drop) view.rungs = view.rungs.filter(function (r) { return r !== dev.drop; });
+  SS.state.use(view);
+  SS.state.set(SS.state.fromHash(location.hash));
+
+  var bands = document.getElementById("bands");
+  el("div", "band synthetic", SS.t("band.synthetic"), bands);
+  el("div", "band pattern", SS.t("band.test_pattern"), bands);
+
+  function draw() {
+    var s = SS.state.get();
+    var picker = document.getElementById("picker");
+    picker.textContent = "";
+    view.maps.forEach(function (m) {
+      var b = el("button", "", m.pid, picker);
+      b.setAttribute("type", "button");
+      b.setAttribute("aria-pressed", m.pid === s.map ? "true" : "false");
+      b.addEventListener("click", function () { SS.state.set({ map: m.pid }); });
+    });
+    document.getElementById("stamp").textContent = SS.views.stamp(s) + "   " + SS.state.toHash(s);
+    SS.ledger.renderSelector(document.getElementById("selector"), view, s);
+    SS.ledger.render(document.getElementById("table"), view, s);
+    var h = SS.state.toHash(s);
+    if (dev.theme) h += "&theme=" + dev.theme;
+    if (dev.ref) h += "&ref=" + dev.ref;
+    if (dev.drop) h += "&drop=" + dev.drop;
+    if (window.history && history.replaceState) history.replaceState(null, "", h);
+  }
+  SS.bus.on("state:change", draw);
+  SS.bus.on("item:open", function (p) {
+    var patch = { item: p.item_id };
+    if (p.lane === "ai") patch.rung = p.rung;
+    SS.state.set(patch);
+  });
+  draw();
+})();
+</script>
+</body>
+</html>

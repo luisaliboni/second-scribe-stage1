@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+/out/
+/private/
+*.local.json
+.superpowers/
+/site/
+/build/

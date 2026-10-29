@@ -1,0 +1,135 @@
+{
+  "run_id": "canary-primary",
+  "corpus": {
+    "kind": "synthetic",
+    "maps_glob": "../demo/corpus/maps/*.vsdx",
+    "transcripts_glob": "../demo/corpus/transcripts/*.docx",
+    "pairs": null,
+    "participant_labels": {
+      "*": [
+        "pt"
+      ]
+    },
+    "interviewer_labels": {
+      "*": [
+        "iv"
+      ]
+    },
+    "roles": {
+      "SYN-OW01": "owner",
+      "SYN-OW02": "owner",
+      "SYN-OW03": "owner",
+      "SYN-OW04": "owner",
+      "SYN-OW05": "owner",
+      "SYN-OW06": "owner",
+      "SYN-OW07": "owner",
+      "SYN-OF01": "officer",
+      "SYN-OF02": "officer",
+      "SYN-OF03": "officer",
+      "SYN-OF04": "officer",
+      "SYN-OF05": "officer"
+    },
+    "interviewers": {
+      "SYN-OW01": "I1",
+      "SYN-OW02": "I2",
+      "SYN-OW03": "I3",
+      "SYN-OW04": "I1",
+      "SYN-OW05": "I2",
+      "SYN-OW06": "I3",
+      "SYN-OW07": "I1",
+      "SYN-OF01": "I2",
+      "SYN-OF02": "I3",
+      "SYN-OF03": "I1",
+      "SYN-OF04": "I2",
+      "SYN-OF05": "I3"
+    },
+    "synthetic_dir": "../demo/corpus"
+  },
+  "context": {
+    "domain": "food-truck licensing in a mid-sized city",
+    "roles": {
+      "owner": "food-truck owner",
+      "officer": "city licensing officer"
+    },
+    "phases": [
+      "Planning",
+      "Permits",
+      "Inspections",
+      "Operating"
+    ],
+    "extract": {
+      "phase_names": [
+        "Planning",
+        "Permits",
+        "Inspections",
+        "Operating"
+      ]
+    }
+  },
+  "specs": [
+    {
+      "arm": "removed",
+      "variant": "p0",
+      "temperature": 0.0,
+      "replicate": 0
+    }
+  ],
+  "prior_only": {
+    "variants": [
+      "p0",
+      "p1",
+      "p2"
+    ],
+    "samples": 2,
+    "temperature": 0.7
+  },
+  "settings": [
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.4,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.5,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.6,
+      "judge_accept": "same_or_close"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same"
+    },
+    {
+      "lex_threshold": 0.7,
+      "judge_accept": "same_or_close"
+    }
+  ],
+  "models": {
+    "recon": "RECON",
+    "judge": "JUDGE",
+    "judge2": null
+  },
+  "out_dir": "../out/canary-primary",
+  "prereg_required": false,
+  "ladder": {},
+  "stats": {
+    "B": 200,
+    "n_perm": 200,
+    "n_derangements": 10,
+    "seed": 0,
+    "min_words": 8
+  }
+}

@@ -1,0 +1,358 @@
+/* Viewer: the three lanes ("Three Lights"). Colours come from tokens.css only, so light and dark both hold.
+   The three readings keep one colour each: the endorsed map is ink, the AI's map is cyan (--ai), the no-interview map is
+   grey (--script, --never). Coral (--missing) appears only for "missing" and "drawn as happened".
+   Shape carries the meaning, colour repeats it:
+     normal = solid, dashed = dashed, leaked = thick solid coral + up-triangle,
+     never = dotted grey, script = grey fill, unknown = thin dotted, "not computed".
+   Text is never below 13px. The lanes scroll sideways inside their own panel, never the page. */
+.ss-lanes {
+  --ss-item-h: 62px;
+  --ss-track-h: 84px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  overflow: clip;        /* clips like hidden but is no scroll box, so the box sentence line can stick (item 18) */
+  max-width: 100%;
+  min-width: 0;
+}
+/* The sideways-scroll cue (review R13; SS.scrollCue sets data-scroll on the frame and shows the hint): scrollbars are
+   hidden by default on touch screens and in some browsers, so the page draws its own cue. The lanes fade out at the
+   side that has more to see (a mask, so the fade matches whatever the lane track is painted with); the absent-steps
+   table, which has a focus ring that a mask would cut, gets an overlay in the panel colour instead. The hint line
+   above says what to do. */
+.ss-ledger-frame { position: relative; }
+.ss-scroll-hint { margin: 0; padding: 12px 16px 2px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em; }
+.ss-scroll-hint[hidden] { display: none; }
+.ss-lanes[data-scroll="right"] .ss-lanes-scroll {
+  -webkit-mask-image: linear-gradient(to right, var(--ink) calc(100% - 56px), transparent);
+  mask-image: linear-gradient(to right, var(--ink) calc(100% - 56px), transparent);
+}
+.ss-lanes[data-scroll="left"] .ss-lanes-scroll {
+  -webkit-mask-image: linear-gradient(to left, var(--ink) calc(100% - 56px), transparent);
+  mask-image: linear-gradient(to left, var(--ink) calc(100% - 56px), transparent);
+}
+.ss-lanes[data-scroll="both"] .ss-lanes-scroll {
+  -webkit-mask-image: linear-gradient(to right, transparent, var(--ink) 56px, var(--ink) calc(100% - 56px), transparent);
+  mask-image: linear-gradient(to right, transparent, var(--ink) 56px, var(--ink) calc(100% - 56px), transparent);
+}
+.ss-ledger-frame::before, .ss-ledger-frame::after {
+  content: ""; position: absolute; top: 1px; bottom: 1px; width: 48px; z-index: 2; pointer-events: none; opacity: 0;
+}
+.ss-ledger-frame::before { left: 1px; border-radius: 15px 0 0 15px; background: linear-gradient(to right, var(--panel) 10%, transparent); }
+.ss-ledger-frame::after { right: 1px; border-radius: 0 15px 15px 0; background: linear-gradient(to left, var(--panel) 10%, transparent); }
+.ss-ledger-frame[data-scroll="left"]::before, .ss-ledger-frame[data-scroll="both"]::before,
+.ss-ledger-frame[data-scroll="right"]::after, .ss-ledger-frame[data-scroll="both"]::after { opacity: 1; }
+.ss-lanes-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 0 0 6px;
+}
+.ss-lanes-inner { position: relative; min-width: 100%; }
+.ss-lanes-empty { padding: 16px; margin: 0; font-size: 15px; }
+
+/* phase headers: one per column, same x as the columns below */
+.ss-phases {
+  position: relative;
+  height: 40px;
+  background: var(--band);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.ss-phase {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  padding: 11px 10px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ss-lane { padding: 6px 0 8px; border-bottom: 1px solid var(--rule); }
+.ss-lane:last-child { border-bottom: 0; }
+.ss-lane-title {
+  position: sticky;
+  left: 0;
+  display: block;
+  width: fit-content;
+  max-width: min(100%, calc(100vw - 56px)); /* never wider than the visible panel, so a long name wraps */
+  margin: 0;
+  padding: 8px 16px 0;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+/* a small reading marker before each lane name, the same three shapes as the brand mark: ink ring (endorsed), cyan disc
+   (the AI's map), grey ring (no interview). Decorative; the lane name carries the meaning. */
+.ss-lane-title::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: -1px;
+  box-sizing: border-box;
+}
+.ss-lane-row-reference .ss-lane-title::before { border: 1.5px solid var(--ink); }
+.ss-lane-row-ai .ss-lane-title::before { background: var(--ai); }
+.ss-lane-row-script .ss-lane-title::before { border: 1.5px solid var(--never); }
+.ss-lane-gloss {
+  position: sticky;
+  left: 0;
+  width: fit-content;
+  max-width: min(100%, calc(100vw - 56px));
+  margin: 0;
+  padding: 0 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.ss-track {
+  position: relative;
+  height: var(--ss-track-h);
+  min-width: 100%;
+  background: var(--lane);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 8px;
+}
+/* the phase dividers (items 16 and 17): one thin dashed line at each phase boundary, from the phase header down
+   through every lane and the overlay's gutter (SS.lanes.phaseRules); they replace the per-track solid separators.
+   --border is the hairline token, so light and dark both hold. Lane titles sit above them on the panel colour. */
+.ss-phase-rule {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px dashed var(--border);
+  pointer-events: none;
+}
+.ss-lanes-inner .ss-lane-title, .ss-lanes-inner .ss-lane-gloss { z-index: 2; background: var(--panel); }
+
+/* an item box */
+.ss-item {
+  position: absolute;
+  top: 10px;
+  min-height: var(--ss-item-h);
+  display: block;
+  padding: 5px 9px 4px;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-chip);
+  cursor: pointer;
+}
+.ss-item-label {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;   /* three lines, so a long step name ("Research local zoning and food codes") is never cut (item 14) */
+  line-clamp: 3;
+  overflow: hidden;
+  padding-right: 14px;
+}
+.ss-item-tag { display: block; font-size: 13px; font-weight: 400; color: var(--muted); }
+.ss-item-glyph {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  font-size: 15px;
+  line-height: 1;
+}
+.ss-lane-reference.ss-shape-normal:hover { border-color: var(--ai); }
+/* the selected chip: a 2px cyan ring, offset 2px by a gap in the ground colour (the keyboard focus ring stays on outline) */
+.ss-item.is-selected { box-shadow: 0 0 0 2px var(--lane), 0 0 0 4px var(--ai); }
+.ss-item:focus-visible { outline: 2px solid var(--ai); outline-offset: 5px; }
+
+/* reference lane, shape normal: drawn as happened (ink outline, the endorsed map) */
+.ss-lane-reference.ss-shape-normal { border: 1.5px solid var(--ink); }
+/* dashed: drawn as missing. Coral only where the reference says missing; in the AI lane it stays cyan */
+.ss-lane-reference.ss-shape-dashed { border: 1.5px dashed var(--missing); color: var(--missing-text); }
+.ss-lane-ai.ss-shape-normal { border: 1px solid var(--ai); background: var(--ai-fill); color: var(--ai); }
+.ss-lane-ai.ss-shape-normal .ss-item-tag { color: var(--ink-2); }
+.ss-lane-ai.ss-shape-dashed { border: 1.5px dashed var(--ai); background: var(--ai-fill); color: var(--ai); }
+.ss-lane-ai.ss-shape-dashed .ss-item-glyph { color: var(--ai); }
+.ss-lane-ai.ss-shape-dashed .ss-item-tag { color: var(--ink-2); }
+/* leaked: a missing step the AI drew as happened. Solid, thick, coral, tinted, with the triangle */
+.ss-shape-leaked { border: 4px solid var(--missing); background: color-mix(in srgb, var(--missing) 18%, transparent); color: var(--ink); padding: 3px 7px 2px; }
+.ss-shape-leaked .ss-item-glyph { top: 1px; right: 4px; color: var(--missing-text); font-weight: 600; }
+.ss-shape-leaked .ss-item-tag { color: var(--ink-2); }
+/* never: the AI did not draw it. Dotted grey, no fill */
+.ss-shape-never { border: 1.5px dotted var(--never); background: transparent; color: var(--muted); }
+/* the no-interview lane: flat grey fill, no outline of its own */
+.ss-shape-script { border: 1.5px solid var(--script); background: var(--script); color: var(--script-text); }
+.ss-lane-script.ss-shape-script:hover { border-color: var(--never); }
+/* no recorded fate for this rung */
+.ss-shape-unknown { border: 1px dotted var(--border); background: transparent; color: var(--muted); font-style: italic; }
+.ss-shape-unknown .ss-item-tag { font-style: italic; }
+
+/* item 18: the sentence of the box under the pointer or in focus, above the lanes, and the boxes it lights.
+   The pointed or focused box gets a 2px cyan ring; its partner boxes in the other lanes get a dashed cyan ring and a
+   light cyan wash, so the same step reads across the three lanes. Outlines never change the box size (no reflow). */
+.ss-box-status {
+  position: sticky;      /* stays in view while the reader points at boxes lower in the lanes */
+  top: 0;
+  z-index: 5;
+  background: var(--panel);
+  margin: 0;
+  padding: 12px 16px 10px;
+  min-height: 46px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  overflow-wrap: anywhere;
+}
+.ss-box-status[data-on="true"] { color: var(--ink); font-weight: 500; }
+.ss-box-notes[hidden] { display: none; }
+.ss-item[data-light="self"] { outline: 2px solid var(--ai); outline-offset: 2px; z-index: 3; }
+.ss-item[data-light="partner"] {
+  outline: 2px dashed var(--ai);
+  outline-offset: 2px;
+  z-index: 3;
+  box-shadow: inset 0 0 0 100px color-mix(in srgb, var(--ai) 12%, transparent);
+}
+.ss-plain-node[tabindex] { cursor: default; }
+.ss-plain-node:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .ss-lane-title, .ss-lane-gloss { padding-left: 10px; padding-right: 10px; }
+  .ss-box-status { padding: 10px; font-size: 14px; }
+}
+
+/* ---- the viewer shell, the evidence drawer and the "needs a judge" panels (Task 27) ----
+   Real and synthetic never share a colour: the synthetic tokens appear on the SYNTHETIC band only. */
+.ss-viewer { display: flex; flex-direction: column; gap: 28px; min-width: 0; max-width: 100%; }
+.ss-viewer-section { min-width: 0; }
+.ss-viewer-message { margin: 0; padding: 16px 20px; background: var(--lane); border: 1px solid var(--border); border-radius: var(--radius-card); }
+
+/* the SYNTHETIC badge stays loud: yellow band, mono caps feel kept to the weight; the test-pattern band is an outline pill */
+.ss-band { margin: 0 0 8px; padding: 10px 16px; border-radius: var(--radius-input); font-size: 14px; font-weight: 600; }
+.ss-band-synthetic { background: var(--synthetic-bg); color: var(--synthetic-text); }
+.ss-band-test { background: transparent; color: var(--muted); border: 1px dashed var(--border); font-weight: 500; }
+.ss-band-own { background: var(--panel); color: var(--ink); border: 1.5px solid var(--ink); }
+.ss-modeb-note {
+  margin: 0 0 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  background: var(--lane);
+  border-left: 3px solid var(--ai);
+  border-radius: 0 var(--radius-input) var(--radius-input) 0;
+}
+
+.ss-viewer-title { margin: 0 0 14px; font-size: 24px; letter-spacing: -0.025em; }
+.ss-viewer-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin: 0 0 16px; }
+/* map and rung pickers: a segmented pill track, the pressed pill is ink with ground-colour text */
+/* Part 6 (X2): the map picker is an even grid of equal boxes (as many across as fit), never a pill that wraps 11 + 1 */
+.ss-viewer-picker-group {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 120px), 1fr)); gap: 4px;
+  padding: 4px; background: var(--panel-2); border-radius: var(--radius-card);
+}
+.ss-viewer-controls > .ss-viewer-picker { flex: 1 1 auto; min-width: 0; }   /* the grid takes the row's free width */
+.ss-viewer-pick {
+  min-height: 44px;
+  padding: 8px 18px;
+  font-size: 14px;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-input);
+}
+.ss-viewer-pick:hover:not(:disabled) { color: var(--ink); border-color: var(--border); }
+.ss-viewer-pick[aria-pressed="true"] { color: var(--ground); font-weight: 600; background: var(--ink); border-color: var(--ink); }
+.ss-viewer-stamp { margin: 10px 0 0; font-family: var(--mono); font-size: 13px; overflow-wrap: anywhere; }
+/* item 42: the caption in the row above the lanes, at its right end, muted */
+.ss-viewer-controls .ss-viewer-stamp { margin: 0 0 0 auto; min-width: 0; text-align: right; line-height: 1.5; }
+.ss-viewer-selector { margin: 32px 0 0; }
+@media (max-width: 600px) { .ss-viewer-controls .ss-viewer-stamp { flex-basis: 100%; margin: 0; text-align: left; } }
+
+/* one family of models, so no judge */
+.ss-needs-judge { padding: 16px 20px; background: var(--lane); border: 1px dashed var(--border); border-radius: var(--radius-card); }
+.ss-needs-judge-title { margin: 0 0 4px; font-size: 17px; }
+.ss-needs-judge-text { margin: 0; color: var(--muted); }
+
+/* ---- evidence drawer ---- */
+.ss-drawer { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--card-pad); min-width: 0; }
+.ss-drawer-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 10px; }
+.ss-drawer-title { margin: 0; font-size: 20px; }
+.ss-drawer-close, .ss-drawer-behind-close { min-height: 44px; padding: 6px 16px; font-size: 14px; }
+.ss-drawer-empty { margin: 0; font-size: 14px; line-height: 1.5; }
+.ss-drawer-status { margin: 0 0 6px; padding: 0 0 12px; font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--ink); border-bottom: 1px solid var(--rule); }
+.ss-drawer-chain { margin: 0; padding: 0; }
+.ss-drawer-link {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  gap: 2px 20px;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+}
+.ss-drawer-link:first-child { border-top: 0; }
+.ss-drawer-step { margin: 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+.ss-drawer-step::before { content: attr(data-n) ". "; font-family: var(--mono); color: var(--ai); font-weight: 500; }
+.ss-drawer-value { margin: 0; min-width: 0; overflow-wrap: anywhere; font-size: 15px; line-height: 1.5; }
+.ss-drawer-value.mono { font-size: 13px; }
+.ss-drawer-value.ss-v-quote { font-family: var(--display); font-size: 16px; }
+.ss-drawer-link.is-missing .ss-drawer-value { font-style: italic; }
+.ss-drawer-behind { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--border); }
+.ss-drawer-behind-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px; }
+.ss-drawer-behind-title { margin: 0; font-size: 16px; }
+.ss-drawer-behind-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.ss-drawer-behind-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 14px;
+  text-align: left;
+  font-size: 14px;
+  background: var(--lane);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-input);
+}
+.ss-drawer-behind-item:hover:not(:disabled) { border-color: var(--ai); }
+.ss-drawer-behind-label { font-weight: 600; }
+.ss-drawer-behind-map { color: var(--muted); margin-left: auto; }
+
+/* the run block: run id, code version, and the log check when no step is chosen */
+.ss-drawer-run { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--border); }
+.ss-drawer-run-title { margin: 0 0 6px; font-size: 16px; }
+.ss-drawer-run-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  gap: 2px 16px;
+  padding: 6px 0;
+}
+.ss-drawer-run-key { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--ink-2); }
+.ss-drawer-run-val { min-width: 0; overflow-wrap: anywhere; font-size: 15px; line-height: 1.5; }
+.ss-drawer-run-val.mono { font-size: 13px; }
+.ss-drawer-run-row.is-missing .ss-drawer-run-val { font-style: italic; }
+/* the codes of a failed log check, one per line */
+.ss-drawer-error-code { display: block; margin: 2px 0 0; font-size: 13px; overflow-wrap: anywhere; }
+
+/* "steps behind these numbers" under a profile drill-down */
+.ss-behind { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 12px 0 0; padding: 10px 0 0; border-top: 1px solid var(--rule); }
+.ss-behind-label { font-size: 14px; font-weight: 600; color: var(--ink); margin-right: 4px; }
+.ss-behind-btn { min-height: 44px; padding: 6px 12px; font-size: 14px; }
+
+@media (max-width: 640px) {
+  .ss-drawer-link { grid-template-columns: minmax(0, 1fr); }
+  .ss-drawer-run-row { grid-template-columns: minmax(0, 1fr); }
+  .ss-drawer-behind-map { margin-left: 0; }
+}
